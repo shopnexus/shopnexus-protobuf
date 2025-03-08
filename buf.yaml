@@ -1,0 +1,25 @@
+version: v2
+# The v2 buf.yaml file specifies a local workspace, which consists of at least one module.
+# The buf.yaml file should be placed at the root directory of the workspace, which
+# should generally be the root of your source control repository.
+modules:
+  # Each module entry defines a path, which must be relative to the directory where the
+  # buf.yaml is located. You can also specify directories to exclude from a module.
+  - path: proto/
+    name: buf.build/khoakomlem/shopnexus
+    # A module can have its own lint and breaking configuration, which overrides the default
+    # lint and breaking configuration in its entirety for that module. All values from the
+    # default configuration are overridden and no rules are merged.
+    lint:
+      use:
+        - STANDARD
+      disallow_comment_ignores: false
+      # enum_zero_value_suffix: _UNSPECIFIED
+      # service_suffix: Service
+      disable_builtin: false
+      ignore_only:
+        PACKAGE_VERSION_SUFFIX:
+          - proto/common
+lint:
+  use:
+    - STANDARD

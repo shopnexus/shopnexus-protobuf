@@ -1,0 +1,39 @@
+syntax = "proto3";
+
+package payment.v1;
+
+option go_package = "shopnexus-go-service/gen/pb";
+
+enum PaymentMethod {
+  PAYMENT_METHOD_UNSPECIFIED = 0;
+  PAYMENT_METHOD_CASH = 1;
+  PAYMENT_METHOD_MOMO = 2;
+  PAYMENT_METHOD_VNPAY = 3;
+}
+
+// CREATE PAYMENT
+message CreateRequest {
+  int64 request_id = 1;
+  PaymentMethod payment_method = 2;
+  string address = 3;
+}
+
+message CreateResponse {
+  int64 request_id = 1;
+  string payment_id = 2;
+  string payment_url = 3;
+}
+
+message CancelRequest {
+  int64 request_id = 1;
+  string payment_id = 2;
+}
+
+message CancelResponse {
+  int64 request_id = 1;
+}
+
+service PaymentService {
+  rpc Create(CreateRequest) returns (CreateResponse) {}
+  rpc Cancel(CancelRequest) returns (CancelResponse) {}
+}

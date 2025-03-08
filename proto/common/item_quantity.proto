@@ -1,0 +1,10 @@
+syntax = "proto3";
+
+package common;
+
+option go_package = "shopnexus-go-service/gen/pb";
+
+message ItemQuantity {
+  int64 item_id = 1;
+  int64 quantity = 2;
+}
