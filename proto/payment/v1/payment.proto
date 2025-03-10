@@ -2,7 +2,10 @@ syntax = "proto3";
 
 package payment.v1;
 
-option go_package = "shopnexus-go-service/gen/pb";
+import "common/pagination.proto";
+import "common/status.proto";
+
+option go_package = "shopnexus-protobuf/gen";
 
 enum PaymentMethod {
   PAYMENT_METHOD_UNSPECIFIED = 0;
@@ -11,29 +14,59 @@ enum PaymentMethod {
   PAYMENT_METHOD_VNPAY = 3;
 }
 
-// CREATE PAYMENT
-message CreateRequest {
+message Payment {
+  int64 id = 1;
+  int64 user_id = 2;
+  PaymentMethod method = 3;
+  common.Status status = 4;
+  string address = 5;
+  int64 total = 6;
+  int64 date_created = 7;
+}
+
+message GetPaymentRequest {
+  string payment_id = 1;
+}
+
+message GetPaymentResponse {
+  Payment payment = 1;
+}
+
+message ListPaymentsRequest {
+  common.PaginationRequest pagination = 1;
+  optional int64 user_id = 2;
+  optional PaymentMethod method = 3;
+  optional common.Status status = 4;
+  optional int64 date_created_from = 5;
+  optional int64 date_created_to = 6;
+}
+
+message ListPaymentsResponse {
+  common.PaginationResponse pagination = 1;
+  repeated Payment payments = 2;
+}
+
+message CreatePaymentRequest {
   int64 request_id = 1;
   PaymentMethod payment_method = 2;
   string address = 3;
 }
 
-message CreateResponse {
+message CreatePaymentResponse {
   int64 request_id = 1;
-  string payment_id = 2;
-  string payment_url = 3;
+  string url = 2;
+  Payment payment = 3;
 }
 
-message CancelRequest {
-  int64 request_id = 1;
-  string payment_id = 2;
+message UpdatePaymentRequest {
+  string payment_id = 1;
+  optional common.Status status = 2;
 }
 
-message CancelResponse {
-  int64 request_id = 1;
+message UpdatePaymentResponse {}
+
+message CancelPaymentRequest {
+  string payment_id = 1;
 }
 
-service PaymentService {
-  rpc Create(CreateRequest) returns (CreateResponse) {}
-  rpc Cancel(CancelRequest) returns (CancelResponse) {}
-}
+message CancelPaymentResponse {}

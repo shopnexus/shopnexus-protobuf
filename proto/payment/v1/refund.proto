@@ -1,0 +1,69 @@
+syntax = "proto3";
+
+package payment.v1;
+
+import "common/pagination.proto";
+import "common/status.proto";
+
+option go_package = "shopnexus-protobuf/gen";
+
+enum RefundMethod {
+  REFUND_METHOD_UNSPECIFIED = 0;
+  REFUND_METHOD_PICK_UP = 1;
+  REFUND_METHOD_DROP_OFF = 2;
+}
+
+message GetRefundRequest {
+  string refund_id = 1;
+}
+
+message GetRefundResponse {
+  string refund_id = 1;
+  string product_serial_id = 2;
+  string description = 3;
+  common.Status status = 4;
+  RefundMethod refund_method = 5;
+}
+
+message ListRefundsRequest {
+  common.PaginationRequest pagination = 1;
+  optional string product_serial_id = 2;
+  optional common.Status status = 3;
+  optional RefundMethod refund_method = 4;
+  optional int64 date_created_from = 5;
+  optional int64 date_created_to = 6;
+}
+
+message ListRefundsResponse {
+  common.PaginationResponse pagination = 1;
+  repeated GetRefundResponse refunds = 2;
+}
+
+message CreateRefundRequest {
+  int64 payment_id = 1;
+  RefundMethod method = 2;
+  string reason = 3;
+  optional string address = 4;
+}
+
+message CreateRefundResponse {
+  string refund_id = 1;
+}
+
+message UpdateRefundRequest {
+  string refund_id = 1;
+  string description = 2;
+  repeated bytes images = 3;
+  repeated bytes videos = 4;
+  RefundMethod refund_method = 5;
+}
+
+message UpdateRefundResponse {
+  string refund_id = 1;
+}
+
+message CancelRefundRequest {
+  string refund_id = 1;
+}
+
+message CancelRefundResponse {}

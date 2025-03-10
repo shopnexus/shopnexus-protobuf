@@ -2,7 +2,7 @@ syntax = "proto3";
 
 package common;
 
-option go_package = "shopnexus-go-service/gen/pb";
+option go_package = "shopnexus-protobuf/gen";
 
 message PaginationRequest {
   int32 page = 1;

@@ -2,7 +2,7 @@ syntax = "proto3";
 
 package account.v1;
 
-option go_package = "github.com/shopnexus/shopnexus-protobuf/v1/account";
+option go_package = "shopnexus-protobuf/gen";
 
 enum Gender {
   GENDER_UNSPECIFIED = 0;
@@ -51,11 +51,4 @@ message LoginAdminRequest {
 
 message LoginAdminResponse {
   string token = 1;
-}
-
-service AccountService {
-  rpc LoginUser(LoginUserRequest) returns (LoginUserResponse) {}
-  rpc LoginAdmin(LoginAdminRequest) returns (LoginAdminResponse) {}
-  rpc RegisterUser(RegisterUserRequest) returns (RegisterUserResponse) {}
-  rpc RegisterAdmin(RegisterAdminRequest) returns (RegisterAdminResponse) {}
 }

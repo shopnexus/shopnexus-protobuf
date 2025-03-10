@@ -1,0 +1,69 @@
+syntax = "proto3";
+
+package product.v1;
+
+import "common/pagination.proto";
+
+option go_package = "shopnexus-protobuf/gen";
+
+message ProductModelEntity {
+  int64 id = 1;
+  int64 brand_id = 2;
+  string name = 3;
+  string description = 4;
+  int64 list_price = 5;
+  int64 date_manufactured = 6;
+}
+
+message GetProductModelRequest {
+  int64 id = 1;
+}
+
+message GetProductModelResponse {
+  ProductModelEntity product_model = 1;
+}
+
+message ListProductModelsRequest {
+  common.PaginationRequest pagination = 1;
+  optional int64 brand_id = 2;
+  optional string name = 3;
+  optional string description = 4;
+  optional int64 list_price_from = 5;
+  optional int64 list_price_to = 6;
+  optional int64 date_manufactured_from = 7;
+  optional int64 date_manufactured_to = 8;
+}
+
+message ListProductModelsResponse {
+  common.PaginationResponse pagination = 1;
+  repeated ProductModelEntity product_models = 2;
+}
+
+message CreateProductModelRequest {
+  int64 brand_id = 1;
+  string name = 2;
+  string description = 3;
+  int64 list_price = 4;
+  int64 date_manufactured = 5;
+}
+
+message CreateProductModelResponse {
+  ProductModelEntity product_model = 1;
+}
+
+message UpdateProductModelRequest {
+  int64 id = 1;
+  optional int64 brand_id = 2;
+  optional string name = 3;
+  optional string description = 4;
+  optional int64 list_price = 5;
+  optional int64 date_manufactured = 6;
+}
+
+message UpdateProductModelResponse {}
+
+message DeleteProductModelRequest {
+  int64 id = 1;
+}
+
+message DeleteProductModelResponse {}

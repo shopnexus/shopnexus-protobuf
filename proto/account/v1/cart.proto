@@ -1,0 +1,27 @@
+syntax = "proto3";
+
+package account.v1;
+
+import "common/item_quantity.proto";
+
+option go_package = "shopnexus-protobuf/gen";
+
+message GetCartRequest {}
+
+message GetCartResponse {
+  repeated common.ItemQuantity items = 1;
+}
+
+message AddCartItemRequest {
+  repeated common.ItemQuantity items = 1;
+}
+
+message AddCartItemResponse {
+  repeated common.ItemQuantity items = 1;
+}
+
+message UpdateCartItemRequest {
+  repeated common.ItemQuantity items = 1;
+}
+
+message UpdateCartItemResponse {}

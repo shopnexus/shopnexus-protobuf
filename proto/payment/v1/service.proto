@@ -1,0 +1,22 @@
+syntax = "proto3";
+
+package payment.v1;
+
+import "payment/v1/payment.proto";
+import "payment/v1/refund.proto";
+
+option go_package = "shopnexus-protobuf/gen";
+
+service PaymentService {
+  rpc GetPayment(GetPaymentRequest) returns (GetPaymentResponse) {}
+  rpc ListPayments(ListPaymentsRequest) returns (ListPaymentsResponse) {}
+  rpc CreatePayment(CreatePaymentRequest) returns (CreatePaymentResponse) {}
+  rpc UpdatePayment(UpdatePaymentRequest) returns (UpdatePaymentResponse) {}
+  rpc CancelPayment(CancelPaymentRequest) returns (CancelPaymentResponse) {}
+
+  rpc GetRefund(GetRefundRequest) returns (GetRefundResponse) {}
+  rpc ListRefunds(ListRefundsRequest) returns (ListRefundsResponse) {}
+  rpc CreateRefund(CreateRefundRequest) returns (CreateRefundResponse) {}
+  rpc UpdateRefund(UpdateRefundRequest) returns (UpdateRefundResponse) {}
+  rpc CancelRefund(CancelRefundRequest) returns (CancelRefundResponse) {}
+}

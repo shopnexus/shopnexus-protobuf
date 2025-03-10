@@ -1,71 +1,12 @@
 syntax = "proto3";
 
-package shopnexus;
-
-option go_package = "shopnexus-go-service/gen/pb";
+package product.v1;
 
 import "common/pagination.proto";
-import "google/protobuf/empty.proto";
 
-// PRODUCT MODEL
+option go_package = "shopnexus-protobuf/gen";
 
-message GetProductModelRequest {
-  int64 id = 1;
-}
-
-message ProductModelEntity {
-  int64 id = 1;
-  int64 brand_id = 2;
-  string name = 3;
-  string description = 4;
-  int64 list_price = 5;
-  int64 date_manufactured = 6;
-}
-
-message ListProductModelsRequest {
-  common.PaginationRequest pagination = 1;
-  optional int64 brand_id = 2;
-  optional string name = 3;
-  optional string description = 4;
-  optional int64 list_price_from = 5;
-  optional int64 list_price_to = 6;
-  optional int64 date_manufactured_from = 7;
-  optional int64 date_manufactured_to = 8;
-}
-
-message ListProductModelsResponse {
-  common.v1.PaginationResponse pagination = 1;
-  repeated ProductModelEntity product_models = 2;
-}
-
-message CreateProductModelRequest {
-  int64 brand_id = 1;
-  string name = 2;
-  string description = 3;
-  int64 list_price = 4;
-  int64 date_manufactured = 5;
-}
-
-message UpdateProductModelRequest {
-  int64 id = 1;
-  optional int64 brand_id = 2;
-  optional string name = 3;
-  optional string description = 4;
-  optional int64 list_price = 5;
-  optional int64 date_manufactured = 6;
-}
-
-message DeleteProductModelRequest {
-  int64 id = 1;
-}
-
-// PRODUCT
-
-message GetProductRequest {
-  optional int64 id = 1;
-  optional string serial_id = 2;
-}
-
+// PRODUCT ENTITY
 message ProductEntity {
   int64 id = 1;
   string serial_id = 2;
@@ -74,15 +15,24 @@ message ProductEntity {
   int64 date_updated = 5;
 }
 
+message GetProductRequest {
+  optional int64 id = 1;
+  optional string serial_id = 2;
+}
+
+message GetProductResponse {
+  ProductEntity product = 1;
+}
+
 message ListProductsRequest {
-  PaginationRequest pagination = 1;
+  common.PaginationRequest pagination = 1;
   optional int64 product_model_id = 2;
   optional int64 date_created_from = 3;
   optional int64 date_created_to = 4;
 }
 
 message ListProductsResponse {
-  PaginationResponse pagination = 1;
+  common.PaginationResponse pagination = 1;
   repeated ProductEntity products = 2;
 }
 
@@ -91,27 +41,21 @@ message CreateProductRequest {
   int64 product_model_id = 2;
 }
 
+message CreateProductResponse {
+  ProductEntity product = 1;
+}
+
 message UpdateProductRequest {
   int64 id = 1;
   optional string serial_id = 2;
   optional int64 product_model_id = 3;
 }
 
+message UpdateProductResponse {}
+
 message DeleteProductRequest {
   optional int64 id = 1;
   optional string serial_id = 2;
 }
 
-service Product {
-  rpc GetProductModel(GetProductModelRequest) returns (ProductModelEntity) {}
-  rpc ListProductModels(ListProductModelsRequest) returns (ListProductModelsResponse) {}
-  rpc CreateProductModel(CreateProductModelRequest) returns (ProductModelEntity) {}
-  rpc UpdateProductModel(UpdateProductModelRequest) returns (google.protobuf.Empty) {}
-  rpc DeleteProductModel(DeleteProductModelRequest) returns (google.protobuf.Empty) {}
-
-  rpc GetProduct(GetProductRequest) returns (ProductEntity) {}
-  rpc ListProducts(ListProductsRequest) returns (ListProductsResponse) {}
-  rpc CreateProduct(CreateProductRequest) returns (ProductEntity) {}
-  rpc UpdateProduct(UpdateProductRequest) returns (google.protobuf.Empty) {}
-  rpc DeleteProduct(DeleteProductRequest) returns (google.protobuf.Empty) {}
-}
+message DeleteProductResponse {}

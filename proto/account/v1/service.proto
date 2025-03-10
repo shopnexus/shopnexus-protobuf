@@ -1,0 +1,21 @@
+syntax = "proto3";
+
+package account.v1;
+
+import "account/v1/account.proto";
+import "account/v1/cart.proto";
+
+option go_package = "shopnexus-protobuf/gen";
+
+service AccountService {
+  // Login, register
+  rpc LoginUser(LoginUserRequest) returns (LoginUserResponse) {}
+  rpc LoginAdmin(LoginAdminRequest) returns (LoginAdminResponse) {}
+  rpc RegisterUser(RegisterUserRequest) returns (RegisterUserResponse) {}
+  rpc RegisterAdmin(RegisterAdminRequest) returns (RegisterAdminResponse) {}
+
+  // Cart
+  rpc GetCart(GetCartRequest) returns (GetCartResponse) {}
+  rpc AddCartItem(AddCartItemRequest) returns (AddCartItemResponse) {}
+  rpc UpdateCartItem(UpdateCartItemRequest) returns (UpdateCartItemResponse) {}
+}

@@ -1,0 +1,22 @@
+syntax = "proto3";
+
+package product.v1;
+
+import "product/v1/product-model.proto";
+import "product/v1/product.proto";
+
+option go_package = "shopnexus-protobuf/gen";
+
+service ProductService {
+  rpc GetProductModel(GetProductModelRequest) returns (GetProductModelResponse) {}
+  rpc ListProductModels(ListProductModelsRequest) returns (ListProductModelsResponse) {}
+  rpc CreateProductModel(CreateProductModelRequest) returns (CreateProductModelResponse) {}
+  rpc UpdateProductModel(UpdateProductModelRequest) returns (UpdateProductModelResponse) {}
+  rpc DeleteProductModel(DeleteProductModelRequest) returns (DeleteProductModelResponse) {}
+
+  rpc GetProduct(GetProductRequest) returns (GetProductResponse) {}
+  rpc ListProducts(ListProductsRequest) returns (ListProductsResponse) {}
+  rpc CreateProduct(CreateProductRequest) returns (CreateProductResponse) {}
+  rpc UpdateProduct(UpdateProductRequest) returns (UpdateProductResponse) {}
+  rpc DeleteProduct(DeleteProductRequest) returns (DeleteProductResponse) {}
+}
