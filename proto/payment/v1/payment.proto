@@ -5,8 +5,6 @@ package payment.v1;
 import "common/pagination.proto";
 import "common/status.proto";
 
-option go_package = "shopnexus-protobuf/gen";
-
 enum PaymentMethod {
   PAYMENT_METHOD_UNSPECIFIED = 0;
   PAYMENT_METHOD_CASH = 1;

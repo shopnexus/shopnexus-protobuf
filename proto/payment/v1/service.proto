@@ -5,8 +5,6 @@ package payment.v1;
 import "payment/v1/payment.proto";
 import "payment/v1/refund.proto";
 
-option go_package = "shopnexus-protobuf/gen";
-
 service PaymentService {
   rpc GetPayment(GetPaymentRequest) returns (GetPaymentResponse) {}
   rpc ListPayments(ListPaymentsRequest) returns (ListPaymentsResponse) {}

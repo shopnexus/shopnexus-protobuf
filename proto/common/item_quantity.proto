@@ -2,8 +2,6 @@ syntax = "proto3";
 
 package common;
 
-option go_package = "shopnexus-protobuf/gen";
-
 message ItemQuantity {
   int64 item_id = 1;
   int64 quantity = 2;

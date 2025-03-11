@@ -5,8 +5,6 @@ package account.v1;
 import "account/v1/account.proto";
 import "account/v1/cart.proto";
 
-option go_package = "shopnexus-protobuf/gen";
-
 service AccountService {
   // Login, register
   rpc LoginUser(LoginUserRequest) returns (LoginUserResponse) {}

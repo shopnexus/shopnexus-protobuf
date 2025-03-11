@@ -2,10 +2,8 @@ syntax = "proto3";
 
 package product.v1;
 
-import "product/v1/product-model.proto";
 import "product/v1/product.proto";
-
-option go_package = "shopnexus-protobuf/gen";
+import "product/v1/product_model.proto";
 
 service ProductService {
   rpc GetProductModel(GetProductModelRequest) returns (GetProductModelResponse) {}

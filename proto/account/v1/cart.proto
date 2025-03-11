@@ -4,8 +4,6 @@ package account.v1;
 
 import "common/item_quantity.proto";
 
-option go_package = "shopnexus-protobuf/gen";
-
 message GetCartRequest {}
 
 message GetCartResponse {

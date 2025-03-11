@@ -2,8 +2,6 @@ syntax = "proto3";
 
 package common;
 
-option go_package = "shopnexus-protobuf/gen";
-
 message PaginationRequest {
   int32 page = 1;
   int32 limit = 2;

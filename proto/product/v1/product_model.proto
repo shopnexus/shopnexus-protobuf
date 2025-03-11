@@ -4,8 +4,6 @@ package product.v1;
 
 import "common/pagination.proto";
 
-option go_package = "shopnexus-protobuf/gen";
-
 message ProductModelEntity {
   int64 id = 1;
   int64 brand_id = 2;
