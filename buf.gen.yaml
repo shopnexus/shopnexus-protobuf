@@ -4,18 +4,18 @@ managed:
   enabled: true
   override:
     - file_option: go_package_prefix
-      value: github.com/shopnexus/shopnexus-protobuf/gen/go
+      value: github.com/shopnexus/shopnexus-protobuf-gen-go/pb
 
 plugins:
   # BSR remote plugin for Go protobuf generation
   - remote: buf.build/protocolbuffers/go
-    out: gen/go
+    out: gen/go/pb
     opt:
       - paths=source_relative
 
   # BSR remote plugin for gRPC generation
   - remote: buf.build/grpc/go
-    out: gen/go
+    out: gen/go/pb
     opt:
       - paths=source_relative
 
@@ -25,9 +25,8 @@ plugins:
   #   opt:
   #     - paths=source_relative
 
-  # Typescript client plugin, npm i -g protoc-gen-ts
   - remote: buf.build/bufbuild/es
-    out: gen/ts
+    out: gen/ts/pb
 
 inputs:
   - directory: proto
