@@ -1,0 +1,14 @@
+{
+  "name": "shopnexus-protobuf-gen-ts",
+  "module": "index.ts",
+  "type": "module",
+  "devDependencies": {
+    "@types/bun": "latest"
+  },
+  "peerDependencies": {
+    "typescript": "^5.0.0"
+  },
+  "dependencies": {
+    "@bufbuild/protobuf": "^2.2.3"
+  }
+}
