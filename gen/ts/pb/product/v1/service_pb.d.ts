@@ -3,7 +3,7 @@
 /* eslint-disable */
 
 import type { GenFile, GenService } from "@bufbuild/protobuf/codegenv1";
-import type { CreateProductModelRequestSchema, CreateProductModelResponseSchema, DeleteProductModelRequestSchema, DeleteProductModelResponseSchema, GetProductModelRequestSchema, GetProductModelResponseSchema, ListProductModelsRequestSchema, ListProductModelsResponseSchema, UpdateProductModelRequestSchema, UpdateProductModelResponseSchema } from "./product-model_pb";
+import type { CreateProductModelRequestSchema, CreateProductModelResponseSchema, DeleteProductModelRequestSchema, DeleteProductModelResponseSchema, GetProductModelRequestSchema, GetProductModelResponseSchema, ListProductModelsRequestSchema, ListProductModelsResponseSchema, UpdateProductModelRequestSchema, UpdateProductModelResponseSchema } from "./product_model_pb";
 import type { CreateProductRequestSchema, CreateProductResponseSchema, DeleteProductRequestSchema, DeleteProductResponseSchema, GetProductRequestSchema, GetProductResponseSchema, ListProductsRequestSchema, ListProductsResponseSchema, UpdateProductRequestSchema, UpdateProductResponseSchema } from "./product_pb";
 
 /**

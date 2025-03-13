@@ -28,6 +28,6 @@ plugins:
   - remote: buf.build/bufbuild/es
     out: gen/ts/pb
 
-inputs:
-  - directory: proto
-  - module: buf.build/khoakomlem/shopnexus
+# inputs:
+#   - directory: proto
+#   - module: buf.build/khoakomlem/shopnexus
