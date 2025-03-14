@@ -6,3 +6,6 @@ proto:
 		   --go-grpc_opt=paths=source_relative \
 		   ./*.proto && \
 	cd ..
+
+gen:
+	buf generate && cd gen/go && go mod tidy && cd ../..
