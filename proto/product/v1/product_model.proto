@@ -11,6 +11,8 @@ message ProductModelEntity {
   string description = 4;
   int64 list_price = 5;
   int64 date_manufactured = 6;
+  repeated string resources = 7;
+  repeated string tags = 8;
 }
 
 message GetProductModelRequest {
@@ -43,6 +45,8 @@ message CreateProductModelRequest {
   string description = 3;
   int64 list_price = 4;
   int64 date_manufactured = 5;
+  repeated string resources = 6;
+  repeated string tags = 7;
 }
 
 message CreateProductModelResponse {

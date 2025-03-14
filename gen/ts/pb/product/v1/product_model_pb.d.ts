@@ -44,6 +44,16 @@ export declare type ProductModelEntity = Message<"product.v1.ProductModelEntity"
    * @generated from field: int64 date_manufactured = 6;
    */
   dateManufactured: bigint;
+
+  /**
+   * @generated from field: repeated string resources = 7;
+   */
+  resources: string[];
+
+  /**
+   * @generated from field: repeated string tags = 8;
+   */
+  tags: string[];
 };
 
 /**
@@ -184,6 +194,16 @@ export declare type CreateProductModelRequest = Message<"product.v1.CreateProduc
    * @generated from field: int64 date_manufactured = 5;
    */
   dateManufactured: bigint;
+
+  /**
+   * @generated from field: repeated string resources = 6;
+   */
+  resources: string[];
+
+  /**
+   * @generated from field: repeated string tags = 7;
+   */
+  tags: string[];
 };
 
 /**
