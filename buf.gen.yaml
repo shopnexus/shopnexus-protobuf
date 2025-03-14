@@ -7,27 +7,13 @@ managed:
       value: github.com/shopnexus/shopnexus-protobuf-gen-go/pb
 
 plugins:
-  # BSR remote plugin for Go protobuf generation
-  - remote: buf.build/protocolbuffers/go
+  - local: protoc-gen-go
     out: gen/go/pb
-    opt:
-      - paths=source_relative
+    opt: paths=source_relative
 
-  # BSR remote plugin for gRPC generation
-  - remote: buf.build/grpc/go
+  - local: protoc-gen-connect-go
     out: gen/go/pb
-    opt:
-      - paths=source_relative
-
-  # Validation plugin
-  # - remote: buf.build/bufbuild/protovalidate
-  #   out: gen/proto
-  #   opt:
-  #     - paths=source_relative
+    opt: paths=source_relative
 
   - remote: buf.build/bufbuild/es
     out: gen/ts/pb
-
-# inputs:
-#   - directory: proto
-#   - module: buf.build/khoakomlem/shopnexus
