@@ -150,14 +150,14 @@ export declare const ListProductModelsRequestSchema: GenMessage<ListProductModel
  */
 export declare type ListProductModelsResponse = Message<"product.v1.ListProductModelsResponse"> & {
   /**
-   * @generated from field: common.PaginationResponse pagination = 1;
+   * @generated from field: repeated product.v1.ProductModelEntity data = 1;
    */
-  pagination?: PaginationResponse;
+  data: ProductModelEntity[];
 
   /**
-   * @generated from field: repeated product.v1.ProductModelEntity product_models = 2;
+   * @generated from field: common.PaginationResponse pagination = 2;
    */
-  productModels: ProductModelEntity[];
+  pagination?: PaginationResponse;
 };
 
 /**

@@ -35,8 +35,8 @@ message ListProductModelsRequest {
 }
 
 message ListProductModelsResponse {
-  common.PaginationResponse pagination = 1;
-  repeated ProductModelEntity product_models = 2;
+  repeated ProductModelEntity data = 1;
+  common.PaginationResponse pagination = 2;
 }
 
 message CreateProductModelRequest {

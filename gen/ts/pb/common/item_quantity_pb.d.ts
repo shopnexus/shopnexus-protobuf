@@ -11,9 +11,9 @@ import type { Message } from "@bufbuild/protobuf";
 export declare const file_common_item_quantity: GenFile;
 
 /**
- * @generated from message common.ItemQuantity
+ * @generated from message common.ItemQuantityInt64
  */
-export declare type ItemQuantity = Message<"common.ItemQuantity"> & {
+export declare type ItemQuantityInt64 = Message<"common.ItemQuantityInt64"> & {
   /**
    * @generated from field: int64 item_id = 1;
    */
@@ -26,8 +26,29 @@ export declare type ItemQuantity = Message<"common.ItemQuantity"> & {
 };
 
 /**
- * Describes the message common.ItemQuantity.
- * Use `create(ItemQuantitySchema)` to create a new message.
+ * Describes the message common.ItemQuantityInt64.
+ * Use `create(ItemQuantityInt64Schema)` to create a new message.
  */
-export declare const ItemQuantitySchema: GenMessage<ItemQuantity>;
+export declare const ItemQuantityInt64Schema: GenMessage<ItemQuantityInt64>;
+
+/**
+ * @generated from message common.ItemQuantityString
+ */
+export declare type ItemQuantityString = Message<"common.ItemQuantityString"> & {
+  /**
+   * @generated from field: string item_id = 1;
+   */
+  itemId: string;
+
+  /**
+   * @generated from field: int64 quantity = 2;
+   */
+  quantity: bigint;
+};
+
+/**
+ * Describes the message common.ItemQuantityString.
+ * Use `create(ItemQuantityStringSchema)` to create a new message.
+ */
+export declare const ItemQuantityStringSchema: GenMessage<ItemQuantityString>;
 

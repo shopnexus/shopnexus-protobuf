@@ -4,7 +4,7 @@
 
 import type { GenFile, GenMessage } from "@bufbuild/protobuf/codegenv1";
 import type { Message } from "@bufbuild/protobuf";
-import type { ItemQuantity } from "../../common/item_quantity_pb";
+import type { ItemQuantityInt64 } from "../../common/item_quantity_pb";
 
 /**
  * Describes the file account/v1/cart.proto.
@@ -28,9 +28,9 @@ export declare const GetCartRequestSchema: GenMessage<GetCartRequest>;
  */
 export declare type GetCartResponse = Message<"account.v1.GetCartResponse"> & {
   /**
-   * @generated from field: repeated common.ItemQuantity items = 1;
+   * @generated from field: repeated common.ItemQuantityInt64 items = 1;
    */
-  items: ItemQuantity[];
+  items: ItemQuantityInt64[];
 };
 
 /**
@@ -44,9 +44,9 @@ export declare const GetCartResponseSchema: GenMessage<GetCartResponse>;
  */
 export declare type AddCartItemRequest = Message<"account.v1.AddCartItemRequest"> & {
   /**
-   * @generated from field: repeated common.ItemQuantity items = 1;
+   * @generated from field: repeated common.ItemQuantityInt64 items = 1;
    */
-  items: ItemQuantity[];
+  items: ItemQuantityInt64[];
 };
 
 /**
@@ -60,9 +60,9 @@ export declare const AddCartItemRequestSchema: GenMessage<AddCartItemRequest>;
  */
 export declare type AddCartItemResponse = Message<"account.v1.AddCartItemResponse"> & {
   /**
-   * @generated from field: repeated common.ItemQuantity items = 1;
+   * @generated from field: repeated common.ItemQuantityInt64 items = 1;
    */
-  items: ItemQuantity[];
+  items: ItemQuantityInt64[];
 };
 
 /**
@@ -76,9 +76,9 @@ export declare const AddCartItemResponseSchema: GenMessage<AddCartItemResponse>;
  */
 export declare type UpdateCartItemRequest = Message<"account.v1.UpdateCartItemRequest"> & {
   /**
-   * @generated from field: repeated common.ItemQuantity items = 1;
+   * @generated from field: repeated common.ItemQuantityInt64 items = 1;
    */
-  items: ItemQuantity[];
+  items: ItemQuantityInt64[];
 };
 
 /**

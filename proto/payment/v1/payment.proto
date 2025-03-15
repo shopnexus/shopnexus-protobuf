@@ -2,6 +2,7 @@ syntax = "proto3";
 
 package payment.v1;
 
+import "common/item_quantity.proto";
 import "common/pagination.proto";
 import "common/status.proto";
 
@@ -12,6 +13,12 @@ enum PaymentMethod {
   PAYMENT_METHOD_VNPAY = 3;
 }
 
+message ProductOnPayment {
+  common.ItemQuantityString item_quantity = 1;
+  int64 price = 2;
+  int64 total_price = 3;
+}
+
 message Payment {
   int64 id = 1;
   int64 user_id = 2;
@@ -20,10 +27,12 @@ message Payment {
   string address = 5;
   int64 total = 6;
   int64 date_created = 7;
+
+  repeated ProductOnPayment products = 8;
 }
 
 message GetPaymentRequest {
-  string payment_id = 1;
+  int64 id = 1;
 }
 
 message GetPaymentResponse {
@@ -35,8 +44,11 @@ message ListPaymentsRequest {
   optional int64 user_id = 2;
   optional PaymentMethod method = 3;
   optional common.Status status = 4;
-  optional int64 date_created_from = 5;
-  optional int64 date_created_to = 6;
+  optional string address = 5;
+  optional int64 total_from = 6;
+  optional int64 total_to = 7;
+  optional int64 date_created_from = 8;
+  optional int64 date_created_to = 9;
 }
 
 message ListPaymentsResponse {
@@ -46,7 +58,7 @@ message ListPaymentsResponse {
 
 message CreatePaymentRequest {
   int64 request_id = 1;
-  PaymentMethod payment_method = 2;
+  PaymentMethod method = 2;
   string address = 3;
 }
 
@@ -57,14 +69,15 @@ message CreatePaymentResponse {
 }
 
 message UpdatePaymentRequest {
-  string payment_id = 1;
-  optional common.Status status = 2;
+  int64 id = 1;
+  optional PaymentMethod method = 2;
+  optional string address = 3;
 }
 
 message UpdatePaymentResponse {}
 
 message CancelPaymentRequest {
-  string payment_id = 1;
+  int64 id = 1;
 }
 
 message CancelPaymentResponse {}

@@ -11,57 +11,69 @@ enum RefundMethod {
   REFUND_METHOD_DROP_OFF = 2;
 }
 
+message Refund {
+  int64 id = 1;
+  int64 payment_id = 2;
+  RefundMethod method = 3;
+  common.Status status = 4;
+  string reason = 5;
+  string address = 6;
+  int64 date_created = 7;
+  int64 date_updated = 8;
+  repeated string resources = 9;
+}
+
 message GetRefundRequest {
-  string refund_id = 1;
+  int64 id = 1;
 }
 
 message GetRefundResponse {
-  string refund_id = 1;
-  string product_serial_id = 2;
-  string description = 3;
-  common.Status status = 4;
-  RefundMethod refund_method = 5;
+  Refund refund = 1;
 }
 
 message ListRefundsRequest {
   common.PaginationRequest pagination = 1;
-  optional string product_serial_id = 2;
-  optional common.Status status = 3;
-  optional RefundMethod refund_method = 4;
-  optional int64 date_created_from = 5;
-  optional int64 date_created_to = 6;
+  optional int64 user_id = 2;
+  optional int64 payment_id = 3;
+  optional RefundMethod method = 4;
+  optional common.Status status = 5;
+  optional string reason = 6;
+  optional string address = 7;
+  optional int64 date_created_from = 8;
+  optional int64 date_created_to = 9;
 }
 
 message ListRefundsResponse {
   common.PaginationResponse pagination = 1;
-  repeated GetRefundResponse refunds = 2;
+  repeated Refund refunds = 2;
 }
 
 message CreateRefundRequest {
   int64 payment_id = 1;
   RefundMethod method = 2;
   string reason = 3;
-  optional string address = 4;
+  string address = 4;
+  repeated string resources = 5;
 }
 
 message CreateRefundResponse {
-  string refund_id = 1;
+  int64 id = 1;
 }
 
 message UpdateRefundRequest {
-  string refund_id = 1;
-  string description = 2;
-  repeated bytes images = 3;
-  repeated bytes videos = 4;
-  RefundMethod refund_method = 5;
+  int64 id = 1;
+  optional RefundMethod method = 2;
+  optional common.Status status = 3;
+  optional string reason = 4;
+  optional string address = 5;
 }
 
 message UpdateRefundResponse {
-  string refund_id = 1;
+  int64 id = 1;
 }
 
 message CancelRefundRequest {
-  string refund_id = 1;
+  int64 id = 1;
 }
 
 message CancelRefundResponse {}

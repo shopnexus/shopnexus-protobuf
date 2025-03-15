@@ -3,6 +3,7 @@
 /* eslint-disable */
 
 import { enumDesc, fileDesc, messageDesc, tsEnum } from "@bufbuild/protobuf/codegenv1";
+import { file_common_item_quantity } from "../../common/item_quantity_pb";
 import { file_common_pagination } from "../../common/pagination_pb";
 import { file_common_status } from "../../common/status_pb";
 
@@ -10,84 +11,91 @@ import { file_common_status } from "../../common/status_pb";
  * Describes the file payment/v1/payment.proto.
  */
 export const file_payment_v1_payment = /*@__PURE__*/
-  fileDesc("ChhwYXltZW50L3YxL3BheW1lbnQucHJvdG8SCnBheW1lbnQudjEipwEKB1BheW1lbnQSCgoCaWQYASABKAMSDwoHdXNlcl9pZBgCIAEoAxIpCgZtZXRob2QYAyABKA4yGS5wYXltZW50LnYxLlBheW1lbnRNZXRob2QSHgoGc3RhdHVzGAQgASgOMg4uY29tbW9uLlN0YXR1cxIPCgdhZGRyZXNzGAUgASgJEg0KBXRvdGFsGAYgASgDEhQKDGRhdGVfY3JlYXRlZBgHIAEoAyInChFHZXRQYXltZW50UmVxdWVzdBISCgpwYXltZW50X2lkGAEgASgJIjoKEkdldFBheW1lbnRSZXNwb25zZRIkCgdwYXltZW50GAEgASgLMhMucGF5bWVudC52MS5QYXltZW50IrkCChNMaXN0UGF5bWVudHNSZXF1ZXN0Ei0KCnBhZ2luYXRpb24YASABKAsyGS5jb21tb24uUGFnaW5hdGlvblJlcXVlc3QSFAoHdXNlcl9pZBgCIAEoA0gAiAEBEi4KBm1ldGhvZBgDIAEoDjIZLnBheW1lbnQudjEuUGF5bWVudE1ldGhvZEgBiAEBEiMKBnN0YXR1cxgEIAEoDjIOLmNvbW1vbi5TdGF0dXNIAogBARIeChFkYXRlX2NyZWF0ZWRfZnJvbRgFIAEoA0gDiAEBEhwKD2RhdGVfY3JlYXRlZF90bxgGIAEoA0gEiAEBQgoKCF91c2VyX2lkQgkKB19tZXRob2RCCQoHX3N0YXR1c0IUChJfZGF0ZV9jcmVhdGVkX2Zyb21CEgoQX2RhdGVfY3JlYXRlZF90byJtChRMaXN0UGF5bWVudHNSZXNwb25zZRIuCgpwYWdpbmF0aW9uGAEgASgLMhouY29tbW9uLlBhZ2luYXRpb25SZXNwb25zZRIlCghwYXltZW50cxgCIAMoCzITLnBheW1lbnQudjEuUGF5bWVudCJuChRDcmVhdGVQYXltZW50UmVxdWVzdBISCgpyZXF1ZXN0X2lkGAEgASgDEjEKDnBheW1lbnRfbWV0aG9kGAIgASgOMhkucGF5bWVudC52MS5QYXltZW50TWV0aG9kEg8KB2FkZHJlc3MYAyABKAkiXgoVQ3JlYXRlUGF5bWVudFJlc3BvbnNlEhIKCnJlcXVlc3RfaWQYASABKAMSCwoDdXJsGAIgASgJEiQKB3BheW1lbnQYAyABKAsyEy5wYXltZW50LnYxLlBheW1lbnQiWgoUVXBkYXRlUGF5bWVudFJlcXVlc3QSEgoKcGF5bWVudF9pZBgBIAEoCRIjCgZzdGF0dXMYAiABKA4yDi5jb21tb24uU3RhdHVzSACIAQFCCQoHX3N0YXR1cyIXChVVcGRhdGVQYXltZW50UmVzcG9uc2UiKgoUQ2FuY2VsUGF5bWVudFJlcXVlc3QSEgoKcGF5bWVudF9pZBgBIAEoCSIXChVDYW5jZWxQYXltZW50UmVzcG9uc2UqewoNUGF5bWVudE1ldGhvZBIeChpQQVlNRU5UX01FVEhPRF9VTlNQRUNJRklFRBAAEhcKE1BBWU1FTlRfTUVUSE9EX0NBU0gQARIXChNQQVlNRU5UX01FVEhPRF9NT01PEAISGAoUUEFZTUVOVF9NRVRIT0RfVk5QQVkQA0KvAQoOY29tLnBheW1lbnQudjFCDFBheW1lbnRQcm90b1ABWkZnaXRodWIuY29tL3Nob3BuZXh1cy9zaG9wbmV4dXMtcHJvdG9idWYtZ2VuLWdvL3BiL3BheW1lbnQvdjE7cGF5bWVudHYxogIDUFhYqgIKUGF5bWVudC5WMcoCClBheW1lbnRcVjHiAhZQYXltZW50XFYxXEdQQk1ldGFkYXRh6gILUGF5bWVudDo6VjFiBnByb3RvMw", [file_common_pagination, file_common_status]);
+  fileDesc("ChhwYXltZW50L3YxL3BheW1lbnQucHJvdG8SCnBheW1lbnQudjEiaQoQUHJvZHVjdE9uUGF5bWVudBIxCg1pdGVtX3F1YW50aXR5GAEgASgLMhouY29tbW9uLkl0ZW1RdWFudGl0eVN0cmluZxINCgVwcmljZRgCIAEoAxITCgt0b3RhbF9wcmljZRgDIAEoAyLXAQoHUGF5bWVudBIKCgJpZBgBIAEoAxIPCgd1c2VyX2lkGAIgASgDEikKBm1ldGhvZBgDIAEoDjIZLnBheW1lbnQudjEuUGF5bWVudE1ldGhvZBIeCgZzdGF0dXMYBCABKA4yDi5jb21tb24uU3RhdHVzEg8KB2FkZHJlc3MYBSABKAkSDQoFdG90YWwYBiABKAMSFAoMZGF0ZV9jcmVhdGVkGAcgASgDEi4KCHByb2R1Y3RzGAggAygLMhwucGF5bWVudC52MS5Qcm9kdWN0T25QYXltZW50Ih8KEUdldFBheW1lbnRSZXF1ZXN0EgoKAmlkGAEgASgDIjoKEkdldFBheW1lbnRSZXNwb25zZRIkCgdwYXltZW50GAEgASgLMhMucGF5bWVudC52MS5QYXltZW50IqcDChNMaXN0UGF5bWVudHNSZXF1ZXN0Ei0KCnBhZ2luYXRpb24YASABKAsyGS5jb21tb24uUGFnaW5hdGlvblJlcXVlc3QSFAoHdXNlcl9pZBgCIAEoA0gAiAEBEi4KBm1ldGhvZBgDIAEoDjIZLnBheW1lbnQudjEuUGF5bWVudE1ldGhvZEgBiAEBEiMKBnN0YXR1cxgEIAEoDjIOLmNvbW1vbi5TdGF0dXNIAogBARIUCgdhZGRyZXNzGAUgASgJSAOIAQESFwoKdG90YWxfZnJvbRgGIAEoA0gEiAEBEhUKCHRvdGFsX3RvGAcgASgDSAWIAQESHgoRZGF0ZV9jcmVhdGVkX2Zyb20YCCABKANIBogBARIcCg9kYXRlX2NyZWF0ZWRfdG8YCSABKANIB4gBAUIKCghfdXNlcl9pZEIJCgdfbWV0aG9kQgkKB19zdGF0dXNCCgoIX2FkZHJlc3NCDQoLX3RvdGFsX2Zyb21CCwoJX3RvdGFsX3RvQhQKEl9kYXRlX2NyZWF0ZWRfZnJvbUISChBfZGF0ZV9jcmVhdGVkX3RvIm0KFExpc3RQYXltZW50c1Jlc3BvbnNlEi4KCnBhZ2luYXRpb24YASABKAsyGi5jb21tb24uUGFnaW5hdGlvblJlc3BvbnNlEiUKCHBheW1lbnRzGAIgAygLMhMucGF5bWVudC52MS5QYXltZW50ImYKFENyZWF0ZVBheW1lbnRSZXF1ZXN0EhIKCnJlcXVlc3RfaWQYASABKAMSKQoGbWV0aG9kGAIgASgOMhkucGF5bWVudC52MS5QYXltZW50TWV0aG9kEg8KB2FkZHJlc3MYAyABKAkiXgoVQ3JlYXRlUGF5bWVudFJlc3BvbnNlEhIKCnJlcXVlc3RfaWQYASABKAMSCwoDdXJsGAIgASgJEiQKB3BheW1lbnQYAyABKAsyEy5wYXltZW50LnYxLlBheW1lbnQifwoUVXBkYXRlUGF5bWVudFJlcXVlc3QSCgoCaWQYASABKAMSLgoGbWV0aG9kGAIgASgOMhkucGF5bWVudC52MS5QYXltZW50TWV0aG9kSACIAQESFAoHYWRkcmVzcxgDIAEoCUgBiAEBQgkKB19tZXRob2RCCgoIX2FkZHJlc3MiFwoVVXBkYXRlUGF5bWVudFJlc3BvbnNlIiIKFENhbmNlbFBheW1lbnRSZXF1ZXN0EgoKAmlkGAEgASgDIhcKFUNhbmNlbFBheW1lbnRSZXNwb25zZSp7Cg1QYXltZW50TWV0aG9kEh4KGlBBWU1FTlRfTUVUSE9EX1VOU1BFQ0lGSUVEEAASFwoTUEFZTUVOVF9NRVRIT0RfQ0FTSBABEhcKE1BBWU1FTlRfTUVUSE9EX01PTU8QAhIYChRQQVlNRU5UX01FVEhPRF9WTlBBWRADQq8BCg5jb20ucGF5bWVudC52MUIMUGF5bWVudFByb3RvUAFaRmdpdGh1Yi5jb20vc2hvcG5leHVzL3Nob3BuZXh1cy1wcm90b2J1Zi1nZW4tZ28vcGIvcGF5bWVudC92MTtwYXltZW50djGiAgNQWFiqAgpQYXltZW50LlYxygIKUGF5bWVudFxWMeICFlBheW1lbnRcVjFcR1BCTWV0YWRhdGHqAgtQYXltZW50OjpWMWIGcHJvdG8z", [file_common_item_quantity, file_common_pagination, file_common_status]);
+
+/**
+ * Describes the message payment.v1.ProductOnPayment.
+ * Use `create(ProductOnPaymentSchema)` to create a new message.
+ */
+export const ProductOnPaymentSchema = /*@__PURE__*/
+  messageDesc(file_payment_v1_payment, 0);
 
 /**
  * Describes the message payment.v1.Payment.
  * Use `create(PaymentSchema)` to create a new message.
  */
 export const PaymentSchema = /*@__PURE__*/
-  messageDesc(file_payment_v1_payment, 0);
+  messageDesc(file_payment_v1_payment, 1);
 
 /**
  * Describes the message payment.v1.GetPaymentRequest.
  * Use `create(GetPaymentRequestSchema)` to create a new message.
  */
 export const GetPaymentRequestSchema = /*@__PURE__*/
-  messageDesc(file_payment_v1_payment, 1);
+  messageDesc(file_payment_v1_payment, 2);
 
 /**
  * Describes the message payment.v1.GetPaymentResponse.
  * Use `create(GetPaymentResponseSchema)` to create a new message.
  */
 export const GetPaymentResponseSchema = /*@__PURE__*/
-  messageDesc(file_payment_v1_payment, 2);
+  messageDesc(file_payment_v1_payment, 3);
 
 /**
  * Describes the message payment.v1.ListPaymentsRequest.
  * Use `create(ListPaymentsRequestSchema)` to create a new message.
  */
 export const ListPaymentsRequestSchema = /*@__PURE__*/
-  messageDesc(file_payment_v1_payment, 3);
+  messageDesc(file_payment_v1_payment, 4);
 
 /**
  * Describes the message payment.v1.ListPaymentsResponse.
  * Use `create(ListPaymentsResponseSchema)` to create a new message.
  */
 export const ListPaymentsResponseSchema = /*@__PURE__*/
-  messageDesc(file_payment_v1_payment, 4);
+  messageDesc(file_payment_v1_payment, 5);
 
 /**
  * Describes the message payment.v1.CreatePaymentRequest.
  * Use `create(CreatePaymentRequestSchema)` to create a new message.
  */
 export const CreatePaymentRequestSchema = /*@__PURE__*/
-  messageDesc(file_payment_v1_payment, 5);
+  messageDesc(file_payment_v1_payment, 6);
 
 /**
  * Describes the message payment.v1.CreatePaymentResponse.
  * Use `create(CreatePaymentResponseSchema)` to create a new message.
  */
 export const CreatePaymentResponseSchema = /*@__PURE__*/
-  messageDesc(file_payment_v1_payment, 6);
+  messageDesc(file_payment_v1_payment, 7);
 
 /**
  * Describes the message payment.v1.UpdatePaymentRequest.
  * Use `create(UpdatePaymentRequestSchema)` to create a new message.
  */
 export const UpdatePaymentRequestSchema = /*@__PURE__*/
-  messageDesc(file_payment_v1_payment, 7);
+  messageDesc(file_payment_v1_payment, 8);
 
 /**
  * Describes the message payment.v1.UpdatePaymentResponse.
  * Use `create(UpdatePaymentResponseSchema)` to create a new message.
  */
 export const UpdatePaymentResponseSchema = /*@__PURE__*/
-  messageDesc(file_payment_v1_payment, 8);
+  messageDesc(file_payment_v1_payment, 9);
 
 /**
  * Describes the message payment.v1.CancelPaymentRequest.
  * Use `create(CancelPaymentRequestSchema)` to create a new message.
  */
 export const CancelPaymentRequestSchema = /*@__PURE__*/
-  messageDesc(file_payment_v1_payment, 9);
+  messageDesc(file_payment_v1_payment, 10);
 
 /**
  * Describes the message payment.v1.CancelPaymentResponse.
  * Use `create(CancelPaymentResponseSchema)` to create a new message.
  */
 export const CancelPaymentResponseSchema = /*@__PURE__*/
-  messageDesc(file_payment_v1_payment, 10);
+  messageDesc(file_payment_v1_payment, 11);
 
 /**
  * Describes the enum payment.v1.PaymentMethod.

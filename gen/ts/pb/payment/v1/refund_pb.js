@@ -10,77 +10,84 @@ import { file_common_status } from "../../common/status_pb";
  * Describes the file payment/v1/refund.proto.
  */
 export const file_payment_v1_refund = /*@__PURE__*/
-  fileDesc("ChdwYXltZW50L3YxL3JlZnVuZC5wcm90bxIKcGF5bWVudC52MSIlChBHZXRSZWZ1bmRSZXF1ZXN0EhEKCXJlZnVuZF9pZBgBIAEoCSKnAQoRR2V0UmVmdW5kUmVzcG9uc2USEQoJcmVmdW5kX2lkGAEgASgJEhkKEXByb2R1Y3Rfc2VyaWFsX2lkGAIgASgJEhMKC2Rlc2NyaXB0aW9uGAMgASgJEh4KBnN0YXR1cxgEIAEoDjIOLmNvbW1vbi5TdGF0dXMSLwoNcmVmdW5kX21ldGhvZBgFIAEoDjIYLnBheW1lbnQudjEuUmVmdW5kTWV0aG9kItkCChJMaXN0UmVmdW5kc1JlcXVlc3QSLQoKcGFnaW5hdGlvbhgBIAEoCzIZLmNvbW1vbi5QYWdpbmF0aW9uUmVxdWVzdBIeChFwcm9kdWN0X3NlcmlhbF9pZBgCIAEoCUgAiAEBEiMKBnN0YXR1cxgDIAEoDjIOLmNvbW1vbi5TdGF0dXNIAYgBARI0Cg1yZWZ1bmRfbWV0aG9kGAQgASgOMhgucGF5bWVudC52MS5SZWZ1bmRNZXRob2RIAogBARIeChFkYXRlX2NyZWF0ZWRfZnJvbRgFIAEoA0gDiAEBEhwKD2RhdGVfY3JlYXRlZF90bxgGIAEoA0gEiAEBQhQKEl9wcm9kdWN0X3NlcmlhbF9pZEIJCgdfc3RhdHVzQhAKDl9yZWZ1bmRfbWV0aG9kQhQKEl9kYXRlX2NyZWF0ZWRfZnJvbUISChBfZGF0ZV9jcmVhdGVkX3RvInUKE0xpc3RSZWZ1bmRzUmVzcG9uc2USLgoKcGFnaW5hdGlvbhgBIAEoCzIaLmNvbW1vbi5QYWdpbmF0aW9uUmVzcG9uc2USLgoHcmVmdW5kcxgCIAMoCzIdLnBheW1lbnQudjEuR2V0UmVmdW5kUmVzcG9uc2UihQEKE0NyZWF0ZVJlZnVuZFJlcXVlc3QSEgoKcGF5bWVudF9pZBgBIAEoAxIoCgZtZXRob2QYAiABKA4yGC5wYXltZW50LnYxLlJlZnVuZE1ldGhvZBIOCgZyZWFzb24YAyABKAkSFAoHYWRkcmVzcxgEIAEoCUgAiAEBQgoKCF9hZGRyZXNzIikKFENyZWF0ZVJlZnVuZFJlc3BvbnNlEhEKCXJlZnVuZF9pZBgBIAEoCSKOAQoTVXBkYXRlUmVmdW5kUmVxdWVzdBIRCglyZWZ1bmRfaWQYASABKAkSEwoLZGVzY3JpcHRpb24YAiABKAkSDgoGaW1hZ2VzGAMgAygMEg4KBnZpZGVvcxgEIAMoDBIvCg1yZWZ1bmRfbWV0aG9kGAUgASgOMhgucGF5bWVudC52MS5SZWZ1bmRNZXRob2QiKQoUVXBkYXRlUmVmdW5kUmVzcG9uc2USEQoJcmVmdW5kX2lkGAEgASgJIigKE0NhbmNlbFJlZnVuZFJlcXVlc3QSEQoJcmVmdW5kX2lkGAEgASgJIhYKFENhbmNlbFJlZnVuZFJlc3BvbnNlKmQKDFJlZnVuZE1ldGhvZBIdChlSRUZVTkRfTUVUSE9EX1VOU1BFQ0lGSUVEEAASGQoVUkVGVU5EX01FVEhPRF9QSUNLX1VQEAESGgoWUkVGVU5EX01FVEhPRF9EUk9QX09GRhACQq4BCg5jb20ucGF5bWVudC52MUILUmVmdW5kUHJvdG9QAVpGZ2l0aHViLmNvbS9zaG9wbmV4dXMvc2hvcG5leHVzLXByb3RvYnVmLWdlbi1nby9wYi9wYXltZW50L3YxO3BheW1lbnR2MaICA1BYWKoCClBheW1lbnQuVjHKAgpQYXltZW50XFYx4gIWUGF5bWVudFxWMVxHUEJNZXRhZGF0YeoCC1BheW1lbnQ6OlYxYgZwcm90bzM", [file_common_pagination, file_common_status]);
+  fileDesc("ChdwYXltZW50L3YxL3JlZnVuZC5wcm90bxIKcGF5bWVudC52MSLSAQoGUmVmdW5kEgoKAmlkGAEgASgDEhIKCnBheW1lbnRfaWQYAiABKAMSKAoGbWV0aG9kGAMgASgOMhgucGF5bWVudC52MS5SZWZ1bmRNZXRob2QSHgoGc3RhdHVzGAQgASgOMg4uY29tbW9uLlN0YXR1cxIOCgZyZWFzb24YBSABKAkSDwoHYWRkcmVzcxgGIAEoCRIUCgxkYXRlX2NyZWF0ZWQYByABKAMSFAoMZGF0ZV91cGRhdGVkGAggASgDEhEKCXJlc291cmNlcxgJIAMoCSIeChBHZXRSZWZ1bmRSZXF1ZXN0EgoKAmlkGAEgASgDIjcKEUdldFJlZnVuZFJlc3BvbnNlEiIKBnJlZnVuZBgBIAEoCzISLnBheW1lbnQudjEuUmVmdW5kIqEDChJMaXN0UmVmdW5kc1JlcXVlc3QSLQoKcGFnaW5hdGlvbhgBIAEoCzIZLmNvbW1vbi5QYWdpbmF0aW9uUmVxdWVzdBIUCgd1c2VyX2lkGAIgASgDSACIAQESFwoKcGF5bWVudF9pZBgDIAEoA0gBiAEBEi0KBm1ldGhvZBgEIAEoDjIYLnBheW1lbnQudjEuUmVmdW5kTWV0aG9kSAKIAQESIwoGc3RhdHVzGAUgASgOMg4uY29tbW9uLlN0YXR1c0gDiAEBEhMKBnJlYXNvbhgGIAEoCUgEiAEBEhQKB2FkZHJlc3MYByABKAlIBYgBARIeChFkYXRlX2NyZWF0ZWRfZnJvbRgIIAEoA0gGiAEBEhwKD2RhdGVfY3JlYXRlZF90bxgJIAEoA0gHiAEBQgoKCF91c2VyX2lkQg0KC19wYXltZW50X2lkQgkKB19tZXRob2RCCQoHX3N0YXR1c0IJCgdfcmVhc29uQgoKCF9hZGRyZXNzQhQKEl9kYXRlX2NyZWF0ZWRfZnJvbUISChBfZGF0ZV9jcmVhdGVkX3RvImoKE0xpc3RSZWZ1bmRzUmVzcG9uc2USLgoKcGFnaW5hdGlvbhgBIAEoCzIaLmNvbW1vbi5QYWdpbmF0aW9uUmVzcG9uc2USIwoHcmVmdW5kcxgCIAMoCzISLnBheW1lbnQudjEuUmVmdW5kIocBChNDcmVhdGVSZWZ1bmRSZXF1ZXN0EhIKCnBheW1lbnRfaWQYASABKAMSKAoGbWV0aG9kGAIgASgOMhgucGF5bWVudC52MS5SZWZ1bmRNZXRob2QSDgoGcmVhc29uGAMgASgJEg8KB2FkZHJlc3MYBCABKAkSEQoJcmVzb3VyY2VzGAUgAygJIiIKFENyZWF0ZVJlZnVuZFJlc3BvbnNlEgoKAmlkGAEgASgDIs0BChNVcGRhdGVSZWZ1bmRSZXF1ZXN0EgoKAmlkGAEgASgDEi0KBm1ldGhvZBgCIAEoDjIYLnBheW1lbnQudjEuUmVmdW5kTWV0aG9kSACIAQESIwoGc3RhdHVzGAMgASgOMg4uY29tbW9uLlN0YXR1c0gBiAEBEhMKBnJlYXNvbhgEIAEoCUgCiAEBEhQKB2FkZHJlc3MYBSABKAlIA4gBAUIJCgdfbWV0aG9kQgkKB19zdGF0dXNCCQoHX3JlYXNvbkIKCghfYWRkcmVzcyIiChRVcGRhdGVSZWZ1bmRSZXNwb25zZRIKCgJpZBgBIAEoAyIhChNDYW5jZWxSZWZ1bmRSZXF1ZXN0EgoKAmlkGAEgASgDIhYKFENhbmNlbFJlZnVuZFJlc3BvbnNlKmQKDFJlZnVuZE1ldGhvZBIdChlSRUZVTkRfTUVUSE9EX1VOU1BFQ0lGSUVEEAASGQoVUkVGVU5EX01FVEhPRF9QSUNLX1VQEAESGgoWUkVGVU5EX01FVEhPRF9EUk9QX09GRhACQq4BCg5jb20ucGF5bWVudC52MUILUmVmdW5kUHJvdG9QAVpGZ2l0aHViLmNvbS9zaG9wbmV4dXMvc2hvcG5leHVzLXByb3RvYnVmLWdlbi1nby9wYi9wYXltZW50L3YxO3BheW1lbnR2MaICA1BYWKoCClBheW1lbnQuVjHKAgpQYXltZW50XFYx4gIWUGF5bWVudFxWMVxHUEJNZXRhZGF0YeoCC1BheW1lbnQ6OlYxYgZwcm90bzM", [file_common_pagination, file_common_status]);
+
+/**
+ * Describes the message payment.v1.Refund.
+ * Use `create(RefundSchema)` to create a new message.
+ */
+export const RefundSchema = /*@__PURE__*/
+  messageDesc(file_payment_v1_refund, 0);
 
 /**
  * Describes the message payment.v1.GetRefundRequest.
  * Use `create(GetRefundRequestSchema)` to create a new message.
  */
 export const GetRefundRequestSchema = /*@__PURE__*/
-  messageDesc(file_payment_v1_refund, 0);
+  messageDesc(file_payment_v1_refund, 1);
 
 /**
  * Describes the message payment.v1.GetRefundResponse.
  * Use `create(GetRefundResponseSchema)` to create a new message.
  */
 export const GetRefundResponseSchema = /*@__PURE__*/
-  messageDesc(file_payment_v1_refund, 1);
+  messageDesc(file_payment_v1_refund, 2);
 
 /**
  * Describes the message payment.v1.ListRefundsRequest.
  * Use `create(ListRefundsRequestSchema)` to create a new message.
  */
 export const ListRefundsRequestSchema = /*@__PURE__*/
-  messageDesc(file_payment_v1_refund, 2);
+  messageDesc(file_payment_v1_refund, 3);
 
 /**
  * Describes the message payment.v1.ListRefundsResponse.
  * Use `create(ListRefundsResponseSchema)` to create a new message.
  */
 export const ListRefundsResponseSchema = /*@__PURE__*/
-  messageDesc(file_payment_v1_refund, 3);
+  messageDesc(file_payment_v1_refund, 4);
 
 /**
  * Describes the message payment.v1.CreateRefundRequest.
  * Use `create(CreateRefundRequestSchema)` to create a new message.
  */
 export const CreateRefundRequestSchema = /*@__PURE__*/
-  messageDesc(file_payment_v1_refund, 4);
+  messageDesc(file_payment_v1_refund, 5);
 
 /**
  * Describes the message payment.v1.CreateRefundResponse.
  * Use `create(CreateRefundResponseSchema)` to create a new message.
  */
 export const CreateRefundResponseSchema = /*@__PURE__*/
-  messageDesc(file_payment_v1_refund, 5);
+  messageDesc(file_payment_v1_refund, 6);
 
 /**
  * Describes the message payment.v1.UpdateRefundRequest.
  * Use `create(UpdateRefundRequestSchema)` to create a new message.
  */
 export const UpdateRefundRequestSchema = /*@__PURE__*/
-  messageDesc(file_payment_v1_refund, 6);
+  messageDesc(file_payment_v1_refund, 7);
 
 /**
  * Describes the message payment.v1.UpdateRefundResponse.
  * Use `create(UpdateRefundResponseSchema)` to create a new message.
  */
 export const UpdateRefundResponseSchema = /*@__PURE__*/
-  messageDesc(file_payment_v1_refund, 7);
+  messageDesc(file_payment_v1_refund, 8);
 
 /**
  * Describes the message payment.v1.CancelRefundRequest.
  * Use `create(CancelRefundRequestSchema)` to create a new message.
  */
 export const CancelRefundRequestSchema = /*@__PURE__*/
-  messageDesc(file_payment_v1_refund, 8);
+  messageDesc(file_payment_v1_refund, 9);
 
 /**
  * Describes the message payment.v1.CancelRefundResponse.
  * Use `create(CancelRefundResponseSchema)` to create a new message.
  */
 export const CancelRefundResponseSchema = /*@__PURE__*/
-  messageDesc(file_payment_v1_refund, 9);
+  messageDesc(file_payment_v1_refund, 10);
 
 /**
  * Describes the enum payment.v1.RefundMethod.

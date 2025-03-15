@@ -7,19 +7,19 @@ import "common/item_quantity.proto";
 message GetCartRequest {}
 
 message GetCartResponse {
-  repeated common.ItemQuantity items = 1;
+  repeated common.ItemQuantityInt64 items = 1;
 }
 
 message AddCartItemRequest {
-  repeated common.ItemQuantity items = 1;
+  repeated common.ItemQuantityInt64 items = 1;
 }
 
 message AddCartItemResponse {
-  repeated common.ItemQuantity items = 1;
+  repeated common.ItemQuantityInt64 items = 1;
 }
 
 message UpdateCartItemRequest {
-  repeated common.ItemQuantity items = 1;
+  repeated common.ItemQuantityInt64 items = 1;
 }
 
 message UpdateCartItemResponse {}

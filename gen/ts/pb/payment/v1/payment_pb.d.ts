@@ -4,6 +4,7 @@
 
 import type { GenEnum, GenFile, GenMessage } from "@bufbuild/protobuf/codegenv1";
 import type { Message } from "@bufbuild/protobuf";
+import type { ItemQuantityString } from "../../common/item_quantity_pb";
 import type { Status } from "../../common/status_pb";
 import type { PaginationRequest, PaginationResponse } from "../../common/pagination_pb";
 
@@ -11,6 +12,32 @@ import type { PaginationRequest, PaginationResponse } from "../../common/paginat
  * Describes the file payment/v1/payment.proto.
  */
 export declare const file_payment_v1_payment: GenFile;
+
+/**
+ * @generated from message payment.v1.ProductOnPayment
+ */
+export declare type ProductOnPayment = Message<"payment.v1.ProductOnPayment"> & {
+  /**
+   * @generated from field: common.ItemQuantityString item_quantity = 1;
+   */
+  itemQuantity?: ItemQuantityString;
+
+  /**
+   * @generated from field: int64 price = 2;
+   */
+  price: bigint;
+
+  /**
+   * @generated from field: int64 total_price = 3;
+   */
+  totalPrice: bigint;
+};
+
+/**
+ * Describes the message payment.v1.ProductOnPayment.
+ * Use `create(ProductOnPaymentSchema)` to create a new message.
+ */
+export declare const ProductOnPaymentSchema: GenMessage<ProductOnPayment>;
 
 /**
  * @generated from message payment.v1.Payment
@@ -50,6 +77,11 @@ export declare type Payment = Message<"payment.v1.Payment"> & {
    * @generated from field: int64 date_created = 7;
    */
   dateCreated: bigint;
+
+  /**
+   * @generated from field: repeated payment.v1.ProductOnPayment products = 8;
+   */
+  products: ProductOnPayment[];
 };
 
 /**
@@ -63,9 +95,9 @@ export declare const PaymentSchema: GenMessage<Payment>;
  */
 export declare type GetPaymentRequest = Message<"payment.v1.GetPaymentRequest"> & {
   /**
-   * @generated from field: string payment_id = 1;
+   * @generated from field: int64 id = 1;
    */
-  paymentId: string;
+  id: bigint;
 };
 
 /**
@@ -115,12 +147,27 @@ export declare type ListPaymentsRequest = Message<"payment.v1.ListPaymentsReques
   status?: Status;
 
   /**
-   * @generated from field: optional int64 date_created_from = 5;
+   * @generated from field: optional string address = 5;
+   */
+  address?: string;
+
+  /**
+   * @generated from field: optional int64 total_from = 6;
+   */
+  totalFrom?: bigint;
+
+  /**
+   * @generated from field: optional int64 total_to = 7;
+   */
+  totalTo?: bigint;
+
+  /**
+   * @generated from field: optional int64 date_created_from = 8;
    */
   dateCreatedFrom?: bigint;
 
   /**
-   * @generated from field: optional int64 date_created_to = 6;
+   * @generated from field: optional int64 date_created_to = 9;
    */
   dateCreatedTo?: bigint;
 };
@@ -162,9 +209,9 @@ export declare type CreatePaymentRequest = Message<"payment.v1.CreatePaymentRequ
   requestId: bigint;
 
   /**
-   * @generated from field: payment.v1.PaymentMethod payment_method = 2;
+   * @generated from field: payment.v1.PaymentMethod method = 2;
    */
-  paymentMethod: PaymentMethod;
+  method: PaymentMethod;
 
   /**
    * @generated from field: string address = 3;
@@ -209,14 +256,19 @@ export declare const CreatePaymentResponseSchema: GenMessage<CreatePaymentRespon
  */
 export declare type UpdatePaymentRequest = Message<"payment.v1.UpdatePaymentRequest"> & {
   /**
-   * @generated from field: string payment_id = 1;
+   * @generated from field: int64 id = 1;
    */
-  paymentId: string;
+  id: bigint;
 
   /**
-   * @generated from field: optional common.Status status = 2;
+   * @generated from field: optional payment.v1.PaymentMethod method = 2;
    */
-  status?: Status;
+  method?: PaymentMethod;
+
+  /**
+   * @generated from field: optional string address = 3;
+   */
+  address?: string;
 };
 
 /**
@@ -242,9 +294,9 @@ export declare const UpdatePaymentResponseSchema: GenMessage<UpdatePaymentRespon
  */
 export declare type CancelPaymentRequest = Message<"payment.v1.CancelPaymentRequest"> & {
   /**
-   * @generated from field: string payment_id = 1;
+   * @generated from field: int64 id = 1;
    */
-  paymentId: string;
+  id: bigint;
 };
 
 /**

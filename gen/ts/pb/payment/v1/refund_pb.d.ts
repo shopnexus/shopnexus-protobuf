@@ -13,13 +13,69 @@ import type { PaginationRequest, PaginationResponse } from "../../common/paginat
 export declare const file_payment_v1_refund: GenFile;
 
 /**
+ * @generated from message payment.v1.Refund
+ */
+export declare type Refund = Message<"payment.v1.Refund"> & {
+  /**
+   * @generated from field: int64 id = 1;
+   */
+  id: bigint;
+
+  /**
+   * @generated from field: int64 payment_id = 2;
+   */
+  paymentId: bigint;
+
+  /**
+   * @generated from field: payment.v1.RefundMethod method = 3;
+   */
+  method: RefundMethod;
+
+  /**
+   * @generated from field: common.Status status = 4;
+   */
+  status: Status;
+
+  /**
+   * @generated from field: string reason = 5;
+   */
+  reason: string;
+
+  /**
+   * @generated from field: string address = 6;
+   */
+  address: string;
+
+  /**
+   * @generated from field: int64 date_created = 7;
+   */
+  dateCreated: bigint;
+
+  /**
+   * @generated from field: int64 date_updated = 8;
+   */
+  dateUpdated: bigint;
+
+  /**
+   * @generated from field: repeated string resources = 9;
+   */
+  resources: string[];
+};
+
+/**
+ * Describes the message payment.v1.Refund.
+ * Use `create(RefundSchema)` to create a new message.
+ */
+export declare const RefundSchema: GenMessage<Refund>;
+
+/**
  * @generated from message payment.v1.GetRefundRequest
  */
 export declare type GetRefundRequest = Message<"payment.v1.GetRefundRequest"> & {
   /**
-   * @generated from field: string refund_id = 1;
+   * @generated from field: int64 id = 1;
    */
-  refundId: string;
+  id: bigint;
 };
 
 /**
@@ -33,29 +89,9 @@ export declare const GetRefundRequestSchema: GenMessage<GetRefundRequest>;
  */
 export declare type GetRefundResponse = Message<"payment.v1.GetRefundResponse"> & {
   /**
-   * @generated from field: string refund_id = 1;
+   * @generated from field: payment.v1.Refund refund = 1;
    */
-  refundId: string;
-
-  /**
-   * @generated from field: string product_serial_id = 2;
-   */
-  productSerialId: string;
-
-  /**
-   * @generated from field: string description = 3;
-   */
-  description: string;
-
-  /**
-   * @generated from field: common.Status status = 4;
-   */
-  status: Status;
-
-  /**
-   * @generated from field: payment.v1.RefundMethod refund_method = 5;
-   */
-  refundMethod: RefundMethod;
+  refund?: Refund;
 };
 
 /**
@@ -74,27 +110,42 @@ export declare type ListRefundsRequest = Message<"payment.v1.ListRefundsRequest"
   pagination?: PaginationRequest;
 
   /**
-   * @generated from field: optional string product_serial_id = 2;
+   * @generated from field: optional int64 user_id = 2;
    */
-  productSerialId?: string;
+  userId?: bigint;
 
   /**
-   * @generated from field: optional common.Status status = 3;
+   * @generated from field: optional int64 payment_id = 3;
+   */
+  paymentId?: bigint;
+
+  /**
+   * @generated from field: optional payment.v1.RefundMethod method = 4;
+   */
+  method?: RefundMethod;
+
+  /**
+   * @generated from field: optional common.Status status = 5;
    */
   status?: Status;
 
   /**
-   * @generated from field: optional payment.v1.RefundMethod refund_method = 4;
+   * @generated from field: optional string reason = 6;
    */
-  refundMethod?: RefundMethod;
+  reason?: string;
 
   /**
-   * @generated from field: optional int64 date_created_from = 5;
+   * @generated from field: optional string address = 7;
+   */
+  address?: string;
+
+  /**
+   * @generated from field: optional int64 date_created_from = 8;
    */
   dateCreatedFrom?: bigint;
 
   /**
-   * @generated from field: optional int64 date_created_to = 6;
+   * @generated from field: optional int64 date_created_to = 9;
    */
   dateCreatedTo?: bigint;
 };
@@ -115,9 +166,9 @@ export declare type ListRefundsResponse = Message<"payment.v1.ListRefundsRespons
   pagination?: PaginationResponse;
 
   /**
-   * @generated from field: repeated payment.v1.GetRefundResponse refunds = 2;
+   * @generated from field: repeated payment.v1.Refund refunds = 2;
    */
-  refunds: GetRefundResponse[];
+  refunds: Refund[];
 };
 
 /**
@@ -146,9 +197,14 @@ export declare type CreateRefundRequest = Message<"payment.v1.CreateRefundReques
   reason: string;
 
   /**
-   * @generated from field: optional string address = 4;
+   * @generated from field: string address = 4;
    */
-  address?: string;
+  address: string;
+
+  /**
+   * @generated from field: repeated string resources = 5;
+   */
+  resources: string[];
 };
 
 /**
@@ -162,9 +218,9 @@ export declare const CreateRefundRequestSchema: GenMessage<CreateRefundRequest>;
  */
 export declare type CreateRefundResponse = Message<"payment.v1.CreateRefundResponse"> & {
   /**
-   * @generated from field: string refund_id = 1;
+   * @generated from field: int64 id = 1;
    */
-  refundId: string;
+  id: bigint;
 };
 
 /**
@@ -178,29 +234,29 @@ export declare const CreateRefundResponseSchema: GenMessage<CreateRefundResponse
  */
 export declare type UpdateRefundRequest = Message<"payment.v1.UpdateRefundRequest"> & {
   /**
-   * @generated from field: string refund_id = 1;
+   * @generated from field: int64 id = 1;
    */
-  refundId: string;
+  id: bigint;
 
   /**
-   * @generated from field: string description = 2;
+   * @generated from field: optional payment.v1.RefundMethod method = 2;
    */
-  description: string;
+  method?: RefundMethod;
 
   /**
-   * @generated from field: repeated bytes images = 3;
+   * @generated from field: optional common.Status status = 3;
    */
-  images: Uint8Array[];
+  status?: Status;
 
   /**
-   * @generated from field: repeated bytes videos = 4;
+   * @generated from field: optional string reason = 4;
    */
-  videos: Uint8Array[];
+  reason?: string;
 
   /**
-   * @generated from field: payment.v1.RefundMethod refund_method = 5;
+   * @generated from field: optional string address = 5;
    */
-  refundMethod: RefundMethod;
+  address?: string;
 };
 
 /**
@@ -214,9 +270,9 @@ export declare const UpdateRefundRequestSchema: GenMessage<UpdateRefundRequest>;
  */
 export declare type UpdateRefundResponse = Message<"payment.v1.UpdateRefundResponse"> & {
   /**
-   * @generated from field: string refund_id = 1;
+   * @generated from field: int64 id = 1;
    */
-  refundId: string;
+  id: bigint;
 };
 
 /**
@@ -230,9 +286,9 @@ export declare const UpdateRefundResponseSchema: GenMessage<UpdateRefundResponse
  */
 export declare type CancelRefundRequest = Message<"payment.v1.CancelRefundRequest"> & {
   /**
-   * @generated from field: string refund_id = 1;
+   * @generated from field: int64 id = 1;
    */
-  refundId: string;
+  id: bigint;
 };
 
 /**

@@ -20,7 +20,7 @@ const (
 	_ = protoimpl.EnforceVersion(protoimpl.MaxVersion - 20)
 )
 
-type ItemQuantity struct {
+type ItemQuantityInt64 struct {
 	state         protoimpl.MessageState
 	sizeCache     protoimpl.SizeCache
 	unknownFields protoimpl.UnknownFields
@@ -29,20 +29,20 @@ type ItemQuantity struct {
 	Quantity int64 `protobuf:"varint,2,opt,name=quantity,proto3" json:"quantity,omitempty"`
 }
 
-func (x *ItemQuantity) Reset() {
-	*x = ItemQuantity{}
+func (x *ItemQuantityInt64) Reset() {
+	*x = ItemQuantityInt64{}
 	mi := &file_common_item_quantity_proto_msgTypes[0]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
 
-func (x *ItemQuantity) String() string {
+func (x *ItemQuantityInt64) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*ItemQuantity) ProtoMessage() {}
+func (*ItemQuantityInt64) ProtoMessage() {}
 
-func (x *ItemQuantity) ProtoReflect() protoreflect.Message {
+func (x *ItemQuantityInt64) ProtoReflect() protoreflect.Message {
 	mi := &file_common_item_quantity_proto_msgTypes[0]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
@@ -54,19 +54,72 @@ func (x *ItemQuantity) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-// Deprecated: Use ItemQuantity.ProtoReflect.Descriptor instead.
-func (*ItemQuantity) Descriptor() ([]byte, []int) {
+// Deprecated: Use ItemQuantityInt64.ProtoReflect.Descriptor instead.
+func (*ItemQuantityInt64) Descriptor() ([]byte, []int) {
 	return file_common_item_quantity_proto_rawDescGZIP(), []int{0}
 }
 
-func (x *ItemQuantity) GetItemId() int64 {
+func (x *ItemQuantityInt64) GetItemId() int64 {
 	if x != nil {
 		return x.ItemId
 	}
 	return 0
 }
 
-func (x *ItemQuantity) GetQuantity() int64 {
+func (x *ItemQuantityInt64) GetQuantity() int64 {
+	if x != nil {
+		return x.Quantity
+	}
+	return 0
+}
+
+type ItemQuantityString struct {
+	state         protoimpl.MessageState
+	sizeCache     protoimpl.SizeCache
+	unknownFields protoimpl.UnknownFields
+
+	ItemId   string `protobuf:"bytes,1,opt,name=item_id,json=itemId,proto3" json:"item_id,omitempty"`
+	Quantity int64  `protobuf:"varint,2,opt,name=quantity,proto3" json:"quantity,omitempty"`
+}
+
+func (x *ItemQuantityString) Reset() {
+	*x = ItemQuantityString{}
+	mi := &file_common_item_quantity_proto_msgTypes[1]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *ItemQuantityString) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ItemQuantityString) ProtoMessage() {}
+
+func (x *ItemQuantityString) ProtoReflect() protoreflect.Message {
+	mi := &file_common_item_quantity_proto_msgTypes[1]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ItemQuantityString.ProtoReflect.Descriptor instead.
+func (*ItemQuantityString) Descriptor() ([]byte, []int) {
+	return file_common_item_quantity_proto_rawDescGZIP(), []int{1}
+}
+
+func (x *ItemQuantityString) GetItemId() string {
+	if x != nil {
+		return x.ItemId
+	}
+	return ""
+}
+
+func (x *ItemQuantityString) GetQuantity() int64 {
 	if x != nil {
 		return x.Quantity
 	}
@@ -78,9 +131,14 @@ var File_common_item_quantity_proto protoreflect.FileDescriptor
 var file_common_item_quantity_proto_rawDesc = []byte{
 	0x0a, 0x1a, 0x63, 0x6f, 0x6d, 0x6d, 0x6f, 0x6e, 0x2f, 0x69, 0x74, 0x65, 0x6d, 0x5f, 0x71, 0x75,
 	0x61, 0x6e, 0x74, 0x69, 0x74, 0x79, 0x2e, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x12, 0x06, 0x63, 0x6f,
-	0x6d, 0x6d, 0x6f, 0x6e, 0x22, 0x43, 0x0a, 0x0c, 0x49, 0x74, 0x65, 0x6d, 0x51, 0x75, 0x61, 0x6e,
-	0x74, 0x69, 0x74, 0x79, 0x12, 0x17, 0x0a, 0x07, 0x69, 0x74, 0x65, 0x6d, 0x5f, 0x69, 0x64, 0x18,
-	0x01, 0x20, 0x01, 0x28, 0x03, 0x52, 0x06, 0x69, 0x74, 0x65, 0x6d, 0x49, 0x64, 0x12, 0x1a, 0x0a,
+	0x6d, 0x6d, 0x6f, 0x6e, 0x22, 0x48, 0x0a, 0x11, 0x49, 0x74, 0x65, 0x6d, 0x51, 0x75, 0x61, 0x6e,
+	0x74, 0x69, 0x74, 0x79, 0x49, 0x6e, 0x74, 0x36, 0x34, 0x12, 0x17, 0x0a, 0x07, 0x69, 0x74, 0x65,
+	0x6d, 0x5f, 0x69, 0x64, 0x18, 0x01, 0x20, 0x01, 0x28, 0x03, 0x52, 0x06, 0x69, 0x74, 0x65, 0x6d,
+	0x49, 0x64, 0x12, 0x1a, 0x0a, 0x08, 0x71, 0x75, 0x61, 0x6e, 0x74, 0x69, 0x74, 0x79, 0x18, 0x02,
+	0x20, 0x01, 0x28, 0x03, 0x52, 0x08, 0x71, 0x75, 0x61, 0x6e, 0x74, 0x69, 0x74, 0x79, 0x22, 0x49,
+	0x0a, 0x12, 0x49, 0x74, 0x65, 0x6d, 0x51, 0x75, 0x61, 0x6e, 0x74, 0x69, 0x74, 0x79, 0x53, 0x74,
+	0x72, 0x69, 0x6e, 0x67, 0x12, 0x17, 0x0a, 0x07, 0x69, 0x74, 0x65, 0x6d, 0x5f, 0x69, 0x64, 0x18,
+	0x01, 0x20, 0x01, 0x28, 0x09, 0x52, 0x06, 0x69, 0x74, 0x65, 0x6d, 0x49, 0x64, 0x12, 0x1a, 0x0a,
 	0x08, 0x71, 0x75, 0x61, 0x6e, 0x74, 0x69, 0x74, 0x79, 0x18, 0x02, 0x20, 0x01, 0x28, 0x03, 0x52,
 	0x08, 0x71, 0x75, 0x61, 0x6e, 0x74, 0x69, 0x74, 0x79, 0x42, 0x91, 0x01, 0x0a, 0x0a, 0x63, 0x6f,
 	0x6d, 0x2e, 0x63, 0x6f, 0x6d, 0x6d, 0x6f, 0x6e, 0x42, 0x11, 0x49, 0x74, 0x65, 0x6d, 0x51, 0x75,
@@ -107,9 +165,10 @@ func file_common_item_quantity_proto_rawDescGZIP() []byte {
 	return file_common_item_quantity_proto_rawDescData
 }
 
-var file_common_item_quantity_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
+var file_common_item_quantity_proto_msgTypes = make([]protoimpl.MessageInfo, 2)
 var file_common_item_quantity_proto_goTypes = []any{
-	(*ItemQuantity)(nil), // 0: common.ItemQuantity
+	(*ItemQuantityInt64)(nil),  // 0: common.ItemQuantityInt64
+	(*ItemQuantityString)(nil), // 1: common.ItemQuantityString
 }
 var file_common_item_quantity_proto_depIdxs = []int32{
 	0, // [0:0] is the sub-list for method output_type
@@ -130,7 +189,7 @@ func file_common_item_quantity_proto_init() {
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: file_common_item_quantity_proto_rawDesc,
 			NumEnums:      0,
-			NumMessages:   1,
+			NumMessages:   2,
 			NumExtensions: 0,
 			NumServices:   0,
 		},

@@ -8,12 +8,19 @@ import { fileDesc, messageDesc } from "@bufbuild/protobuf/codegenv1";
  * Describes the file common/item_quantity.proto.
  */
 export const file_common_item_quantity = /*@__PURE__*/
-  fileDesc("Chpjb21tb24vaXRlbV9xdWFudGl0eS5wcm90bxIGY29tbW9uIjEKDEl0ZW1RdWFudGl0eRIPCgdpdGVtX2lkGAEgASgDEhAKCHF1YW50aXR5GAIgASgDQpEBCgpjb20uY29tbW9uQhFJdGVtUXVhbnRpdHlQcm90b1ABWjhnaXRodWIuY29tL3Nob3BuZXh1cy9zaG9wbmV4dXMtcHJvdG9idWYtZ2VuLWdvL3BiL2NvbW1vbqICA0NYWKoCBkNvbW1vbsoCBkNvbW1vbuICEkNvbW1vblxHUEJNZXRhZGF0YeoCBkNvbW1vbmIGcHJvdG8z");
+  fileDesc("Chpjb21tb24vaXRlbV9xdWFudGl0eS5wcm90bxIGY29tbW9uIjYKEUl0ZW1RdWFudGl0eUludDY0Eg8KB2l0ZW1faWQYASABKAMSEAoIcXVhbnRpdHkYAiABKAMiNwoSSXRlbVF1YW50aXR5U3RyaW5nEg8KB2l0ZW1faWQYASABKAkSEAoIcXVhbnRpdHkYAiABKANCkQEKCmNvbS5jb21tb25CEUl0ZW1RdWFudGl0eVByb3RvUAFaOGdpdGh1Yi5jb20vc2hvcG5leHVzL3Nob3BuZXh1cy1wcm90b2J1Zi1nZW4tZ28vcGIvY29tbW9uogIDQ1hYqgIGQ29tbW9uygIGQ29tbW9u4gISQ29tbW9uXEdQQk1ldGFkYXRh6gIGQ29tbW9uYgZwcm90bzM");
 
 /**
- * Describes the message common.ItemQuantity.
- * Use `create(ItemQuantitySchema)` to create a new message.
+ * Describes the message common.ItemQuantityInt64.
+ * Use `create(ItemQuantityInt64Schema)` to create a new message.
  */
-export const ItemQuantitySchema = /*@__PURE__*/
+export const ItemQuantityInt64Schema = /*@__PURE__*/
   messageDesc(file_common_item_quantity, 0);
+
+/**
+ * Describes the message common.ItemQuantityString.
+ * Use `create(ItemQuantityStringSchema)` to create a new message.
+ */
+export const ItemQuantityStringSchema = /*@__PURE__*/
+  messageDesc(file_common_item_quantity, 1);
 
