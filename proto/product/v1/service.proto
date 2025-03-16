@@ -6,14 +6,22 @@ import "product/v1/product.proto";
 import "product/v1/product_model.proto";
 
 service ProductService {
-  rpc GetProductModel(GetProductModelRequest) returns (GetProductModelResponse) {}
-  rpc ListProductModels(ListProductModelsRequest) returns (ListProductModelsResponse) {}
+  rpc GetProductModel(GetProductModelRequest) returns (GetProductModelResponse) {
+    option idempotency_level = NO_SIDE_EFFECTS;
+  }
+  rpc ListProductModels(ListProductModelsRequest) returns (ListProductModelsResponse) {
+    option idempotency_level = NO_SIDE_EFFECTS;
+  }
   rpc CreateProductModel(CreateProductModelRequest) returns (CreateProductModelResponse) {}
   rpc UpdateProductModel(UpdateProductModelRequest) returns (UpdateProductModelResponse) {}
   rpc DeleteProductModel(DeleteProductModelRequest) returns (DeleteProductModelResponse) {}
 
-  rpc GetProduct(GetProductRequest) returns (GetProductResponse) {}
-  rpc ListProducts(ListProductsRequest) returns (ListProductsResponse) {}
+  rpc GetProduct(GetProductRequest) returns (GetProductResponse) {
+    option idempotency_level = NO_SIDE_EFFECTS;
+  }
+  rpc ListProducts(ListProductsRequest) returns (ListProductsResponse) {
+    option idempotency_level = NO_SIDE_EFFECTS;
+  }
   rpc CreateProduct(CreateProductRequest) returns (CreateProductResponse) {}
   rpc UpdateProduct(UpdateProductRequest) returns (UpdateProductResponse) {}
   rpc DeleteProduct(DeleteProductRequest) returns (DeleteProductResponse) {}

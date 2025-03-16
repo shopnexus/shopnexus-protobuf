@@ -2,6 +2,9 @@ version: v2
 clean: true
 managed:
   enabled: true
+  disable:
+    # Don't modify any files in buf.build/googleapis/googleapis, (we we use google proto as deps in buf.yaml)
+    - module: buf.build/googleapis/googleapis
   override:
     - file_option: go_package_prefix
       value: github.com/shopnexus/shopnexus-protobuf-gen-go/pb

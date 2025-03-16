@@ -122,14 +122,14 @@ export declare const ListProductsRequestSchema: GenMessage<ListProductsRequest>;
  */
 export declare type ListProductsResponse = Message<"product.v1.ListProductsResponse"> & {
   /**
-   * @generated from field: common.PaginationResponse pagination = 1;
+   * @generated from field: repeated product.v1.ProductEntity data = 1;
    */
-  pagination?: PaginationResponse;
+  data: ProductEntity[];
 
   /**
-   * @generated from field: repeated product.v1.ProductEntity products = 2;
+   * @generated from field: common.PaginationResponse pagination = 2;
    */
-  products: ProductEntity[];
+  pagination?: PaginationResponse;
 };
 
 /**

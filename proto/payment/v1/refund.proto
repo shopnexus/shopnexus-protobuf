@@ -44,8 +44,8 @@ message ListRefundsRequest {
 }
 
 message ListRefundsResponse {
-  common.PaginationResponse pagination = 1;
-  repeated Refund refunds = 2;
+  repeated Refund data = 1;
+  common.PaginationResponse pagination = 2;
 }
 
 message CreateRefundRequest {

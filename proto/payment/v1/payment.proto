@@ -52,8 +52,8 @@ message ListPaymentsRequest {
 }
 
 message ListPaymentsResponse {
-  common.PaginationResponse pagination = 1;
-  repeated Payment payments = 2;
+  repeated Payment data = 1;
+  common.PaginationResponse pagination = 2;
 }
 
 message CreatePaymentRequest {

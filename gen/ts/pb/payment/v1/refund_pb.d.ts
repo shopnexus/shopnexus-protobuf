@@ -161,14 +161,14 @@ export declare const ListRefundsRequestSchema: GenMessage<ListRefundsRequest>;
  */
 export declare type ListRefundsResponse = Message<"payment.v1.ListRefundsResponse"> & {
   /**
-   * @generated from field: common.PaginationResponse pagination = 1;
+   * @generated from field: repeated payment.v1.Refund data = 1;
    */
-  pagination?: PaginationResponse;
+  data: Refund[];
 
   /**
-   * @generated from field: repeated payment.v1.Refund refunds = 2;
+   * @generated from field: common.PaginationResponse pagination = 2;
    */
-  refunds: Refund[];
+  pagination?: PaginationResponse;
 };
 
 /**

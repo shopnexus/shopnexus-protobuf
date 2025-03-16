@@ -6,14 +6,22 @@ import "payment/v1/payment.proto";
 import "payment/v1/refund.proto";
 
 service PaymentService {
-  rpc GetPayment(GetPaymentRequest) returns (GetPaymentResponse) {}
-  rpc ListPayments(ListPaymentsRequest) returns (ListPaymentsResponse) {}
+  rpc GetPayment(GetPaymentRequest) returns (GetPaymentResponse) {
+    option idempotency_level = NO_SIDE_EFFECTS;
+  }
+  rpc ListPayments(ListPaymentsRequest) returns (ListPaymentsResponse) {
+    option idempotency_level = NO_SIDE_EFFECTS;
+  }
   rpc CreatePayment(CreatePaymentRequest) returns (CreatePaymentResponse) {}
   rpc UpdatePayment(UpdatePaymentRequest) returns (UpdatePaymentResponse) {}
   rpc CancelPayment(CancelPaymentRequest) returns (CancelPaymentResponse) {}
 
-  rpc GetRefund(GetRefundRequest) returns (GetRefundResponse) {}
-  rpc ListRefunds(ListRefundsRequest) returns (ListRefundsResponse) {}
+  rpc GetRefund(GetRefundRequest) returns (GetRefundResponse) {
+    option idempotency_level = NO_SIDE_EFFECTS;
+  }
+  rpc ListRefunds(ListRefundsRequest) returns (ListRefundsResponse) {
+    option idempotency_level = NO_SIDE_EFFECTS;
+  }
   rpc CreateRefund(CreateRefundRequest) returns (CreateRefundResponse) {}
   rpc UpdateRefund(UpdateRefundRequest) returns (UpdateRefundResponse) {}
   rpc CancelRefund(CancelRefundRequest) returns (CancelRefundResponse) {}

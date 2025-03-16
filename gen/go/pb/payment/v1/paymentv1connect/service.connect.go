@@ -94,12 +94,14 @@ func NewPaymentServiceClient(httpClient connect.HTTPClient, baseURL string, opts
 			httpClient,
 			baseURL+PaymentServiceGetPaymentProcedure,
 			connect.WithSchema(paymentServiceMethods.ByName("GetPayment")),
+			connect.WithIdempotency(connect.IdempotencyNoSideEffects),
 			connect.WithClientOptions(opts...),
 		),
 		listPayments: connect.NewClient[v1.ListPaymentsRequest, v1.ListPaymentsResponse](
 			httpClient,
 			baseURL+PaymentServiceListPaymentsProcedure,
 			connect.WithSchema(paymentServiceMethods.ByName("ListPayments")),
+			connect.WithIdempotency(connect.IdempotencyNoSideEffects),
 			connect.WithClientOptions(opts...),
 		),
 		createPayment: connect.NewClient[v1.CreatePaymentRequest, v1.CreatePaymentResponse](
@@ -124,12 +126,14 @@ func NewPaymentServiceClient(httpClient connect.HTTPClient, baseURL string, opts
 			httpClient,
 			baseURL+PaymentServiceGetRefundProcedure,
 			connect.WithSchema(paymentServiceMethods.ByName("GetRefund")),
+			connect.WithIdempotency(connect.IdempotencyNoSideEffects),
 			connect.WithClientOptions(opts...),
 		),
 		listRefunds: connect.NewClient[v1.ListRefundsRequest, v1.ListRefundsResponse](
 			httpClient,
 			baseURL+PaymentServiceListRefundsProcedure,
 			connect.WithSchema(paymentServiceMethods.ByName("ListRefunds")),
+			connect.WithIdempotency(connect.IdempotencyNoSideEffects),
 			connect.WithClientOptions(opts...),
 		),
 		createRefund: connect.NewClient[v1.CreateRefundRequest, v1.CreateRefundResponse](
@@ -242,12 +246,14 @@ func NewPaymentServiceHandler(svc PaymentServiceHandler, opts ...connect.Handler
 		PaymentServiceGetPaymentProcedure,
 		svc.GetPayment,
 		connect.WithSchema(paymentServiceMethods.ByName("GetPayment")),
+		connect.WithIdempotency(connect.IdempotencyNoSideEffects),
 		connect.WithHandlerOptions(opts...),
 	)
 	paymentServiceListPaymentsHandler := connect.NewUnaryHandler(
 		PaymentServiceListPaymentsProcedure,
 		svc.ListPayments,
 		connect.WithSchema(paymentServiceMethods.ByName("ListPayments")),
+		connect.WithIdempotency(connect.IdempotencyNoSideEffects),
 		connect.WithHandlerOptions(opts...),
 	)
 	paymentServiceCreatePaymentHandler := connect.NewUnaryHandler(
@@ -272,12 +278,14 @@ func NewPaymentServiceHandler(svc PaymentServiceHandler, opts ...connect.Handler
 		PaymentServiceGetRefundProcedure,
 		svc.GetRefund,
 		connect.WithSchema(paymentServiceMethods.ByName("GetRefund")),
+		connect.WithIdempotency(connect.IdempotencyNoSideEffects),
 		connect.WithHandlerOptions(opts...),
 	)
 	paymentServiceListRefundsHandler := connect.NewUnaryHandler(
 		PaymentServiceListRefundsProcedure,
 		svc.ListRefunds,
 		connect.WithSchema(paymentServiceMethods.ByName("ListRefunds")),
+		connect.WithIdempotency(connect.IdempotencyNoSideEffects),
 		connect.WithHandlerOptions(opts...),
 	)
 	paymentServiceCreateRefundHandler := connect.NewUnaryHandler(

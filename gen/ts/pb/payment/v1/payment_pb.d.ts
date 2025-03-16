@@ -183,14 +183,14 @@ export declare const ListPaymentsRequestSchema: GenMessage<ListPaymentsRequest>;
  */
 export declare type ListPaymentsResponse = Message<"payment.v1.ListPaymentsResponse"> & {
   /**
-   * @generated from field: common.PaginationResponse pagination = 1;
+   * @generated from field: repeated payment.v1.Payment data = 1;
    */
-  pagination?: PaginationResponse;
+  data: Payment[];
 
   /**
-   * @generated from field: repeated payment.v1.Payment payments = 2;
+   * @generated from field: common.PaginationResponse pagination = 2;
    */
-  payments: Payment[];
+  pagination?: PaginationResponse;
 };
 
 /**

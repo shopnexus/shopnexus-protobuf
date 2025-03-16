@@ -107,6 +107,7 @@ func NewAccountServiceClient(httpClient connect.HTTPClient, baseURL string, opts
 			httpClient,
 			baseURL+AccountServiceGetCartProcedure,
 			connect.WithSchema(accountServiceMethods.ByName("GetCart")),
+			connect.WithIdempotency(connect.IdempotencyNoSideEffects),
 			connect.WithClientOptions(opts...),
 		),
 		addCartItem: connect.NewClient[v1.AddCartItemRequest, v1.AddCartItemResponse](
@@ -218,6 +219,7 @@ func NewAccountServiceHandler(svc AccountServiceHandler, opts ...connect.Handler
 		AccountServiceGetCartProcedure,
 		svc.GetCart,
 		connect.WithSchema(accountServiceMethods.ByName("GetCart")),
+		connect.WithIdempotency(connect.IdempotencyNoSideEffects),
 		connect.WithHandlerOptions(opts...),
 	)
 	accountServiceAddCartItemHandler := connect.NewUnaryHandler(

@@ -94,12 +94,14 @@ func NewProductServiceClient(httpClient connect.HTTPClient, baseURL string, opts
 			httpClient,
 			baseURL+ProductServiceGetProductModelProcedure,
 			connect.WithSchema(productServiceMethods.ByName("GetProductModel")),
+			connect.WithIdempotency(connect.IdempotencyNoSideEffects),
 			connect.WithClientOptions(opts...),
 		),
 		listProductModels: connect.NewClient[v1.ListProductModelsRequest, v1.ListProductModelsResponse](
 			httpClient,
 			baseURL+ProductServiceListProductModelsProcedure,
 			connect.WithSchema(productServiceMethods.ByName("ListProductModels")),
+			connect.WithIdempotency(connect.IdempotencyNoSideEffects),
 			connect.WithClientOptions(opts...),
 		),
 		createProductModel: connect.NewClient[v1.CreateProductModelRequest, v1.CreateProductModelResponse](
@@ -124,12 +126,14 @@ func NewProductServiceClient(httpClient connect.HTTPClient, baseURL string, opts
 			httpClient,
 			baseURL+ProductServiceGetProductProcedure,
 			connect.WithSchema(productServiceMethods.ByName("GetProduct")),
+			connect.WithIdempotency(connect.IdempotencyNoSideEffects),
 			connect.WithClientOptions(opts...),
 		),
 		listProducts: connect.NewClient[v1.ListProductsRequest, v1.ListProductsResponse](
 			httpClient,
 			baseURL+ProductServiceListProductsProcedure,
 			connect.WithSchema(productServiceMethods.ByName("ListProducts")),
+			connect.WithIdempotency(connect.IdempotencyNoSideEffects),
 			connect.WithClientOptions(opts...),
 		),
 		createProduct: connect.NewClient[v1.CreateProductRequest, v1.CreateProductResponse](
@@ -242,12 +246,14 @@ func NewProductServiceHandler(svc ProductServiceHandler, opts ...connect.Handler
 		ProductServiceGetProductModelProcedure,
 		svc.GetProductModel,
 		connect.WithSchema(productServiceMethods.ByName("GetProductModel")),
+		connect.WithIdempotency(connect.IdempotencyNoSideEffects),
 		connect.WithHandlerOptions(opts...),
 	)
 	productServiceListProductModelsHandler := connect.NewUnaryHandler(
 		ProductServiceListProductModelsProcedure,
 		svc.ListProductModels,
 		connect.WithSchema(productServiceMethods.ByName("ListProductModels")),
+		connect.WithIdempotency(connect.IdempotencyNoSideEffects),
 		connect.WithHandlerOptions(opts...),
 	)
 	productServiceCreateProductModelHandler := connect.NewUnaryHandler(
@@ -272,12 +278,14 @@ func NewProductServiceHandler(svc ProductServiceHandler, opts ...connect.Handler
 		ProductServiceGetProductProcedure,
 		svc.GetProduct,
 		connect.WithSchema(productServiceMethods.ByName("GetProduct")),
+		connect.WithIdempotency(connect.IdempotencyNoSideEffects),
 		connect.WithHandlerOptions(opts...),
 	)
 	productServiceListProductsHandler := connect.NewUnaryHandler(
 		ProductServiceListProductsProcedure,
 		svc.ListProducts,
 		connect.WithSchema(productServiceMethods.ByName("ListProducts")),
+		connect.WithIdempotency(connect.IdempotencyNoSideEffects),
 		connect.WithHandlerOptions(opts...),
 	)
 	productServiceCreateProductHandler := connect.NewUnaryHandler(

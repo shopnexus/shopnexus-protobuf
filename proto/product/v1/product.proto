@@ -30,8 +30,8 @@ message ListProductsRequest {
 }
 
 message ListProductsResponse {
-  common.PaginationResponse pagination = 1;
-  repeated ProductEntity products = 2;
+  repeated ProductEntity data = 1;
+  common.PaginationResponse pagination = 2;
 }
 
 message CreateProductRequest {

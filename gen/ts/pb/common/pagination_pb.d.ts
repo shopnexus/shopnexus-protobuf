@@ -51,9 +51,9 @@ export declare type PaginationResponse = Message<"common.PaginationResponse"> & 
   limit: number;
 
   /**
-   * @generated from field: int64 total = 3;
+   * @generated from field: uint32 total = 3;
    */
-  total: bigint;
+  total: number;
 
   /**
    * @generated from field: optional int32 next_page = 4;
