@@ -28,7 +28,7 @@ message GetRefundRequest {
 }
 
 message GetRefundResponse {
-  Refund refund = 1;
+  Refund data = 1;
 }
 
 message ListRefundsRequest {
