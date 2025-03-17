@@ -20,7 +20,7 @@ message GetProductModelRequest {
 }
 
 message GetProductModelResponse {
-  ProductModelEntity product_model = 1;
+  ProductModelEntity data = 1;
 }
 
 message ListProductModelsRequest {
@@ -50,7 +50,7 @@ message CreateProductModelRequest {
 }
 
 message CreateProductModelResponse {
-  ProductModelEntity product_model = 1;
+  ProductModelEntity data = 1;
 }
 
 message UpdateProductModelRequest {

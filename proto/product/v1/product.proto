@@ -19,7 +19,7 @@ message GetProductRequest {
 }
 
 message GetProductResponse {
-  ProductEntity product = 1;
+  ProductEntity data = 1;
 }
 
 message ListProductsRequest {
@@ -40,7 +40,7 @@ message CreateProductRequest {
 }
 
 message CreateProductResponse {
-  ProductEntity product = 1;
+  ProductEntity data = 1;
 }
 
 message UpdateProductRequest {
