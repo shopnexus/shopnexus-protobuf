@@ -18,5 +18,11 @@ plugins:
     out: gen/go/pb
     opt: paths=source_relative
 
-  - remote: buf.build/bufbuild/es
+  - local: protoc-gen-es
     out: gen/ts/pb
+    opt:
+      - target=ts
+  - local: protoc-gen-connect-query
+    out: gen/ts/pb
+    opt:
+      - target=ts
