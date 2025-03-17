@@ -2,10 +2,14 @@ syntax = "proto3";
 
 package product.v1;
 
+import "product/v1/brand.proto";
 import "product/v1/product.proto";
 import "product/v1/product_model.proto";
+import "product/v1/sale.proto";
+import "product/v1/tag.proto";
 
 service ProductService {
+  // PRODUCT MODEL
   rpc GetProductModel(GetProductModelRequest) returns (GetProductModelResponse) {
     option idempotency_level = NO_SIDE_EFFECTS;
   }
@@ -16,6 +20,7 @@ service ProductService {
   rpc UpdateProductModel(UpdateProductModelRequest) returns (UpdateProductModelResponse) {}
   rpc DeleteProductModel(DeleteProductModelRequest) returns (DeleteProductModelResponse) {}
 
+  // PRODUCT
   rpc GetProduct(GetProductRequest) returns (GetProductResponse) {
     option idempotency_level = NO_SIDE_EFFECTS;
   }
@@ -25,4 +30,37 @@ service ProductService {
   rpc CreateProduct(CreateProductRequest) returns (CreateProductResponse) {}
   rpc UpdateProduct(UpdateProductRequest) returns (UpdateProductResponse) {}
   rpc DeleteProduct(DeleteProductRequest) returns (DeleteProductResponse) {}
+
+  // BRAND
+  rpc GetBrand(GetBrandRequest) returns (GetBrandResponse) {
+    option idempotency_level = NO_SIDE_EFFECTS;
+  }
+  rpc ListBrands(ListBrandsRequest) returns (ListBrandsResponse) {
+    option idempotency_level = NO_SIDE_EFFECTS;
+  }
+  rpc CreateBrand(CreateBrandRequest) returns (CreateBrandResponse) {}
+  rpc UpdateBrand(UpdateBrandRequest) returns (UpdateBrandResponse) {}
+  rpc DeleteBrand(DeleteBrandRequest) returns (DeleteBrandResponse) {}
+
+  // SALE
+  rpc GetSale(GetSaleRequest) returns (GetSaleResponse) {
+    option idempotency_level = NO_SIDE_EFFECTS;
+  }
+  rpc ListSales(ListSalesRequest) returns (ListSalesResponse) {
+    option idempotency_level = NO_SIDE_EFFECTS;
+  }
+  rpc CreateSale(CreateSaleRequest) returns (CreateSaleResponse) {}
+  rpc UpdateSale(UpdateSaleRequest) returns (UpdateSaleResponse) {}
+  rpc DeleteSale(DeleteSaleRequest) returns (DeleteSaleResponse) {}
+
+  // TAG
+  rpc GetTag(GetTagRequest) returns (GetTagResponse) {
+    option idempotency_level = NO_SIDE_EFFECTS;
+  }
+  rpc ListTags(ListTagsRequest) returns (ListTagsResponse) {
+    option idempotency_level = NO_SIDE_EFFECTS;
+  }
+  rpc CreateTag(CreateTagRequest) returns (CreateTagResponse) {}
+  rpc UpdateTag(UpdateTagRequest) returns (UpdateTagResponse) {}
+  rpc DeleteTag(DeleteTagRequest) returns (DeleteTagResponse) {}
 }
