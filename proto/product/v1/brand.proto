@@ -1,0 +1,54 @@
+syntax = "proto3";
+
+package product.v1;
+
+import "common/pagination.proto";
+
+// BRAND ENTITY
+message BrandEntity {
+  int64 id = 1;
+  string name = 2;
+  string description = 3;
+}
+
+message GetBrandRequest {
+  int64 id = 1;
+}
+
+message GetBrandResponse {
+  BrandEntity data = 1;
+}
+
+message ListBrandsRequest {
+  common.PaginationRequest pagination = 1;
+  optional string name = 2;
+  optional string description = 3;
+}
+
+message ListBrandsResponse {
+  repeated BrandEntity data = 1;
+  common.PaginationResponse pagination = 2;
+}
+
+message CreateBrandRequest {
+  string name = 1;
+  string description = 2;
+}
+
+message CreateBrandResponse {
+  BrandEntity data = 1;
+}
+
+message UpdateBrandRequest {
+  int64 id = 1;
+  optional string name = 2;
+  optional string description = 3;
+}
+
+message UpdateBrandResponse {}
+
+message DeleteBrandRequest {
+  int64 id = 1;
+}
+
+message DeleteBrandResponse {}
