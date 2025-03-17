@@ -1,0 +1,53 @@
+syntax = "proto3";
+
+package product.v1;
+
+import "common/pagination.proto";
+
+// TAG ENTITY
+message TagEntity {
+  string tag = 1;
+  string description = 2;
+}
+
+message GetTagRequest {
+  string tag = 1;
+}
+
+message GetTagResponse {
+  TagEntity data = 1;
+}
+
+message ListTagsRequest {
+  common.PaginationRequest pagination = 1;
+  optional string tag = 2;
+  optional string description = 3;
+}
+
+message ListTagsResponse {
+  repeated TagEntity data = 1;
+  common.PaginationResponse pagination = 2;
+}
+
+message CreateTagRequest {
+  string tag = 1;
+  string description = 2;
+}
+
+message CreateTagResponse {
+  TagEntity data = 1;
+}
+
+message UpdateTagRequest {
+  string tag = 1;
+  optional string new_tag = 2;
+  optional string description = 3;
+}
+
+message UpdateTagResponse {}
+
+message DeleteTagRequest {
+  string tag = 1;
+}
+
+message DeleteTagResponse {}
