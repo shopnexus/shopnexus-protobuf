@@ -9,7 +9,7 @@ import { file_common_item_quantity } from "../../common/item_quantity_pb";
  * Describes the file account/v1/cart.proto.
  */
 export const file_account_v1_cart = /*@__PURE__*/
-  fileDesc("ChVhY2NvdW50L3YxL2NhcnQucHJvdG8SCmFjY291bnQudjEiEAoOR2V0Q2FydFJlcXVlc3QiOwoPR2V0Q2FydFJlc3BvbnNlEigKBWl0ZW1zGAEgAygLMhkuY29tbW9uLkl0ZW1RdWFudGl0eUludDY0Ij4KEkFkZENhcnRJdGVtUmVxdWVzdBIoCgVpdGVtcxgBIAMoCzIZLmNvbW1vbi5JdGVtUXVhbnRpdHlJbnQ2NCI/ChNBZGRDYXJ0SXRlbVJlc3BvbnNlEigKBWl0ZW1zGAEgAygLMhkuY29tbW9uLkl0ZW1RdWFudGl0eUludDY0IkEKFVVwZGF0ZUNhcnRJdGVtUmVxdWVzdBIoCgVpdGVtcxgBIAMoCzIZLmNvbW1vbi5JdGVtUXVhbnRpdHlJbnQ2NCIYChZVcGRhdGVDYXJ0SXRlbVJlc3BvbnNlQqwBCg5jb20uYWNjb3VudC52MUIJQ2FydFByb3RvUAFaRmdpdGh1Yi5jb20vc2hvcG5leHVzL3Nob3BuZXh1cy1wcm90b2J1Zi1nZW4tZ28vcGIvYWNjb3VudC92MTthY2NvdW50djGiAgNBWFiqAgpBY2NvdW50LlYxygIKQWNjb3VudFxWMeICFkFjY291bnRcVjFcR1BCTWV0YWRhdGHqAgtBY2NvdW50OjpWMWIGcHJvdG8z", [file_common_item_quantity]);
+  fileDesc("ChVhY2NvdW50L3YxL2NhcnQucHJvdG8SCmFjY291bnQudjEiEAoOR2V0Q2FydFJlcXVlc3QiOwoPR2V0Q2FydFJlc3BvbnNlEigKBWl0ZW1zGAEgAygLMhkuY29tbW9uLkl0ZW1RdWFudGl0eUludDY0Ij4KEkFkZENhcnRJdGVtUmVxdWVzdBIoCgVpdGVtcxgBIAMoCzIZLmNvbW1vbi5JdGVtUXVhbnRpdHlJbnQ2NCI/ChNBZGRDYXJ0SXRlbVJlc3BvbnNlEigKBWl0ZW1zGAEgAygLMhkuY29tbW9uLkl0ZW1RdWFudGl0eUludDY0IkEKFVVwZGF0ZUNhcnRJdGVtUmVxdWVzdBIoCgVpdGVtcxgBIAMoCzIZLmNvbW1vbi5JdGVtUXVhbnRpdHlJbnQ2NCIYChZVcGRhdGVDYXJ0SXRlbVJlc3BvbnNlIhIKEENsZWFyQ2FydFJlcXVlc3QiEwoRQ2xlYXJDYXJ0UmVzcG9uc2VCrAEKDmNvbS5hY2NvdW50LnYxQglDYXJ0UHJvdG9QAVpGZ2l0aHViLmNvbS9zaG9wbmV4dXMvc2hvcG5leHVzLXByb3RvYnVmLWdlbi1nby9wYi9hY2NvdW50L3YxO2FjY291bnR2MaICA0FYWKoCCkFjY291bnQuVjHKAgpBY2NvdW50XFYx4gIWQWNjb3VudFxWMVxHUEJNZXRhZGF0YeoCC0FjY291bnQ6OlYxYgZwcm90bzM", [file_common_item_quantity]);
 
 /**
  * Describes the message account.v1.GetCartRequest.
@@ -52,4 +52,18 @@ export const UpdateCartItemRequestSchema = /*@__PURE__*/
  */
 export const UpdateCartItemResponseSchema = /*@__PURE__*/
   messageDesc(file_account_v1_cart, 5);
+
+/**
+ * Describes the message account.v1.ClearCartRequest.
+ * Use `create(ClearCartRequestSchema)` to create a new message.
+ */
+export const ClearCartRequestSchema = /*@__PURE__*/
+  messageDesc(file_account_v1_cart, 6);
+
+/**
+ * Describes the message account.v1.ClearCartResponse.
+ * Use `create(ClearCartResponseSchema)` to create a new message.
+ */
+export const ClearCartResponseSchema = /*@__PURE__*/
+  messageDesc(file_account_v1_cart, 7);
 

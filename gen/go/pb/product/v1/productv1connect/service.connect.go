@@ -63,20 +63,81 @@ const (
 	// ProductServiceDeleteProductProcedure is the fully-qualified name of the ProductService's
 	// DeleteProduct RPC.
 	ProductServiceDeleteProductProcedure = "/product.v1.ProductService/DeleteProduct"
+	// ProductServiceGetBrandProcedure is the fully-qualified name of the ProductService's GetBrand RPC.
+	ProductServiceGetBrandProcedure = "/product.v1.ProductService/GetBrand"
+	// ProductServiceListBrandsProcedure is the fully-qualified name of the ProductService's ListBrands
+	// RPC.
+	ProductServiceListBrandsProcedure = "/product.v1.ProductService/ListBrands"
+	// ProductServiceCreateBrandProcedure is the fully-qualified name of the ProductService's
+	// CreateBrand RPC.
+	ProductServiceCreateBrandProcedure = "/product.v1.ProductService/CreateBrand"
+	// ProductServiceUpdateBrandProcedure is the fully-qualified name of the ProductService's
+	// UpdateBrand RPC.
+	ProductServiceUpdateBrandProcedure = "/product.v1.ProductService/UpdateBrand"
+	// ProductServiceDeleteBrandProcedure is the fully-qualified name of the ProductService's
+	// DeleteBrand RPC.
+	ProductServiceDeleteBrandProcedure = "/product.v1.ProductService/DeleteBrand"
+	// ProductServiceGetSaleProcedure is the fully-qualified name of the ProductService's GetSale RPC.
+	ProductServiceGetSaleProcedure = "/product.v1.ProductService/GetSale"
+	// ProductServiceListSalesProcedure is the fully-qualified name of the ProductService's ListSales
+	// RPC.
+	ProductServiceListSalesProcedure = "/product.v1.ProductService/ListSales"
+	// ProductServiceCreateSaleProcedure is the fully-qualified name of the ProductService's CreateSale
+	// RPC.
+	ProductServiceCreateSaleProcedure = "/product.v1.ProductService/CreateSale"
+	// ProductServiceUpdateSaleProcedure is the fully-qualified name of the ProductService's UpdateSale
+	// RPC.
+	ProductServiceUpdateSaleProcedure = "/product.v1.ProductService/UpdateSale"
+	// ProductServiceDeleteSaleProcedure is the fully-qualified name of the ProductService's DeleteSale
+	// RPC.
+	ProductServiceDeleteSaleProcedure = "/product.v1.ProductService/DeleteSale"
+	// ProductServiceGetTagProcedure is the fully-qualified name of the ProductService's GetTag RPC.
+	ProductServiceGetTagProcedure = "/product.v1.ProductService/GetTag"
+	// ProductServiceListTagsProcedure is the fully-qualified name of the ProductService's ListTags RPC.
+	ProductServiceListTagsProcedure = "/product.v1.ProductService/ListTags"
+	// ProductServiceCreateTagProcedure is the fully-qualified name of the ProductService's CreateTag
+	// RPC.
+	ProductServiceCreateTagProcedure = "/product.v1.ProductService/CreateTag"
+	// ProductServiceUpdateTagProcedure is the fully-qualified name of the ProductService's UpdateTag
+	// RPC.
+	ProductServiceUpdateTagProcedure = "/product.v1.ProductService/UpdateTag"
+	// ProductServiceDeleteTagProcedure is the fully-qualified name of the ProductService's DeleteTag
+	// RPC.
+	ProductServiceDeleteTagProcedure = "/product.v1.ProductService/DeleteTag"
 )
 
 // ProductServiceClient is a client for the product.v1.ProductService service.
 type ProductServiceClient interface {
+	// PRODUCT MODEL
 	GetProductModel(context.Context, *connect.Request[v1.GetProductModelRequest]) (*connect.Response[v1.GetProductModelResponse], error)
 	ListProductModels(context.Context, *connect.Request[v1.ListProductModelsRequest]) (*connect.Response[v1.ListProductModelsResponse], error)
 	CreateProductModel(context.Context, *connect.Request[v1.CreateProductModelRequest]) (*connect.Response[v1.CreateProductModelResponse], error)
 	UpdateProductModel(context.Context, *connect.Request[v1.UpdateProductModelRequest]) (*connect.Response[v1.UpdateProductModelResponse], error)
 	DeleteProductModel(context.Context, *connect.Request[v1.DeleteProductModelRequest]) (*connect.Response[v1.DeleteProductModelResponse], error)
+	// PRODUCT
 	GetProduct(context.Context, *connect.Request[v1.GetProductRequest]) (*connect.Response[v1.GetProductResponse], error)
 	ListProducts(context.Context, *connect.Request[v1.ListProductsRequest]) (*connect.Response[v1.ListProductsResponse], error)
 	CreateProduct(context.Context, *connect.Request[v1.CreateProductRequest]) (*connect.Response[v1.CreateProductResponse], error)
 	UpdateProduct(context.Context, *connect.Request[v1.UpdateProductRequest]) (*connect.Response[v1.UpdateProductResponse], error)
 	DeleteProduct(context.Context, *connect.Request[v1.DeleteProductRequest]) (*connect.Response[v1.DeleteProductResponse], error)
+	// BRAND
+	GetBrand(context.Context, *connect.Request[v1.GetBrandRequest]) (*connect.Response[v1.GetBrandResponse], error)
+	ListBrands(context.Context, *connect.Request[v1.ListBrandsRequest]) (*connect.Response[v1.ListBrandsResponse], error)
+	CreateBrand(context.Context, *connect.Request[v1.CreateBrandRequest]) (*connect.Response[v1.CreateBrandResponse], error)
+	UpdateBrand(context.Context, *connect.Request[v1.UpdateBrandRequest]) (*connect.Response[v1.UpdateBrandResponse], error)
+	DeleteBrand(context.Context, *connect.Request[v1.DeleteBrandRequest]) (*connect.Response[v1.DeleteBrandResponse], error)
+	// SALE
+	GetSale(context.Context, *connect.Request[v1.GetSaleRequest]) (*connect.Response[v1.GetSaleResponse], error)
+	ListSales(context.Context, *connect.Request[v1.ListSalesRequest]) (*connect.Response[v1.ListSalesResponse], error)
+	CreateSale(context.Context, *connect.Request[v1.CreateSaleRequest]) (*connect.Response[v1.CreateSaleResponse], error)
+	UpdateSale(context.Context, *connect.Request[v1.UpdateSaleRequest]) (*connect.Response[v1.UpdateSaleResponse], error)
+	DeleteSale(context.Context, *connect.Request[v1.DeleteSaleRequest]) (*connect.Response[v1.DeleteSaleResponse], error)
+	// TAG
+	GetTag(context.Context, *connect.Request[v1.GetTagRequest]) (*connect.Response[v1.GetTagResponse], error)
+	ListTags(context.Context, *connect.Request[v1.ListTagsRequest]) (*connect.Response[v1.ListTagsResponse], error)
+	CreateTag(context.Context, *connect.Request[v1.CreateTagRequest]) (*connect.Response[v1.CreateTagResponse], error)
+	UpdateTag(context.Context, *connect.Request[v1.UpdateTagRequest]) (*connect.Response[v1.UpdateTagResponse], error)
+	DeleteTag(context.Context, *connect.Request[v1.DeleteTagRequest]) (*connect.Response[v1.DeleteTagResponse], error)
 }
 
 // NewProductServiceClient constructs a client for the product.v1.ProductService service. By
@@ -154,6 +215,102 @@ func NewProductServiceClient(httpClient connect.HTTPClient, baseURL string, opts
 			connect.WithSchema(productServiceMethods.ByName("DeleteProduct")),
 			connect.WithClientOptions(opts...),
 		),
+		getBrand: connect.NewClient[v1.GetBrandRequest, v1.GetBrandResponse](
+			httpClient,
+			baseURL+ProductServiceGetBrandProcedure,
+			connect.WithSchema(productServiceMethods.ByName("GetBrand")),
+			connect.WithIdempotency(connect.IdempotencyNoSideEffects),
+			connect.WithClientOptions(opts...),
+		),
+		listBrands: connect.NewClient[v1.ListBrandsRequest, v1.ListBrandsResponse](
+			httpClient,
+			baseURL+ProductServiceListBrandsProcedure,
+			connect.WithSchema(productServiceMethods.ByName("ListBrands")),
+			connect.WithIdempotency(connect.IdempotencyNoSideEffects),
+			connect.WithClientOptions(opts...),
+		),
+		createBrand: connect.NewClient[v1.CreateBrandRequest, v1.CreateBrandResponse](
+			httpClient,
+			baseURL+ProductServiceCreateBrandProcedure,
+			connect.WithSchema(productServiceMethods.ByName("CreateBrand")),
+			connect.WithClientOptions(opts...),
+		),
+		updateBrand: connect.NewClient[v1.UpdateBrandRequest, v1.UpdateBrandResponse](
+			httpClient,
+			baseURL+ProductServiceUpdateBrandProcedure,
+			connect.WithSchema(productServiceMethods.ByName("UpdateBrand")),
+			connect.WithClientOptions(opts...),
+		),
+		deleteBrand: connect.NewClient[v1.DeleteBrandRequest, v1.DeleteBrandResponse](
+			httpClient,
+			baseURL+ProductServiceDeleteBrandProcedure,
+			connect.WithSchema(productServiceMethods.ByName("DeleteBrand")),
+			connect.WithClientOptions(opts...),
+		),
+		getSale: connect.NewClient[v1.GetSaleRequest, v1.GetSaleResponse](
+			httpClient,
+			baseURL+ProductServiceGetSaleProcedure,
+			connect.WithSchema(productServiceMethods.ByName("GetSale")),
+			connect.WithIdempotency(connect.IdempotencyNoSideEffects),
+			connect.WithClientOptions(opts...),
+		),
+		listSales: connect.NewClient[v1.ListSalesRequest, v1.ListSalesResponse](
+			httpClient,
+			baseURL+ProductServiceListSalesProcedure,
+			connect.WithSchema(productServiceMethods.ByName("ListSales")),
+			connect.WithIdempotency(connect.IdempotencyNoSideEffects),
+			connect.WithClientOptions(opts...),
+		),
+		createSale: connect.NewClient[v1.CreateSaleRequest, v1.CreateSaleResponse](
+			httpClient,
+			baseURL+ProductServiceCreateSaleProcedure,
+			connect.WithSchema(productServiceMethods.ByName("CreateSale")),
+			connect.WithClientOptions(opts...),
+		),
+		updateSale: connect.NewClient[v1.UpdateSaleRequest, v1.UpdateSaleResponse](
+			httpClient,
+			baseURL+ProductServiceUpdateSaleProcedure,
+			connect.WithSchema(productServiceMethods.ByName("UpdateSale")),
+			connect.WithClientOptions(opts...),
+		),
+		deleteSale: connect.NewClient[v1.DeleteSaleRequest, v1.DeleteSaleResponse](
+			httpClient,
+			baseURL+ProductServiceDeleteSaleProcedure,
+			connect.WithSchema(productServiceMethods.ByName("DeleteSale")),
+			connect.WithClientOptions(opts...),
+		),
+		getTag: connect.NewClient[v1.GetTagRequest, v1.GetTagResponse](
+			httpClient,
+			baseURL+ProductServiceGetTagProcedure,
+			connect.WithSchema(productServiceMethods.ByName("GetTag")),
+			connect.WithIdempotency(connect.IdempotencyNoSideEffects),
+			connect.WithClientOptions(opts...),
+		),
+		listTags: connect.NewClient[v1.ListTagsRequest, v1.ListTagsResponse](
+			httpClient,
+			baseURL+ProductServiceListTagsProcedure,
+			connect.WithSchema(productServiceMethods.ByName("ListTags")),
+			connect.WithIdempotency(connect.IdempotencyNoSideEffects),
+			connect.WithClientOptions(opts...),
+		),
+		createTag: connect.NewClient[v1.CreateTagRequest, v1.CreateTagResponse](
+			httpClient,
+			baseURL+ProductServiceCreateTagProcedure,
+			connect.WithSchema(productServiceMethods.ByName("CreateTag")),
+			connect.WithClientOptions(opts...),
+		),
+		updateTag: connect.NewClient[v1.UpdateTagRequest, v1.UpdateTagResponse](
+			httpClient,
+			baseURL+ProductServiceUpdateTagProcedure,
+			connect.WithSchema(productServiceMethods.ByName("UpdateTag")),
+			connect.WithClientOptions(opts...),
+		),
+		deleteTag: connect.NewClient[v1.DeleteTagRequest, v1.DeleteTagResponse](
+			httpClient,
+			baseURL+ProductServiceDeleteTagProcedure,
+			connect.WithSchema(productServiceMethods.ByName("DeleteTag")),
+			connect.WithClientOptions(opts...),
+		),
 	}
 }
 
@@ -169,6 +326,21 @@ type productServiceClient struct {
 	createProduct      *connect.Client[v1.CreateProductRequest, v1.CreateProductResponse]
 	updateProduct      *connect.Client[v1.UpdateProductRequest, v1.UpdateProductResponse]
 	deleteProduct      *connect.Client[v1.DeleteProductRequest, v1.DeleteProductResponse]
+	getBrand           *connect.Client[v1.GetBrandRequest, v1.GetBrandResponse]
+	listBrands         *connect.Client[v1.ListBrandsRequest, v1.ListBrandsResponse]
+	createBrand        *connect.Client[v1.CreateBrandRequest, v1.CreateBrandResponse]
+	updateBrand        *connect.Client[v1.UpdateBrandRequest, v1.UpdateBrandResponse]
+	deleteBrand        *connect.Client[v1.DeleteBrandRequest, v1.DeleteBrandResponse]
+	getSale            *connect.Client[v1.GetSaleRequest, v1.GetSaleResponse]
+	listSales          *connect.Client[v1.ListSalesRequest, v1.ListSalesResponse]
+	createSale         *connect.Client[v1.CreateSaleRequest, v1.CreateSaleResponse]
+	updateSale         *connect.Client[v1.UpdateSaleRequest, v1.UpdateSaleResponse]
+	deleteSale         *connect.Client[v1.DeleteSaleRequest, v1.DeleteSaleResponse]
+	getTag             *connect.Client[v1.GetTagRequest, v1.GetTagResponse]
+	listTags           *connect.Client[v1.ListTagsRequest, v1.ListTagsResponse]
+	createTag          *connect.Client[v1.CreateTagRequest, v1.CreateTagResponse]
+	updateTag          *connect.Client[v1.UpdateTagRequest, v1.UpdateTagResponse]
+	deleteTag          *connect.Client[v1.DeleteTagRequest, v1.DeleteTagResponse]
 }
 
 // GetProductModel calls product.v1.ProductService.GetProductModel.
@@ -221,18 +393,113 @@ func (c *productServiceClient) DeleteProduct(ctx context.Context, req *connect.R
 	return c.deleteProduct.CallUnary(ctx, req)
 }
 
+// GetBrand calls product.v1.ProductService.GetBrand.
+func (c *productServiceClient) GetBrand(ctx context.Context, req *connect.Request[v1.GetBrandRequest]) (*connect.Response[v1.GetBrandResponse], error) {
+	return c.getBrand.CallUnary(ctx, req)
+}
+
+// ListBrands calls product.v1.ProductService.ListBrands.
+func (c *productServiceClient) ListBrands(ctx context.Context, req *connect.Request[v1.ListBrandsRequest]) (*connect.Response[v1.ListBrandsResponse], error) {
+	return c.listBrands.CallUnary(ctx, req)
+}
+
+// CreateBrand calls product.v1.ProductService.CreateBrand.
+func (c *productServiceClient) CreateBrand(ctx context.Context, req *connect.Request[v1.CreateBrandRequest]) (*connect.Response[v1.CreateBrandResponse], error) {
+	return c.createBrand.CallUnary(ctx, req)
+}
+
+// UpdateBrand calls product.v1.ProductService.UpdateBrand.
+func (c *productServiceClient) UpdateBrand(ctx context.Context, req *connect.Request[v1.UpdateBrandRequest]) (*connect.Response[v1.UpdateBrandResponse], error) {
+	return c.updateBrand.CallUnary(ctx, req)
+}
+
+// DeleteBrand calls product.v1.ProductService.DeleteBrand.
+func (c *productServiceClient) DeleteBrand(ctx context.Context, req *connect.Request[v1.DeleteBrandRequest]) (*connect.Response[v1.DeleteBrandResponse], error) {
+	return c.deleteBrand.CallUnary(ctx, req)
+}
+
+// GetSale calls product.v1.ProductService.GetSale.
+func (c *productServiceClient) GetSale(ctx context.Context, req *connect.Request[v1.GetSaleRequest]) (*connect.Response[v1.GetSaleResponse], error) {
+	return c.getSale.CallUnary(ctx, req)
+}
+
+// ListSales calls product.v1.ProductService.ListSales.
+func (c *productServiceClient) ListSales(ctx context.Context, req *connect.Request[v1.ListSalesRequest]) (*connect.Response[v1.ListSalesResponse], error) {
+	return c.listSales.CallUnary(ctx, req)
+}
+
+// CreateSale calls product.v1.ProductService.CreateSale.
+func (c *productServiceClient) CreateSale(ctx context.Context, req *connect.Request[v1.CreateSaleRequest]) (*connect.Response[v1.CreateSaleResponse], error) {
+	return c.createSale.CallUnary(ctx, req)
+}
+
+// UpdateSale calls product.v1.ProductService.UpdateSale.
+func (c *productServiceClient) UpdateSale(ctx context.Context, req *connect.Request[v1.UpdateSaleRequest]) (*connect.Response[v1.UpdateSaleResponse], error) {
+	return c.updateSale.CallUnary(ctx, req)
+}
+
+// DeleteSale calls product.v1.ProductService.DeleteSale.
+func (c *productServiceClient) DeleteSale(ctx context.Context, req *connect.Request[v1.DeleteSaleRequest]) (*connect.Response[v1.DeleteSaleResponse], error) {
+	return c.deleteSale.CallUnary(ctx, req)
+}
+
+// GetTag calls product.v1.ProductService.GetTag.
+func (c *productServiceClient) GetTag(ctx context.Context, req *connect.Request[v1.GetTagRequest]) (*connect.Response[v1.GetTagResponse], error) {
+	return c.getTag.CallUnary(ctx, req)
+}
+
+// ListTags calls product.v1.ProductService.ListTags.
+func (c *productServiceClient) ListTags(ctx context.Context, req *connect.Request[v1.ListTagsRequest]) (*connect.Response[v1.ListTagsResponse], error) {
+	return c.listTags.CallUnary(ctx, req)
+}
+
+// CreateTag calls product.v1.ProductService.CreateTag.
+func (c *productServiceClient) CreateTag(ctx context.Context, req *connect.Request[v1.CreateTagRequest]) (*connect.Response[v1.CreateTagResponse], error) {
+	return c.createTag.CallUnary(ctx, req)
+}
+
+// UpdateTag calls product.v1.ProductService.UpdateTag.
+func (c *productServiceClient) UpdateTag(ctx context.Context, req *connect.Request[v1.UpdateTagRequest]) (*connect.Response[v1.UpdateTagResponse], error) {
+	return c.updateTag.CallUnary(ctx, req)
+}
+
+// DeleteTag calls product.v1.ProductService.DeleteTag.
+func (c *productServiceClient) DeleteTag(ctx context.Context, req *connect.Request[v1.DeleteTagRequest]) (*connect.Response[v1.DeleteTagResponse], error) {
+	return c.deleteTag.CallUnary(ctx, req)
+}
+
 // ProductServiceHandler is an implementation of the product.v1.ProductService service.
 type ProductServiceHandler interface {
+	// PRODUCT MODEL
 	GetProductModel(context.Context, *connect.Request[v1.GetProductModelRequest]) (*connect.Response[v1.GetProductModelResponse], error)
 	ListProductModels(context.Context, *connect.Request[v1.ListProductModelsRequest]) (*connect.Response[v1.ListProductModelsResponse], error)
 	CreateProductModel(context.Context, *connect.Request[v1.CreateProductModelRequest]) (*connect.Response[v1.CreateProductModelResponse], error)
 	UpdateProductModel(context.Context, *connect.Request[v1.UpdateProductModelRequest]) (*connect.Response[v1.UpdateProductModelResponse], error)
 	DeleteProductModel(context.Context, *connect.Request[v1.DeleteProductModelRequest]) (*connect.Response[v1.DeleteProductModelResponse], error)
+	// PRODUCT
 	GetProduct(context.Context, *connect.Request[v1.GetProductRequest]) (*connect.Response[v1.GetProductResponse], error)
 	ListProducts(context.Context, *connect.Request[v1.ListProductsRequest]) (*connect.Response[v1.ListProductsResponse], error)
 	CreateProduct(context.Context, *connect.Request[v1.CreateProductRequest]) (*connect.Response[v1.CreateProductResponse], error)
 	UpdateProduct(context.Context, *connect.Request[v1.UpdateProductRequest]) (*connect.Response[v1.UpdateProductResponse], error)
 	DeleteProduct(context.Context, *connect.Request[v1.DeleteProductRequest]) (*connect.Response[v1.DeleteProductResponse], error)
+	// BRAND
+	GetBrand(context.Context, *connect.Request[v1.GetBrandRequest]) (*connect.Response[v1.GetBrandResponse], error)
+	ListBrands(context.Context, *connect.Request[v1.ListBrandsRequest]) (*connect.Response[v1.ListBrandsResponse], error)
+	CreateBrand(context.Context, *connect.Request[v1.CreateBrandRequest]) (*connect.Response[v1.CreateBrandResponse], error)
+	UpdateBrand(context.Context, *connect.Request[v1.UpdateBrandRequest]) (*connect.Response[v1.UpdateBrandResponse], error)
+	DeleteBrand(context.Context, *connect.Request[v1.DeleteBrandRequest]) (*connect.Response[v1.DeleteBrandResponse], error)
+	// SALE
+	GetSale(context.Context, *connect.Request[v1.GetSaleRequest]) (*connect.Response[v1.GetSaleResponse], error)
+	ListSales(context.Context, *connect.Request[v1.ListSalesRequest]) (*connect.Response[v1.ListSalesResponse], error)
+	CreateSale(context.Context, *connect.Request[v1.CreateSaleRequest]) (*connect.Response[v1.CreateSaleResponse], error)
+	UpdateSale(context.Context, *connect.Request[v1.UpdateSaleRequest]) (*connect.Response[v1.UpdateSaleResponse], error)
+	DeleteSale(context.Context, *connect.Request[v1.DeleteSaleRequest]) (*connect.Response[v1.DeleteSaleResponse], error)
+	// TAG
+	GetTag(context.Context, *connect.Request[v1.GetTagRequest]) (*connect.Response[v1.GetTagResponse], error)
+	ListTags(context.Context, *connect.Request[v1.ListTagsRequest]) (*connect.Response[v1.ListTagsResponse], error)
+	CreateTag(context.Context, *connect.Request[v1.CreateTagRequest]) (*connect.Response[v1.CreateTagResponse], error)
+	UpdateTag(context.Context, *connect.Request[v1.UpdateTagRequest]) (*connect.Response[v1.UpdateTagResponse], error)
+	DeleteTag(context.Context, *connect.Request[v1.DeleteTagRequest]) (*connect.Response[v1.DeleteTagResponse], error)
 }
 
 // NewProductServiceHandler builds an HTTP handler from the service implementation. It returns the
@@ -306,6 +573,102 @@ func NewProductServiceHandler(svc ProductServiceHandler, opts ...connect.Handler
 		connect.WithSchema(productServiceMethods.ByName("DeleteProduct")),
 		connect.WithHandlerOptions(opts...),
 	)
+	productServiceGetBrandHandler := connect.NewUnaryHandler(
+		ProductServiceGetBrandProcedure,
+		svc.GetBrand,
+		connect.WithSchema(productServiceMethods.ByName("GetBrand")),
+		connect.WithIdempotency(connect.IdempotencyNoSideEffects),
+		connect.WithHandlerOptions(opts...),
+	)
+	productServiceListBrandsHandler := connect.NewUnaryHandler(
+		ProductServiceListBrandsProcedure,
+		svc.ListBrands,
+		connect.WithSchema(productServiceMethods.ByName("ListBrands")),
+		connect.WithIdempotency(connect.IdempotencyNoSideEffects),
+		connect.WithHandlerOptions(opts...),
+	)
+	productServiceCreateBrandHandler := connect.NewUnaryHandler(
+		ProductServiceCreateBrandProcedure,
+		svc.CreateBrand,
+		connect.WithSchema(productServiceMethods.ByName("CreateBrand")),
+		connect.WithHandlerOptions(opts...),
+	)
+	productServiceUpdateBrandHandler := connect.NewUnaryHandler(
+		ProductServiceUpdateBrandProcedure,
+		svc.UpdateBrand,
+		connect.WithSchema(productServiceMethods.ByName("UpdateBrand")),
+		connect.WithHandlerOptions(opts...),
+	)
+	productServiceDeleteBrandHandler := connect.NewUnaryHandler(
+		ProductServiceDeleteBrandProcedure,
+		svc.DeleteBrand,
+		connect.WithSchema(productServiceMethods.ByName("DeleteBrand")),
+		connect.WithHandlerOptions(opts...),
+	)
+	productServiceGetSaleHandler := connect.NewUnaryHandler(
+		ProductServiceGetSaleProcedure,
+		svc.GetSale,
+		connect.WithSchema(productServiceMethods.ByName("GetSale")),
+		connect.WithIdempotency(connect.IdempotencyNoSideEffects),
+		connect.WithHandlerOptions(opts...),
+	)
+	productServiceListSalesHandler := connect.NewUnaryHandler(
+		ProductServiceListSalesProcedure,
+		svc.ListSales,
+		connect.WithSchema(productServiceMethods.ByName("ListSales")),
+		connect.WithIdempotency(connect.IdempotencyNoSideEffects),
+		connect.WithHandlerOptions(opts...),
+	)
+	productServiceCreateSaleHandler := connect.NewUnaryHandler(
+		ProductServiceCreateSaleProcedure,
+		svc.CreateSale,
+		connect.WithSchema(productServiceMethods.ByName("CreateSale")),
+		connect.WithHandlerOptions(opts...),
+	)
+	productServiceUpdateSaleHandler := connect.NewUnaryHandler(
+		ProductServiceUpdateSaleProcedure,
+		svc.UpdateSale,
+		connect.WithSchema(productServiceMethods.ByName("UpdateSale")),
+		connect.WithHandlerOptions(opts...),
+	)
+	productServiceDeleteSaleHandler := connect.NewUnaryHandler(
+		ProductServiceDeleteSaleProcedure,
+		svc.DeleteSale,
+		connect.WithSchema(productServiceMethods.ByName("DeleteSale")),
+		connect.WithHandlerOptions(opts...),
+	)
+	productServiceGetTagHandler := connect.NewUnaryHandler(
+		ProductServiceGetTagProcedure,
+		svc.GetTag,
+		connect.WithSchema(productServiceMethods.ByName("GetTag")),
+		connect.WithIdempotency(connect.IdempotencyNoSideEffects),
+		connect.WithHandlerOptions(opts...),
+	)
+	productServiceListTagsHandler := connect.NewUnaryHandler(
+		ProductServiceListTagsProcedure,
+		svc.ListTags,
+		connect.WithSchema(productServiceMethods.ByName("ListTags")),
+		connect.WithIdempotency(connect.IdempotencyNoSideEffects),
+		connect.WithHandlerOptions(opts...),
+	)
+	productServiceCreateTagHandler := connect.NewUnaryHandler(
+		ProductServiceCreateTagProcedure,
+		svc.CreateTag,
+		connect.WithSchema(productServiceMethods.ByName("CreateTag")),
+		connect.WithHandlerOptions(opts...),
+	)
+	productServiceUpdateTagHandler := connect.NewUnaryHandler(
+		ProductServiceUpdateTagProcedure,
+		svc.UpdateTag,
+		connect.WithSchema(productServiceMethods.ByName("UpdateTag")),
+		connect.WithHandlerOptions(opts...),
+	)
+	productServiceDeleteTagHandler := connect.NewUnaryHandler(
+		ProductServiceDeleteTagProcedure,
+		svc.DeleteTag,
+		connect.WithSchema(productServiceMethods.ByName("DeleteTag")),
+		connect.WithHandlerOptions(opts...),
+	)
 	return "/product.v1.ProductService/", http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
 		switch r.URL.Path {
 		case ProductServiceGetProductModelProcedure:
@@ -328,6 +691,36 @@ func NewProductServiceHandler(svc ProductServiceHandler, opts ...connect.Handler
 			productServiceUpdateProductHandler.ServeHTTP(w, r)
 		case ProductServiceDeleteProductProcedure:
 			productServiceDeleteProductHandler.ServeHTTP(w, r)
+		case ProductServiceGetBrandProcedure:
+			productServiceGetBrandHandler.ServeHTTP(w, r)
+		case ProductServiceListBrandsProcedure:
+			productServiceListBrandsHandler.ServeHTTP(w, r)
+		case ProductServiceCreateBrandProcedure:
+			productServiceCreateBrandHandler.ServeHTTP(w, r)
+		case ProductServiceUpdateBrandProcedure:
+			productServiceUpdateBrandHandler.ServeHTTP(w, r)
+		case ProductServiceDeleteBrandProcedure:
+			productServiceDeleteBrandHandler.ServeHTTP(w, r)
+		case ProductServiceGetSaleProcedure:
+			productServiceGetSaleHandler.ServeHTTP(w, r)
+		case ProductServiceListSalesProcedure:
+			productServiceListSalesHandler.ServeHTTP(w, r)
+		case ProductServiceCreateSaleProcedure:
+			productServiceCreateSaleHandler.ServeHTTP(w, r)
+		case ProductServiceUpdateSaleProcedure:
+			productServiceUpdateSaleHandler.ServeHTTP(w, r)
+		case ProductServiceDeleteSaleProcedure:
+			productServiceDeleteSaleHandler.ServeHTTP(w, r)
+		case ProductServiceGetTagProcedure:
+			productServiceGetTagHandler.ServeHTTP(w, r)
+		case ProductServiceListTagsProcedure:
+			productServiceListTagsHandler.ServeHTTP(w, r)
+		case ProductServiceCreateTagProcedure:
+			productServiceCreateTagHandler.ServeHTTP(w, r)
+		case ProductServiceUpdateTagProcedure:
+			productServiceUpdateTagHandler.ServeHTTP(w, r)
+		case ProductServiceDeleteTagProcedure:
+			productServiceDeleteTagHandler.ServeHTTP(w, r)
 		default:
 			http.NotFound(w, r)
 		}
@@ -375,4 +768,64 @@ func (UnimplementedProductServiceHandler) UpdateProduct(context.Context, *connec
 
 func (UnimplementedProductServiceHandler) DeleteProduct(context.Context, *connect.Request[v1.DeleteProductRequest]) (*connect.Response[v1.DeleteProductResponse], error) {
 	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("product.v1.ProductService.DeleteProduct is not implemented"))
+}
+
+func (UnimplementedProductServiceHandler) GetBrand(context.Context, *connect.Request[v1.GetBrandRequest]) (*connect.Response[v1.GetBrandResponse], error) {
+	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("product.v1.ProductService.GetBrand is not implemented"))
+}
+
+func (UnimplementedProductServiceHandler) ListBrands(context.Context, *connect.Request[v1.ListBrandsRequest]) (*connect.Response[v1.ListBrandsResponse], error) {
+	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("product.v1.ProductService.ListBrands is not implemented"))
+}
+
+func (UnimplementedProductServiceHandler) CreateBrand(context.Context, *connect.Request[v1.CreateBrandRequest]) (*connect.Response[v1.CreateBrandResponse], error) {
+	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("product.v1.ProductService.CreateBrand is not implemented"))
+}
+
+func (UnimplementedProductServiceHandler) UpdateBrand(context.Context, *connect.Request[v1.UpdateBrandRequest]) (*connect.Response[v1.UpdateBrandResponse], error) {
+	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("product.v1.ProductService.UpdateBrand is not implemented"))
+}
+
+func (UnimplementedProductServiceHandler) DeleteBrand(context.Context, *connect.Request[v1.DeleteBrandRequest]) (*connect.Response[v1.DeleteBrandResponse], error) {
+	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("product.v1.ProductService.DeleteBrand is not implemented"))
+}
+
+func (UnimplementedProductServiceHandler) GetSale(context.Context, *connect.Request[v1.GetSaleRequest]) (*connect.Response[v1.GetSaleResponse], error) {
+	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("product.v1.ProductService.GetSale is not implemented"))
+}
+
+func (UnimplementedProductServiceHandler) ListSales(context.Context, *connect.Request[v1.ListSalesRequest]) (*connect.Response[v1.ListSalesResponse], error) {
+	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("product.v1.ProductService.ListSales is not implemented"))
+}
+
+func (UnimplementedProductServiceHandler) CreateSale(context.Context, *connect.Request[v1.CreateSaleRequest]) (*connect.Response[v1.CreateSaleResponse], error) {
+	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("product.v1.ProductService.CreateSale is not implemented"))
+}
+
+func (UnimplementedProductServiceHandler) UpdateSale(context.Context, *connect.Request[v1.UpdateSaleRequest]) (*connect.Response[v1.UpdateSaleResponse], error) {
+	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("product.v1.ProductService.UpdateSale is not implemented"))
+}
+
+func (UnimplementedProductServiceHandler) DeleteSale(context.Context, *connect.Request[v1.DeleteSaleRequest]) (*connect.Response[v1.DeleteSaleResponse], error) {
+	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("product.v1.ProductService.DeleteSale is not implemented"))
+}
+
+func (UnimplementedProductServiceHandler) GetTag(context.Context, *connect.Request[v1.GetTagRequest]) (*connect.Response[v1.GetTagResponse], error) {
+	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("product.v1.ProductService.GetTag is not implemented"))
+}
+
+func (UnimplementedProductServiceHandler) ListTags(context.Context, *connect.Request[v1.ListTagsRequest]) (*connect.Response[v1.ListTagsResponse], error) {
+	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("product.v1.ProductService.ListTags is not implemented"))
+}
+
+func (UnimplementedProductServiceHandler) CreateTag(context.Context, *connect.Request[v1.CreateTagRequest]) (*connect.Response[v1.CreateTagResponse], error) {
+	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("product.v1.ProductService.CreateTag is not implemented"))
+}
+
+func (UnimplementedProductServiceHandler) UpdateTag(context.Context, *connect.Request[v1.UpdateTagRequest]) (*connect.Response[v1.UpdateTagResponse], error) {
+	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("product.v1.ProductService.UpdateTag is not implemented"))
+}
+
+func (UnimplementedProductServiceHandler) DeleteTag(context.Context, *connect.Request[v1.DeleteTagRequest]) (*connect.Response[v1.DeleteTagResponse], error) {
+	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("product.v1.ProductService.DeleteTag is not implemented"))
 }

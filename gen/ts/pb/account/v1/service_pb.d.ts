@@ -4,7 +4,7 @@
 
 import type { GenFile, GenService } from "@bufbuild/protobuf/codegenv1";
 import type { LoginAdminRequestSchema, LoginAdminResponseSchema, LoginUserRequestSchema, LoginUserResponseSchema, RegisterAdminRequestSchema, RegisterAdminResponseSchema, RegisterUserRequestSchema, RegisterUserResponseSchema } from "./account_pb";
-import type { AddCartItemRequestSchema, AddCartItemResponseSchema, GetCartRequestSchema, GetCartResponseSchema, UpdateCartItemRequestSchema, UpdateCartItemResponseSchema } from "./cart_pb";
+import type { AddCartItemRequestSchema, AddCartItemResponseSchema, ClearCartRequestSchema, ClearCartResponseSchema, GetCartRequestSchema, GetCartResponseSchema, UpdateCartItemRequestSchema, UpdateCartItemResponseSchema } from "./cart_pb";
 
 /**
  * Describes the file account/v1/service.proto.
@@ -74,6 +74,14 @@ export declare const AccountService: GenService<{
     methodKind: "unary";
     input: typeof UpdateCartItemRequestSchema;
     output: typeof UpdateCartItemResponseSchema;
+  },
+  /**
+   * @generated from rpc account.v1.AccountService.ClearCart
+   */
+  clearCart: {
+    methodKind: "unary";
+    input: typeof ClearCartRequestSchema;
+    output: typeof ClearCartResponseSchema;
   },
 }>;
 

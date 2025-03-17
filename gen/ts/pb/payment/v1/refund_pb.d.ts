@@ -89,9 +89,9 @@ export declare const GetRefundRequestSchema: GenMessage<GetRefundRequest>;
  */
 export declare type GetRefundResponse = Message<"payment.v1.GetRefundResponse"> & {
   /**
-   * @generated from field: payment.v1.Refund refund = 1;
+   * @generated from field: payment.v1.Refund data = 1;
    */
-  refund?: Refund;
+  data?: Refund;
 };
 
 /**

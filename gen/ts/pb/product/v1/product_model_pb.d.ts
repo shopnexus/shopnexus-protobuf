@@ -83,9 +83,9 @@ export declare const GetProductModelRequestSchema: GenMessage<GetProductModelReq
  */
 export declare type GetProductModelResponse = Message<"product.v1.GetProductModelResponse"> & {
   /**
-   * @generated from field: product.v1.ProductModelEntity product_model = 1;
+   * @generated from field: product.v1.ProductModelEntity data = 1;
    */
-  productModel?: ProductModelEntity;
+  data?: ProductModelEntity;
 };
 
 /**
@@ -217,9 +217,9 @@ export declare const CreateProductModelRequestSchema: GenMessage<CreateProductMo
  */
 export declare type CreateProductModelResponse = Message<"product.v1.CreateProductModelResponse"> & {
   /**
-   * @generated from field: product.v1.ProductModelEntity product_model = 1;
+   * @generated from field: product.v1.ProductModelEntity data = 1;
    */
-  productModel?: ProductModelEntity;
+  data?: ProductModelEntity;
 };
 
 /**

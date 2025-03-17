@@ -53,6 +53,9 @@ const (
 	// AccountServiceUpdateCartItemProcedure is the fully-qualified name of the AccountService's
 	// UpdateCartItem RPC.
 	AccountServiceUpdateCartItemProcedure = "/account.v1.AccountService/UpdateCartItem"
+	// AccountServiceClearCartProcedure is the fully-qualified name of the AccountService's ClearCart
+	// RPC.
+	AccountServiceClearCartProcedure = "/account.v1.AccountService/ClearCart"
 )
 
 // AccountServiceClient is a client for the account.v1.AccountService service.
@@ -66,6 +69,7 @@ type AccountServiceClient interface {
 	GetCart(context.Context, *connect.Request[v1.GetCartRequest]) (*connect.Response[v1.GetCartResponse], error)
 	AddCartItem(context.Context, *connect.Request[v1.AddCartItemRequest]) (*connect.Response[v1.AddCartItemResponse], error)
 	UpdateCartItem(context.Context, *connect.Request[v1.UpdateCartItemRequest]) (*connect.Response[v1.UpdateCartItemResponse], error)
+	ClearCart(context.Context, *connect.Request[v1.ClearCartRequest]) (*connect.Response[v1.ClearCartResponse], error)
 }
 
 // NewAccountServiceClient constructs a client for the account.v1.AccountService service. By
@@ -122,6 +126,12 @@ func NewAccountServiceClient(httpClient connect.HTTPClient, baseURL string, opts
 			connect.WithSchema(accountServiceMethods.ByName("UpdateCartItem")),
 			connect.WithClientOptions(opts...),
 		),
+		clearCart: connect.NewClient[v1.ClearCartRequest, v1.ClearCartResponse](
+			httpClient,
+			baseURL+AccountServiceClearCartProcedure,
+			connect.WithSchema(accountServiceMethods.ByName("ClearCart")),
+			connect.WithClientOptions(opts...),
+		),
 	}
 }
 
@@ -134,6 +144,7 @@ type accountServiceClient struct {
 	getCart        *connect.Client[v1.GetCartRequest, v1.GetCartResponse]
 	addCartItem    *connect.Client[v1.AddCartItemRequest, v1.AddCartItemResponse]
 	updateCartItem *connect.Client[v1.UpdateCartItemRequest, v1.UpdateCartItemResponse]
+	clearCart      *connect.Client[v1.ClearCartRequest, v1.ClearCartResponse]
 }
 
 // LoginUser calls account.v1.AccountService.LoginUser.
@@ -171,6 +182,11 @@ func (c *accountServiceClient) UpdateCartItem(ctx context.Context, req *connect.
 	return c.updateCartItem.CallUnary(ctx, req)
 }
 
+// ClearCart calls account.v1.AccountService.ClearCart.
+func (c *accountServiceClient) ClearCart(ctx context.Context, req *connect.Request[v1.ClearCartRequest]) (*connect.Response[v1.ClearCartResponse], error) {
+	return c.clearCart.CallUnary(ctx, req)
+}
+
 // AccountServiceHandler is an implementation of the account.v1.AccountService service.
 type AccountServiceHandler interface {
 	// Login, register
@@ -182,6 +198,7 @@ type AccountServiceHandler interface {
 	GetCart(context.Context, *connect.Request[v1.GetCartRequest]) (*connect.Response[v1.GetCartResponse], error)
 	AddCartItem(context.Context, *connect.Request[v1.AddCartItemRequest]) (*connect.Response[v1.AddCartItemResponse], error)
 	UpdateCartItem(context.Context, *connect.Request[v1.UpdateCartItemRequest]) (*connect.Response[v1.UpdateCartItemResponse], error)
+	ClearCart(context.Context, *connect.Request[v1.ClearCartRequest]) (*connect.Response[v1.ClearCartResponse], error)
 }
 
 // NewAccountServiceHandler builds an HTTP handler from the service implementation. It returns the
@@ -234,6 +251,12 @@ func NewAccountServiceHandler(svc AccountServiceHandler, opts ...connect.Handler
 		connect.WithSchema(accountServiceMethods.ByName("UpdateCartItem")),
 		connect.WithHandlerOptions(opts...),
 	)
+	accountServiceClearCartHandler := connect.NewUnaryHandler(
+		AccountServiceClearCartProcedure,
+		svc.ClearCart,
+		connect.WithSchema(accountServiceMethods.ByName("ClearCart")),
+		connect.WithHandlerOptions(opts...),
+	)
 	return "/account.v1.AccountService/", http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
 		switch r.URL.Path {
 		case AccountServiceLoginUserProcedure:
@@ -250,6 +273,8 @@ func NewAccountServiceHandler(svc AccountServiceHandler, opts ...connect.Handler
 			accountServiceAddCartItemHandler.ServeHTTP(w, r)
 		case AccountServiceUpdateCartItemProcedure:
 			accountServiceUpdateCartItemHandler.ServeHTTP(w, r)
+		case AccountServiceClearCartProcedure:
+			accountServiceClearCartHandler.ServeHTTP(w, r)
 		default:
 			http.NotFound(w, r)
 		}
@@ -285,4 +310,8 @@ func (UnimplementedAccountServiceHandler) AddCartItem(context.Context, *connect.
 
 func (UnimplementedAccountServiceHandler) UpdateCartItem(context.Context, *connect.Request[v1.UpdateCartItemRequest]) (*connect.Response[v1.UpdateCartItemResponse], error) {
 	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("account.v1.AccountService.UpdateCartItem is not implemented"))
+}
+
+func (UnimplementedAccountServiceHandler) ClearCart(context.Context, *connect.Request[v1.ClearCartRequest]) (*connect.Response[v1.ClearCartResponse], error) {
+	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("account.v1.AccountService.ClearCart is not implemented"))
 }

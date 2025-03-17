@@ -5,6 +5,9 @@
 import type { GenFile, GenService } from "@bufbuild/protobuf/codegenv1";
 import type { CreateProductModelRequestSchema, CreateProductModelResponseSchema, DeleteProductModelRequestSchema, DeleteProductModelResponseSchema, GetProductModelRequestSchema, GetProductModelResponseSchema, ListProductModelsRequestSchema, ListProductModelsResponseSchema, UpdateProductModelRequestSchema, UpdateProductModelResponseSchema } from "./product_model_pb";
 import type { CreateProductRequestSchema, CreateProductResponseSchema, DeleteProductRequestSchema, DeleteProductResponseSchema, GetProductRequestSchema, GetProductResponseSchema, ListProductsRequestSchema, ListProductsResponseSchema, UpdateProductRequestSchema, UpdateProductResponseSchema } from "./product_pb";
+import type { CreateBrandRequestSchema, CreateBrandResponseSchema, DeleteBrandRequestSchema, DeleteBrandResponseSchema, GetBrandRequestSchema, GetBrandResponseSchema, ListBrandsRequestSchema, ListBrandsResponseSchema, UpdateBrandRequestSchema, UpdateBrandResponseSchema } from "./brand_pb";
+import type { CreateSaleRequestSchema, CreateSaleResponseSchema, DeleteSaleRequestSchema, DeleteSaleResponseSchema, GetSaleRequestSchema, GetSaleResponseSchema, ListSalesRequestSchema, ListSalesResponseSchema, UpdateSaleRequestSchema, UpdateSaleResponseSchema } from "./sale_pb";
+import type { CreateTagRequestSchema, CreateTagResponseSchema, DeleteTagRequestSchema, DeleteTagResponseSchema, GetTagRequestSchema, GetTagResponseSchema, ListTagsRequestSchema, ListTagsResponseSchema, UpdateTagRequestSchema, UpdateTagResponseSchema } from "./tag_pb";
 
 /**
  * Describes the file product/v1/service.proto.
@@ -16,6 +19,8 @@ export declare const file_product_v1_service: GenFile;
  */
 export declare const ProductService: GenService<{
   /**
+   * PRODUCT MODEL
+   *
    * @generated from rpc product.v1.ProductService.GetProductModel
    */
   getProductModel: {
@@ -56,6 +61,8 @@ export declare const ProductService: GenService<{
     output: typeof DeleteProductModelResponseSchema;
   },
   /**
+   * PRODUCT
+   *
    * @generated from rpc product.v1.ProductService.GetProduct
    */
   getProduct: {
@@ -94,6 +101,132 @@ export declare const ProductService: GenService<{
     methodKind: "unary";
     input: typeof DeleteProductRequestSchema;
     output: typeof DeleteProductResponseSchema;
+  },
+  /**
+   * BRAND
+   *
+   * @generated from rpc product.v1.ProductService.GetBrand
+   */
+  getBrand: {
+    methodKind: "unary";
+    input: typeof GetBrandRequestSchema;
+    output: typeof GetBrandResponseSchema;
+  },
+  /**
+   * @generated from rpc product.v1.ProductService.ListBrands
+   */
+  listBrands: {
+    methodKind: "unary";
+    input: typeof ListBrandsRequestSchema;
+    output: typeof ListBrandsResponseSchema;
+  },
+  /**
+   * @generated from rpc product.v1.ProductService.CreateBrand
+   */
+  createBrand: {
+    methodKind: "unary";
+    input: typeof CreateBrandRequestSchema;
+    output: typeof CreateBrandResponseSchema;
+  },
+  /**
+   * @generated from rpc product.v1.ProductService.UpdateBrand
+   */
+  updateBrand: {
+    methodKind: "unary";
+    input: typeof UpdateBrandRequestSchema;
+    output: typeof UpdateBrandResponseSchema;
+  },
+  /**
+   * @generated from rpc product.v1.ProductService.DeleteBrand
+   */
+  deleteBrand: {
+    methodKind: "unary";
+    input: typeof DeleteBrandRequestSchema;
+    output: typeof DeleteBrandResponseSchema;
+  },
+  /**
+   * SALE
+   *
+   * @generated from rpc product.v1.ProductService.GetSale
+   */
+  getSale: {
+    methodKind: "unary";
+    input: typeof GetSaleRequestSchema;
+    output: typeof GetSaleResponseSchema;
+  },
+  /**
+   * @generated from rpc product.v1.ProductService.ListSales
+   */
+  listSales: {
+    methodKind: "unary";
+    input: typeof ListSalesRequestSchema;
+    output: typeof ListSalesResponseSchema;
+  },
+  /**
+   * @generated from rpc product.v1.ProductService.CreateSale
+   */
+  createSale: {
+    methodKind: "unary";
+    input: typeof CreateSaleRequestSchema;
+    output: typeof CreateSaleResponseSchema;
+  },
+  /**
+   * @generated from rpc product.v1.ProductService.UpdateSale
+   */
+  updateSale: {
+    methodKind: "unary";
+    input: typeof UpdateSaleRequestSchema;
+    output: typeof UpdateSaleResponseSchema;
+  },
+  /**
+   * @generated from rpc product.v1.ProductService.DeleteSale
+   */
+  deleteSale: {
+    methodKind: "unary";
+    input: typeof DeleteSaleRequestSchema;
+    output: typeof DeleteSaleResponseSchema;
+  },
+  /**
+   * TAG
+   *
+   * @generated from rpc product.v1.ProductService.GetTag
+   */
+  getTag: {
+    methodKind: "unary";
+    input: typeof GetTagRequestSchema;
+    output: typeof GetTagResponseSchema;
+  },
+  /**
+   * @generated from rpc product.v1.ProductService.ListTags
+   */
+  listTags: {
+    methodKind: "unary";
+    input: typeof ListTagsRequestSchema;
+    output: typeof ListTagsResponseSchema;
+  },
+  /**
+   * @generated from rpc product.v1.ProductService.CreateTag
+   */
+  createTag: {
+    methodKind: "unary";
+    input: typeof CreateTagRequestSchema;
+    output: typeof CreateTagResponseSchema;
+  },
+  /**
+   * @generated from rpc product.v1.ProductService.UpdateTag
+   */
+  updateTag: {
+    methodKind: "unary";
+    input: typeof UpdateTagRequestSchema;
+    output: typeof UpdateTagResponseSchema;
+  },
+  /**
+   * @generated from rpc product.v1.ProductService.DeleteTag
+   */
+  deleteTag: {
+    methodKind: "unary";
+    input: typeof DeleteTagRequestSchema;
+    output: typeof DeleteTagResponseSchema;
   },
 }>;
 

@@ -99,3 +99,27 @@ export declare type UpdateCartItemResponse = Message<"account.v1.UpdateCartItemR
  */
 export declare const UpdateCartItemResponseSchema: GenMessage<UpdateCartItemResponse>;
 
+/**
+ * @generated from message account.v1.ClearCartRequest
+ */
+export declare type ClearCartRequest = Message<"account.v1.ClearCartRequest"> & {
+};
+
+/**
+ * Describes the message account.v1.ClearCartRequest.
+ * Use `create(ClearCartRequestSchema)` to create a new message.
+ */
+export declare const ClearCartRequestSchema: GenMessage<ClearCartRequest>;
+
+/**
+ * @generated from message account.v1.ClearCartResponse
+ */
+export declare type ClearCartResponse = Message<"account.v1.ClearCartResponse"> & {
+};
+
+/**
+ * Describes the message account.v1.ClearCartResponse.
+ * Use `create(ClearCartResponseSchema)` to create a new message.
+ */
+export declare const ClearCartResponseSchema: GenMessage<ClearCartResponse>;
+
