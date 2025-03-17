@@ -23,3 +23,7 @@ message UpdateCartItemRequest {
 }
 
 message UpdateCartItemResponse {}
+
+message ClearCartRequest {}
+
+message ClearCartResponse {}

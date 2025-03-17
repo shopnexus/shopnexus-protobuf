@@ -4,7 +4,6 @@ package account.v1;
 
 import "account/v1/account.proto";
 import "account/v1/cart.proto";
-import "google/api/annotations.proto";
 
 service AccountService {
   // Login, register
@@ -19,4 +18,5 @@ service AccountService {
   }
   rpc AddCartItem(AddCartItemRequest) returns (AddCartItemResponse) {}
   rpc UpdateCartItem(UpdateCartItemRequest) returns (UpdateCartItemResponse) {}
+  rpc ClearCart(ClearCartRequest) returns (ClearCartResponse) {}
 }
