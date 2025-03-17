@@ -1,0 +1,84 @@
+syntax = "proto3";
+
+package product.v1;
+
+import "common/pagination.proto";
+
+// SALE ENTITY
+message SaleEntity {
+  int64 id = 1;
+  optional string tag = 2;
+  optional int64 product_model_id = 3;
+  optional int64 brand_id = 4;
+  int64 date_started = 5;
+  optional int64 date_ended = 6;
+  int64 quantity = 7;
+  int64 used = 8;
+  bool is_active = 9;
+  optional int32 discount_percent = 10;
+  optional int64 discount_price = 11;
+}
+
+message GetSaleRequest {
+  int64 id = 1;
+}
+
+message GetSaleResponse {
+  SaleEntity data = 1;
+}
+
+message ListSalesRequest {
+  common.PaginationRequest pagination = 1;
+  optional string tag = 2;
+  optional int64 product_model_id = 3;
+  optional int64 brand_id = 4;
+  optional int64 date_started_from = 5;
+  optional int64 date_started_to = 6;
+  optional int64 date_ended_from = 7;
+  optional int64 date_ended_to = 8;
+  optional bool is_active = 9;
+}
+
+message ListSalesResponse {
+  repeated SaleEntity data = 1;
+  common.PaginationResponse pagination = 2;
+}
+
+message CreateSaleRequest {
+  optional string tag = 1;
+  optional int64 product_model_id = 2;
+  optional int64 brand_id = 3;
+  int64 date_started = 4;
+  optional int64 date_ended = 5;
+  int64 quantity = 6;
+  int64 used = 7;
+  bool is_active = 8;
+  optional int32 discount_percent = 9;
+  optional int64 discount_price = 10;
+}
+
+message CreateSaleResponse {
+  SaleEntity data = 1;
+}
+
+message UpdateSaleRequest {
+  int64 id = 1;
+  optional string tag = 2;
+  optional int64 product_model_id = 3;
+  optional int64 brand_id = 4;
+  optional int64 date_started = 5;
+  optional int64 date_ended = 6;
+  optional int64 quantity = 7;
+  optional int64 used = 8;
+  optional bool is_active = 9;
+  optional int32 discount_percent = 10;
+  optional int64 discount_price = 11;
+}
+
+message UpdateSaleResponse {}
+
+message DeleteSaleRequest {
+  int64 id = 1;
+}
+
+message DeleteSaleResponse {}
