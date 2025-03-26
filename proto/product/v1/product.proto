@@ -16,6 +16,8 @@ message ProductEntity {
   bytes metadata = 8;
   int64 date_created = 9;
   int64 date_updated = 10;
+
+  repeated string resources = 11;
 }
 
 message GetProductRequest {
@@ -42,6 +44,11 @@ message ListProductsResponse {
 message CreateProductRequest {
   string serial_id = 1;
   int64 product_model_id = 2;
+  int64 quantity = 3;
+  int64 add_price = 4;
+  bool is_active = 5;
+  bytes metadata = 6;
+  repeated string resources = 7;
 }
 
 message CreateProductResponse {
@@ -52,6 +59,7 @@ message UpdateProductRequest {
   int64 id = 1;
   optional string serial_id = 2;
   optional int64 product_model_id = 3;
+  // TODO: add missing field (see the entity)
 }
 
 message UpdateProductResponse {}
