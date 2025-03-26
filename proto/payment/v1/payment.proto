@@ -14,9 +14,10 @@ enum PaymentMethod {
 }
 
 message ProductOnPayment {
-  common.ItemQuantityString item_quantity = 1;
-  int64 price = 2;
-  int64 total_price = 3;
+  common.ItemQuantityInt64 item_quantity = 1;
+  repeated string serial_ids = 2;
+  int64 price = 3;
+  int64 total_price = 4;
 }
 
 message Payment {
@@ -36,7 +37,7 @@ message GetPaymentRequest {
 }
 
 message GetPaymentResponse {
-  Payment payment = 1;
+  Payment data = 1;
 }
 
 message ListPaymentsRequest {
