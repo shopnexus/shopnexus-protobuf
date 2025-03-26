@@ -5,6 +5,11 @@
 import { AccountService } from "./service_pb";
 
 /**
+ * @generated from rpc account.v1.AccountService.GetUser
+ */
+export const getUser = AccountService.method.getUser;
+
+/**
  * Login, register
  *
  * @generated from rpc account.v1.AccountService.LoginUser

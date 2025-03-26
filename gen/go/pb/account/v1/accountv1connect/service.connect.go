@@ -33,6 +33,8 @@ const (
 // reflection-formatted method names, remove the leading slash and convert the remaining slash to a
 // period.
 const (
+	// AccountServiceGetUserProcedure is the fully-qualified name of the AccountService's GetUser RPC.
+	AccountServiceGetUserProcedure = "/account.v1.AccountService/GetUser"
 	// AccountServiceLoginUserProcedure is the fully-qualified name of the AccountService's LoginUser
 	// RPC.
 	AccountServiceLoginUserProcedure = "/account.v1.AccountService/LoginUser"
@@ -60,6 +62,7 @@ const (
 
 // AccountServiceClient is a client for the account.v1.AccountService service.
 type AccountServiceClient interface {
+	GetUser(context.Context, *connect.Request[v1.GetUserRequest]) (*connect.Response[v1.GetUserResponse], error)
 	// Login, register
 	LoginUser(context.Context, *connect.Request[v1.LoginUserRequest]) (*connect.Response[v1.LoginUserResponse], error)
 	LoginAdmin(context.Context, *connect.Request[v1.LoginAdminRequest]) (*connect.Response[v1.LoginAdminResponse], error)
@@ -83,6 +86,13 @@ func NewAccountServiceClient(httpClient connect.HTTPClient, baseURL string, opts
 	baseURL = strings.TrimRight(baseURL, "/")
 	accountServiceMethods := v1.File_account_v1_service_proto.Services().ByName("AccountService").Methods()
 	return &accountServiceClient{
+		getUser: connect.NewClient[v1.GetUserRequest, v1.GetUserResponse](
+			httpClient,
+			baseURL+AccountServiceGetUserProcedure,
+			connect.WithSchema(accountServiceMethods.ByName("GetUser")),
+			connect.WithIdempotency(connect.IdempotencyNoSideEffects),
+			connect.WithClientOptions(opts...),
+		),
 		loginUser: connect.NewClient[v1.LoginUserRequest, v1.LoginUserResponse](
 			httpClient,
 			baseURL+AccountServiceLoginUserProcedure,
@@ -137,6 +147,7 @@ func NewAccountServiceClient(httpClient connect.HTTPClient, baseURL string, opts
 
 // accountServiceClient implements AccountServiceClient.
 type accountServiceClient struct {
+	getUser        *connect.Client[v1.GetUserRequest, v1.GetUserResponse]
 	loginUser      *connect.Client[v1.LoginUserRequest, v1.LoginUserResponse]
 	loginAdmin     *connect.Client[v1.LoginAdminRequest, v1.LoginAdminResponse]
 	registerUser   *connect.Client[v1.RegisterUserRequest, v1.RegisterUserResponse]
@@ -145,6 +156,11 @@ type accountServiceClient struct {
 	addCartItem    *connect.Client[v1.AddCartItemRequest, v1.AddCartItemResponse]
 	updateCartItem *connect.Client[v1.UpdateCartItemRequest, v1.UpdateCartItemResponse]
 	clearCart      *connect.Client[v1.ClearCartRequest, v1.ClearCartResponse]
+}
+
+// GetUser calls account.v1.AccountService.GetUser.
+func (c *accountServiceClient) GetUser(ctx context.Context, req *connect.Request[v1.GetUserRequest]) (*connect.Response[v1.GetUserResponse], error) {
+	return c.getUser.CallUnary(ctx, req)
 }
 
 // LoginUser calls account.v1.AccountService.LoginUser.
@@ -189,6 +205,7 @@ func (c *accountServiceClient) ClearCart(ctx context.Context, req *connect.Reque
 
 // AccountServiceHandler is an implementation of the account.v1.AccountService service.
 type AccountServiceHandler interface {
+	GetUser(context.Context, *connect.Request[v1.GetUserRequest]) (*connect.Response[v1.GetUserResponse], error)
 	// Login, register
 	LoginUser(context.Context, *connect.Request[v1.LoginUserRequest]) (*connect.Response[v1.LoginUserResponse], error)
 	LoginAdmin(context.Context, *connect.Request[v1.LoginAdminRequest]) (*connect.Response[v1.LoginAdminResponse], error)
@@ -208,6 +225,13 @@ type AccountServiceHandler interface {
 // and JSON codecs. They also support gzip compression.
 func NewAccountServiceHandler(svc AccountServiceHandler, opts ...connect.HandlerOption) (string, http.Handler) {
 	accountServiceMethods := v1.File_account_v1_service_proto.Services().ByName("AccountService").Methods()
+	accountServiceGetUserHandler := connect.NewUnaryHandler(
+		AccountServiceGetUserProcedure,
+		svc.GetUser,
+		connect.WithSchema(accountServiceMethods.ByName("GetUser")),
+		connect.WithIdempotency(connect.IdempotencyNoSideEffects),
+		connect.WithHandlerOptions(opts...),
+	)
 	accountServiceLoginUserHandler := connect.NewUnaryHandler(
 		AccountServiceLoginUserProcedure,
 		svc.LoginUser,
@@ -259,6 +283,8 @@ func NewAccountServiceHandler(svc AccountServiceHandler, opts ...connect.Handler
 	)
 	return "/account.v1.AccountService/", http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
 		switch r.URL.Path {
+		case AccountServiceGetUserProcedure:
+			accountServiceGetUserHandler.ServeHTTP(w, r)
 		case AccountServiceLoginUserProcedure:
 			accountServiceLoginUserHandler.ServeHTTP(w, r)
 		case AccountServiceLoginAdminProcedure:
@@ -283,6 +309,10 @@ func NewAccountServiceHandler(svc AccountServiceHandler, opts ...connect.Handler
 
 // UnimplementedAccountServiceHandler returns CodeUnimplemented from all methods.
 type UnimplementedAccountServiceHandler struct{}
+
+func (UnimplementedAccountServiceHandler) GetUser(context.Context, *connect.Request[v1.GetUserRequest]) (*connect.Response[v1.GetUserResponse], error) {
+	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("account.v1.AccountService.GetUser is not implemented"))
+}
 
 func (UnimplementedAccountServiceHandler) LoginUser(context.Context, *connect.Request[v1.LoginUserRequest]) (*connect.Response[v1.LoginUserResponse], error) {
 	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("account.v1.AccountService.LoginUser is not implemented"))

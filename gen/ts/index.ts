@@ -1,16 +1,8 @@
-import { AccountService } from "./pb/account/v1/service_pb"
-import { LoginAdminRequestSchema } from "./pb/account/v1/account_pb"
-import { create, toBinary, toJson } from "@bufbuild/protobuf"
+export * from "./pb/account/v1/service-AccountService_connectquery"
+export * from "./pb/payment/v1/service-PaymentService_connectquery"
+export * from "./pb/product/v1/service-ProductService_connectquery"
+export * from "./pb/file/v1/service-FileService_connectquery"
 
-async function main() {
-	let user = create(LoginAdminRequestSchema, {
-		username: "admin",
-		password: "admin",
-	})
-
-	// const bytes = toBinary(LoginAdminRequestSchema, user)
-	const json = toJson(LoginAdminRequestSchema, user)
-	console.log(json)
-}
-
-main()
+export * from "./pb/common/pagination_pb"
+export * from "./pb/product/v1/product_pb"
+export * from "./pb/product/v1/product_model_pb"
