@@ -10,13 +10,15 @@ message SaleEntity {
   optional string tag = 2;
   optional int64 product_model_id = 3;
   optional int64 brand_id = 4;
-  int64 date_started = 5;
-  optional int64 date_ended = 6;
-  int64 quantity = 7;
-  int64 used = 8;
-  bool is_active = 9;
-  optional int32 discount_percent = 10;
-  optional int64 discount_price = 11;
+  int64 date_created = 5;
+  int64 date_started = 6;
+  optional int64 date_ended = 7;
+  int64 quantity = 8;
+  int64 used = 9;
+  bool is_active = 10;
+  optional int32 discount_percent = 11;
+  optional int64 discount_price = 12;
+  int64 max_discount_price = 13;
 }
 
 message GetSaleRequest {
@@ -48,13 +50,15 @@ message CreateSaleRequest {
   optional string tag = 1;
   optional int64 product_model_id = 2;
   optional int64 brand_id = 3;
-  int64 date_started = 4;
-  optional int64 date_ended = 5;
-  int64 quantity = 6;
-  int64 used = 7;
-  bool is_active = 8;
-  optional int32 discount_percent = 9;
-  optional int64 discount_price = 10;
+  int64 date_created = 4;
+  int64 date_started = 5;
+  optional int64 date_ended = 6;
+  int64 quantity = 7;
+  int64 used = 8;
+  bool is_active = 9;
+  optional int32 discount_percent = 10;
+  optional int64 discount_price = 11;
+  int64 max_discount_price = 12;
 }
 
 message CreateSaleResponse {
@@ -73,6 +77,7 @@ message UpdateSaleRequest {
   optional bool is_active = 9;
   optional int32 discount_percent = 10;
   optional int64 discount_price = 11;
+  optional int64 max_discount_price = 12;
 }
 
 message UpdateSaleResponse {}
