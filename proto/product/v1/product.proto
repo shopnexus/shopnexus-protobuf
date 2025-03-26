@@ -9,8 +9,13 @@ message ProductEntity {
   int64 id = 1;
   string serial_id = 2;
   int64 product_model_id = 3;
-  int64 date_created = 4;
-  int64 date_updated = 5;
+  int64 quantity = 4;
+  int64 sold = 5;
+  int64 add_price = 6;
+  bool is_active = 7;
+  bytes metadata = 8;
+  int64 date_created = 9;
+  int64 date_updated = 10;
 }
 
 message GetProductRequest {
