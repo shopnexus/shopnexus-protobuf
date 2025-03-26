@@ -9,6 +9,17 @@ enum Gender {
   GENDER_OTHER = 3;
 }
 
+message GetUserRequest {}
+
+message GetUserResponse {
+  string email = 1;
+  string phone = 2;
+  string username = 3;
+  Gender gender = 4;
+  string full_name = 5;
+  optional int64 default_address_id = 6;
+}
+
 message RegisterUserRequest {
   string username = 1;
   string email = 2;
