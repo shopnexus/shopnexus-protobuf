@@ -6,6 +6,44 @@ import "common/pagination.proto";
 
 message ProductModelEntity {
   int64 id = 1;
+  int64 type = 2;
+  int64 brand_id = 3;
+  string name = 4;
+  string description = 5;
+  int64 list_price = 6;
+  int64 date_manufactured = 7;
+  repeated string resources = 8;
+  repeated string tags = 9;
+}
+
+message GetProductModelRequest {
+  int64 id = 1;
+}
+
+message GetProductModelResponse {
+  ProductModelEntity data = 1;
+  repeated string serial_ids = 2;
+}
+
+message ListProductModelsRequest {
+  common.PaginationRequest pagination = 1;
+  optional int64 type = 2;
+  optional int64 brand_id = 3;
+  optional string name = 4;
+  optional string description = 5;
+  optional int64 list_price_from = 6;
+  optional int64 list_price_to = 7;
+  optional int64 date_manufactured_from = 8;
+  optional int64 date_manufactured_to = 9;
+}
+
+message ListProductModelsResponse {
+  repeated ProductModelEntity data = 1;
+  common.PaginationResponse pagination = 2;
+}
+
+message CreateProductModelRequest {
+  int64 type = 1;
   int64 brand_id = 2;
   string name = 3;
   string description = 4;
@@ -15,51 +53,18 @@ message ProductModelEntity {
   repeated string tags = 8;
 }
 
-message GetProductModelRequest {
-  int64 id = 1;
-}
-
-message GetProductModelResponse {
-  ProductModelEntity data = 1;
-}
-
-message ListProductModelsRequest {
-  common.PaginationRequest pagination = 1;
-  optional int64 brand_id = 2;
-  optional string name = 3;
-  optional string description = 4;
-  optional int64 list_price_from = 5;
-  optional int64 list_price_to = 6;
-  optional int64 date_manufactured_from = 7;
-  optional int64 date_manufactured_to = 8;
-}
-
-message ListProductModelsResponse {
-  repeated ProductModelEntity data = 1;
-  common.PaginationResponse pagination = 2;
-}
-
-message CreateProductModelRequest {
-  int64 brand_id = 1;
-  string name = 2;
-  string description = 3;
-  int64 list_price = 4;
-  int64 date_manufactured = 5;
-  repeated string resources = 6;
-  repeated string tags = 7;
-}
-
 message CreateProductModelResponse {
   ProductModelEntity data = 1;
 }
 
 message UpdateProductModelRequest {
   int64 id = 1;
-  optional int64 brand_id = 2;
-  optional string name = 3;
-  optional string description = 4;
-  optional int64 list_price = 5;
-  optional int64 date_manufactured = 6;
+  optional int64 type = 2;
+  optional int64 brand_id = 3;
+  optional string name = 4;
+  optional string description = 5;
+  optional int64 list_price = 6;
+  optional int64 date_manufactured = 7;
 }
 
 message UpdateProductModelResponse {}
