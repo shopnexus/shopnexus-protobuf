@@ -9,6 +9,7 @@ message BrandEntity {
   int64 id = 1;
   string name = 2;
   string description = 3;
+  repeated string resources = 4;
 }
 
 message GetBrandRequest {
@@ -33,6 +34,7 @@ message ListBrandsResponse {
 message CreateBrandRequest {
   string name = 1;
   string description = 2;
+  repeated string resources = 3;
 }
 
 message CreateBrandResponse {
