@@ -32,6 +32,13 @@ export const updateProductModel = ProductService.method.updateProductModel;
 export const deleteProductModel = ProductService.method.deleteProductModel;
 
 /**
+ * PRODUCT TYPES
+ *
+ * @generated from rpc product.v1.ProductService.ListProductTypes
+ */
+export const listProductTypes = ProductService.method.listProductTypes;
+
+/**
  * PRODUCT
  *
  * @generated from rpc product.v1.ProductService.GetProduct

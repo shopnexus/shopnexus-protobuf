@@ -48,6 +48,9 @@ const (
 	// ProductServiceDeleteProductModelProcedure is the fully-qualified name of the ProductService's
 	// DeleteProductModel RPC.
 	ProductServiceDeleteProductModelProcedure = "/product.v1.ProductService/DeleteProductModel"
+	// ProductServiceListProductTypesProcedure is the fully-qualified name of the ProductService's
+	// ListProductTypes RPC.
+	ProductServiceListProductTypesProcedure = "/product.v1.ProductService/ListProductTypes"
 	// ProductServiceGetProductProcedure is the fully-qualified name of the ProductService's GetProduct
 	// RPC.
 	ProductServiceGetProductProcedure = "/product.v1.ProductService/GetProduct"
@@ -114,6 +117,8 @@ type ProductServiceClient interface {
 	CreateProductModel(context.Context, *connect.Request[v1.CreateProductModelRequest]) (*connect.Response[v1.CreateProductModelResponse], error)
 	UpdateProductModel(context.Context, *connect.Request[v1.UpdateProductModelRequest]) (*connect.Response[v1.UpdateProductModelResponse], error)
 	DeleteProductModel(context.Context, *connect.Request[v1.DeleteProductModelRequest]) (*connect.Response[v1.DeleteProductModelResponse], error)
+	// PRODUCT TYPES
+	ListProductTypes(context.Context, *connect.Request[v1.ListProductTypesRequest]) (*connect.Response[v1.ListProductTypesResponse], error)
 	// PRODUCT
 	GetProduct(context.Context, *connect.Request[v1.GetProductRequest]) (*connect.Response[v1.GetProductResponse], error)
 	ListProducts(context.Context, *connect.Request[v1.ListProductsRequest]) (*connect.Response[v1.ListProductsResponse], error)
@@ -181,6 +186,13 @@ func NewProductServiceClient(httpClient connect.HTTPClient, baseURL string, opts
 			httpClient,
 			baseURL+ProductServiceDeleteProductModelProcedure,
 			connect.WithSchema(productServiceMethods.ByName("DeleteProductModel")),
+			connect.WithClientOptions(opts...),
+		),
+		listProductTypes: connect.NewClient[v1.ListProductTypesRequest, v1.ListProductTypesResponse](
+			httpClient,
+			baseURL+ProductServiceListProductTypesProcedure,
+			connect.WithSchema(productServiceMethods.ByName("ListProductTypes")),
+			connect.WithIdempotency(connect.IdempotencyNoSideEffects),
 			connect.WithClientOptions(opts...),
 		),
 		getProduct: connect.NewClient[v1.GetProductRequest, v1.GetProductResponse](
@@ -321,6 +333,7 @@ type productServiceClient struct {
 	createProductModel *connect.Client[v1.CreateProductModelRequest, v1.CreateProductModelResponse]
 	updateProductModel *connect.Client[v1.UpdateProductModelRequest, v1.UpdateProductModelResponse]
 	deleteProductModel *connect.Client[v1.DeleteProductModelRequest, v1.DeleteProductModelResponse]
+	listProductTypes   *connect.Client[v1.ListProductTypesRequest, v1.ListProductTypesResponse]
 	getProduct         *connect.Client[v1.GetProductRequest, v1.GetProductResponse]
 	listProducts       *connect.Client[v1.ListProductsRequest, v1.ListProductsResponse]
 	createProduct      *connect.Client[v1.CreateProductRequest, v1.CreateProductResponse]
@@ -366,6 +379,11 @@ func (c *productServiceClient) UpdateProductModel(ctx context.Context, req *conn
 // DeleteProductModel calls product.v1.ProductService.DeleteProductModel.
 func (c *productServiceClient) DeleteProductModel(ctx context.Context, req *connect.Request[v1.DeleteProductModelRequest]) (*connect.Response[v1.DeleteProductModelResponse], error) {
 	return c.deleteProductModel.CallUnary(ctx, req)
+}
+
+// ListProductTypes calls product.v1.ProductService.ListProductTypes.
+func (c *productServiceClient) ListProductTypes(ctx context.Context, req *connect.Request[v1.ListProductTypesRequest]) (*connect.Response[v1.ListProductTypesResponse], error) {
+	return c.listProductTypes.CallUnary(ctx, req)
 }
 
 // GetProduct calls product.v1.ProductService.GetProduct.
@@ -476,6 +494,8 @@ type ProductServiceHandler interface {
 	CreateProductModel(context.Context, *connect.Request[v1.CreateProductModelRequest]) (*connect.Response[v1.CreateProductModelResponse], error)
 	UpdateProductModel(context.Context, *connect.Request[v1.UpdateProductModelRequest]) (*connect.Response[v1.UpdateProductModelResponse], error)
 	DeleteProductModel(context.Context, *connect.Request[v1.DeleteProductModelRequest]) (*connect.Response[v1.DeleteProductModelResponse], error)
+	// PRODUCT TYPES
+	ListProductTypes(context.Context, *connect.Request[v1.ListProductTypesRequest]) (*connect.Response[v1.ListProductTypesResponse], error)
 	// PRODUCT
 	GetProduct(context.Context, *connect.Request[v1.GetProductRequest]) (*connect.Response[v1.GetProductResponse], error)
 	ListProducts(context.Context, *connect.Request[v1.ListProductsRequest]) (*connect.Response[v1.ListProductsResponse], error)
@@ -539,6 +559,13 @@ func NewProductServiceHandler(svc ProductServiceHandler, opts ...connect.Handler
 		ProductServiceDeleteProductModelProcedure,
 		svc.DeleteProductModel,
 		connect.WithSchema(productServiceMethods.ByName("DeleteProductModel")),
+		connect.WithHandlerOptions(opts...),
+	)
+	productServiceListProductTypesHandler := connect.NewUnaryHandler(
+		ProductServiceListProductTypesProcedure,
+		svc.ListProductTypes,
+		connect.WithSchema(productServiceMethods.ByName("ListProductTypes")),
+		connect.WithIdempotency(connect.IdempotencyNoSideEffects),
 		connect.WithHandlerOptions(opts...),
 	)
 	productServiceGetProductHandler := connect.NewUnaryHandler(
@@ -681,6 +708,8 @@ func NewProductServiceHandler(svc ProductServiceHandler, opts ...connect.Handler
 			productServiceUpdateProductModelHandler.ServeHTTP(w, r)
 		case ProductServiceDeleteProductModelProcedure:
 			productServiceDeleteProductModelHandler.ServeHTTP(w, r)
+		case ProductServiceListProductTypesProcedure:
+			productServiceListProductTypesHandler.ServeHTTP(w, r)
 		case ProductServiceGetProductProcedure:
 			productServiceGetProductHandler.ServeHTTP(w, r)
 		case ProductServiceListProductsProcedure:
@@ -748,6 +777,10 @@ func (UnimplementedProductServiceHandler) UpdateProductModel(context.Context, *c
 
 func (UnimplementedProductServiceHandler) DeleteProductModel(context.Context, *connect.Request[v1.DeleteProductModelRequest]) (*connect.Response[v1.DeleteProductModelResponse], error) {
 	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("product.v1.ProductService.DeleteProductModel is not implemented"))
+}
+
+func (UnimplementedProductServiceHandler) ListProductTypes(context.Context, *connect.Request[v1.ListProductTypesRequest]) (*connect.Response[v1.ListProductTypesResponse], error) {
+	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("product.v1.ProductService.ListProductTypes is not implemented"))
 }
 
 func (UnimplementedProductServiceHandler) GetProduct(context.Context, *connect.Request[v1.GetProductRequest]) (*connect.Response[v1.GetProductResponse], error) {
