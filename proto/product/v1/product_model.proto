@@ -74,3 +74,18 @@ message DeleteProductModelRequest {
 }
 
 message DeleteProductModelResponse {}
+
+message ProductTypeEntity {
+  int64 id = 1;
+  string name = 2;
+}
+
+message ListProductTypesRequest {
+  common.PaginationRequest pagination = 1;
+  optional string name = 2;
+}
+
+message ListProductTypesResponse {
+  repeated ProductTypeEntity data = 1;
+  common.PaginationResponse pagination = 2;
+}

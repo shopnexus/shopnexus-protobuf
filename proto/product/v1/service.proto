@@ -20,6 +20,11 @@ service ProductService {
   rpc UpdateProductModel(UpdateProductModelRequest) returns (UpdateProductModelResponse) {}
   rpc DeleteProductModel(DeleteProductModelRequest) returns (DeleteProductModelResponse) {}
 
+  // PRODUCT TYPES
+  rpc ListProductTypes(ListProductTypesRequest) returns (ListProductTypesResponse) {
+    option idempotency_level = NO_SIDE_EFFECTS;
+  }
+
   // PRODUCT
   rpc GetProduct(GetProductRequest) returns (GetProductResponse) {
     option idempotency_level = NO_SIDE_EFFECTS;
