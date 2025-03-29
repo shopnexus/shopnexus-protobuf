@@ -65,6 +65,8 @@ message UpdateProductModelRequest {
   optional string description = 5;
   optional int64 list_price = 6;
   optional int64 date_manufactured = 7;
+  repeated string resources = 8;
+  repeated string tags = 9;
 }
 
 message UpdateProductModelResponse {}
