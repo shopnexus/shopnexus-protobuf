@@ -32,8 +32,16 @@ message GetProductResponse {
 message ListProductsRequest {
   common.PaginationRequest pagination = 1;
   optional int64 product_model_id = 2;
-  optional int64 date_created_from = 3;
-  optional int64 date_created_to = 4;
+  optional int64 quantity_from = 3;
+  optional int64 quantity_to = 4;
+  optional int64 sold_from = 5;
+  optional int64 sold_to = 6;
+  optional int64 add_price_from = 7;
+  optional int64 add_price_to = 8;
+  optional bool is_active = 9;
+  optional bytes metadata = 10;
+  optional int64 date_created_from = 11;
+  optional int64 date_created_to = 12;
 }
 
 message ListProductsResponse {
@@ -59,7 +67,12 @@ message UpdateProductRequest {
   int64 id = 1;
   optional string serial_id = 2;
   optional int64 product_model_id = 3;
-  // TODO: add missing field (see the entity)
+  optional int64 quantity = 4;
+  optional int64 sold = 5;
+  optional int64 add_price = 6;
+  optional bool is_active = 7;
+  optional bytes metadata = 8;
+  repeated string resources = 9;
 }
 
 message UpdateProductResponse {}
