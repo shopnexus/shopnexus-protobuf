@@ -8,6 +8,7 @@ import "common/pagination.proto";
 message TagEntity {
   string tag = 1;
   string description = 2;
+  int32 product_count = 3;
 }
 
 message GetTagRequest {
