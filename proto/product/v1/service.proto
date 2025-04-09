@@ -3,6 +3,7 @@ syntax = "proto3";
 package product.v1;
 
 import "product/v1/brand.proto";
+import "product/v1/comment.proto";
 import "product/v1/product.proto";
 import "product/v1/product_model.proto";
 import "product/v1/sale.proto";
@@ -68,4 +69,15 @@ service ProductService {
   rpc CreateTag(CreateTagRequest) returns (CreateTagResponse) {}
   rpc UpdateTag(UpdateTagRequest) returns (UpdateTagResponse) {}
   rpc DeleteTag(DeleteTagRequest) returns (DeleteTagResponse) {}
+
+  // COMMENT
+  rpc GetComment(GetCommentRequest) returns (GetCommentResponse) {
+    option idempotency_level = NO_SIDE_EFFECTS;
+  }
+  rpc ListComments(ListCommentsRequest) returns (ListCommentsResponse) {
+    option idempotency_level = NO_SIDE_EFFECTS;
+  }
+  rpc CreateComment(CreateCommentRequest) returns (CreateCommentResponse) {}
+  rpc UpdateComment(UpdateCommentRequest) returns (UpdateCommentResponse) {}
+  rpc DeleteComment(DeleteCommentRequest) returns (DeleteCommentResponse) {}
 }

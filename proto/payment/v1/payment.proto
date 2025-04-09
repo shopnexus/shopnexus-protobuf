@@ -73,6 +73,7 @@ message UpdatePaymentRequest {
   int64 id = 1;
   optional PaymentMethod method = 2;
   optional string address = 3;
+  optional common.Status status = 4;
 }
 
 message UpdatePaymentResponse {}
