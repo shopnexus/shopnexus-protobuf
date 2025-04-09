@@ -145,3 +145,30 @@ export const updateTag = ProductService.method.updateTag;
  * @generated from rpc product.v1.ProductService.DeleteTag
  */
 export const deleteTag = ProductService.method.deleteTag;
+
+/**
+ * COMMENT
+ *
+ * @generated from rpc product.v1.ProductService.GetComment
+ */
+export const getComment = ProductService.method.getComment;
+
+/**
+ * @generated from rpc product.v1.ProductService.ListComments
+ */
+export const listComments = ProductService.method.listComments;
+
+/**
+ * @generated from rpc product.v1.ProductService.CreateComment
+ */
+export const createComment = ProductService.method.createComment;
+
+/**
+ * @generated from rpc product.v1.ProductService.UpdateComment
+ */
+export const updateComment = ProductService.method.updateComment;
+
+/**
+ * @generated from rpc product.v1.ProductService.DeleteComment
+ */
+export const deleteComment = ProductService.method.deleteComment;

@@ -107,6 +107,21 @@ const (
 	// ProductServiceDeleteTagProcedure is the fully-qualified name of the ProductService's DeleteTag
 	// RPC.
 	ProductServiceDeleteTagProcedure = "/product.v1.ProductService/DeleteTag"
+	// ProductServiceGetCommentProcedure is the fully-qualified name of the ProductService's GetComment
+	// RPC.
+	ProductServiceGetCommentProcedure = "/product.v1.ProductService/GetComment"
+	// ProductServiceListCommentsProcedure is the fully-qualified name of the ProductService's
+	// ListComments RPC.
+	ProductServiceListCommentsProcedure = "/product.v1.ProductService/ListComments"
+	// ProductServiceCreateCommentProcedure is the fully-qualified name of the ProductService's
+	// CreateComment RPC.
+	ProductServiceCreateCommentProcedure = "/product.v1.ProductService/CreateComment"
+	// ProductServiceUpdateCommentProcedure is the fully-qualified name of the ProductService's
+	// UpdateComment RPC.
+	ProductServiceUpdateCommentProcedure = "/product.v1.ProductService/UpdateComment"
+	// ProductServiceDeleteCommentProcedure is the fully-qualified name of the ProductService's
+	// DeleteComment RPC.
+	ProductServiceDeleteCommentProcedure = "/product.v1.ProductService/DeleteComment"
 )
 
 // ProductServiceClient is a client for the product.v1.ProductService service.
@@ -143,6 +158,12 @@ type ProductServiceClient interface {
 	CreateTag(context.Context, *connect.Request[v1.CreateTagRequest]) (*connect.Response[v1.CreateTagResponse], error)
 	UpdateTag(context.Context, *connect.Request[v1.UpdateTagRequest]) (*connect.Response[v1.UpdateTagResponse], error)
 	DeleteTag(context.Context, *connect.Request[v1.DeleteTagRequest]) (*connect.Response[v1.DeleteTagResponse], error)
+	// COMMENT
+	GetComment(context.Context, *connect.Request[v1.GetCommentRequest]) (*connect.Response[v1.GetCommentResponse], error)
+	ListComments(context.Context, *connect.Request[v1.ListCommentsRequest]) (*connect.Response[v1.ListCommentsResponse], error)
+	CreateComment(context.Context, *connect.Request[v1.CreateCommentRequest]) (*connect.Response[v1.CreateCommentResponse], error)
+	UpdateComment(context.Context, *connect.Request[v1.UpdateCommentRequest]) (*connect.Response[v1.UpdateCommentResponse], error)
+	DeleteComment(context.Context, *connect.Request[v1.DeleteCommentRequest]) (*connect.Response[v1.DeleteCommentResponse], error)
 }
 
 // NewProductServiceClient constructs a client for the product.v1.ProductService service. By
@@ -323,6 +344,38 @@ func NewProductServiceClient(httpClient connect.HTTPClient, baseURL string, opts
 			connect.WithSchema(productServiceMethods.ByName("DeleteTag")),
 			connect.WithClientOptions(opts...),
 		),
+		getComment: connect.NewClient[v1.GetCommentRequest, v1.GetCommentResponse](
+			httpClient,
+			baseURL+ProductServiceGetCommentProcedure,
+			connect.WithSchema(productServiceMethods.ByName("GetComment")),
+			connect.WithIdempotency(connect.IdempotencyNoSideEffects),
+			connect.WithClientOptions(opts...),
+		),
+		listComments: connect.NewClient[v1.ListCommentsRequest, v1.ListCommentsResponse](
+			httpClient,
+			baseURL+ProductServiceListCommentsProcedure,
+			connect.WithSchema(productServiceMethods.ByName("ListComments")),
+			connect.WithIdempotency(connect.IdempotencyNoSideEffects),
+			connect.WithClientOptions(opts...),
+		),
+		createComment: connect.NewClient[v1.CreateCommentRequest, v1.CreateCommentResponse](
+			httpClient,
+			baseURL+ProductServiceCreateCommentProcedure,
+			connect.WithSchema(productServiceMethods.ByName("CreateComment")),
+			connect.WithClientOptions(opts...),
+		),
+		updateComment: connect.NewClient[v1.UpdateCommentRequest, v1.UpdateCommentResponse](
+			httpClient,
+			baseURL+ProductServiceUpdateCommentProcedure,
+			connect.WithSchema(productServiceMethods.ByName("UpdateComment")),
+			connect.WithClientOptions(opts...),
+		),
+		deleteComment: connect.NewClient[v1.DeleteCommentRequest, v1.DeleteCommentResponse](
+			httpClient,
+			baseURL+ProductServiceDeleteCommentProcedure,
+			connect.WithSchema(productServiceMethods.ByName("DeleteComment")),
+			connect.WithClientOptions(opts...),
+		),
 	}
 }
 
@@ -354,6 +407,11 @@ type productServiceClient struct {
 	createTag          *connect.Client[v1.CreateTagRequest, v1.CreateTagResponse]
 	updateTag          *connect.Client[v1.UpdateTagRequest, v1.UpdateTagResponse]
 	deleteTag          *connect.Client[v1.DeleteTagRequest, v1.DeleteTagResponse]
+	getComment         *connect.Client[v1.GetCommentRequest, v1.GetCommentResponse]
+	listComments       *connect.Client[v1.ListCommentsRequest, v1.ListCommentsResponse]
+	createComment      *connect.Client[v1.CreateCommentRequest, v1.CreateCommentResponse]
+	updateComment      *connect.Client[v1.UpdateCommentRequest, v1.UpdateCommentResponse]
+	deleteComment      *connect.Client[v1.DeleteCommentRequest, v1.DeleteCommentResponse]
 }
 
 // GetProductModel calls product.v1.ProductService.GetProductModel.
@@ -486,6 +544,31 @@ func (c *productServiceClient) DeleteTag(ctx context.Context, req *connect.Reque
 	return c.deleteTag.CallUnary(ctx, req)
 }
 
+// GetComment calls product.v1.ProductService.GetComment.
+func (c *productServiceClient) GetComment(ctx context.Context, req *connect.Request[v1.GetCommentRequest]) (*connect.Response[v1.GetCommentResponse], error) {
+	return c.getComment.CallUnary(ctx, req)
+}
+
+// ListComments calls product.v1.ProductService.ListComments.
+func (c *productServiceClient) ListComments(ctx context.Context, req *connect.Request[v1.ListCommentsRequest]) (*connect.Response[v1.ListCommentsResponse], error) {
+	return c.listComments.CallUnary(ctx, req)
+}
+
+// CreateComment calls product.v1.ProductService.CreateComment.
+func (c *productServiceClient) CreateComment(ctx context.Context, req *connect.Request[v1.CreateCommentRequest]) (*connect.Response[v1.CreateCommentResponse], error) {
+	return c.createComment.CallUnary(ctx, req)
+}
+
+// UpdateComment calls product.v1.ProductService.UpdateComment.
+func (c *productServiceClient) UpdateComment(ctx context.Context, req *connect.Request[v1.UpdateCommentRequest]) (*connect.Response[v1.UpdateCommentResponse], error) {
+	return c.updateComment.CallUnary(ctx, req)
+}
+
+// DeleteComment calls product.v1.ProductService.DeleteComment.
+func (c *productServiceClient) DeleteComment(ctx context.Context, req *connect.Request[v1.DeleteCommentRequest]) (*connect.Response[v1.DeleteCommentResponse], error) {
+	return c.deleteComment.CallUnary(ctx, req)
+}
+
 // ProductServiceHandler is an implementation of the product.v1.ProductService service.
 type ProductServiceHandler interface {
 	// PRODUCT MODEL
@@ -520,6 +603,12 @@ type ProductServiceHandler interface {
 	CreateTag(context.Context, *connect.Request[v1.CreateTagRequest]) (*connect.Response[v1.CreateTagResponse], error)
 	UpdateTag(context.Context, *connect.Request[v1.UpdateTagRequest]) (*connect.Response[v1.UpdateTagResponse], error)
 	DeleteTag(context.Context, *connect.Request[v1.DeleteTagRequest]) (*connect.Response[v1.DeleteTagResponse], error)
+	// COMMENT
+	GetComment(context.Context, *connect.Request[v1.GetCommentRequest]) (*connect.Response[v1.GetCommentResponse], error)
+	ListComments(context.Context, *connect.Request[v1.ListCommentsRequest]) (*connect.Response[v1.ListCommentsResponse], error)
+	CreateComment(context.Context, *connect.Request[v1.CreateCommentRequest]) (*connect.Response[v1.CreateCommentResponse], error)
+	UpdateComment(context.Context, *connect.Request[v1.UpdateCommentRequest]) (*connect.Response[v1.UpdateCommentResponse], error)
+	DeleteComment(context.Context, *connect.Request[v1.DeleteCommentRequest]) (*connect.Response[v1.DeleteCommentResponse], error)
 }
 
 // NewProductServiceHandler builds an HTTP handler from the service implementation. It returns the
@@ -696,6 +785,38 @@ func NewProductServiceHandler(svc ProductServiceHandler, opts ...connect.Handler
 		connect.WithSchema(productServiceMethods.ByName("DeleteTag")),
 		connect.WithHandlerOptions(opts...),
 	)
+	productServiceGetCommentHandler := connect.NewUnaryHandler(
+		ProductServiceGetCommentProcedure,
+		svc.GetComment,
+		connect.WithSchema(productServiceMethods.ByName("GetComment")),
+		connect.WithIdempotency(connect.IdempotencyNoSideEffects),
+		connect.WithHandlerOptions(opts...),
+	)
+	productServiceListCommentsHandler := connect.NewUnaryHandler(
+		ProductServiceListCommentsProcedure,
+		svc.ListComments,
+		connect.WithSchema(productServiceMethods.ByName("ListComments")),
+		connect.WithIdempotency(connect.IdempotencyNoSideEffects),
+		connect.WithHandlerOptions(opts...),
+	)
+	productServiceCreateCommentHandler := connect.NewUnaryHandler(
+		ProductServiceCreateCommentProcedure,
+		svc.CreateComment,
+		connect.WithSchema(productServiceMethods.ByName("CreateComment")),
+		connect.WithHandlerOptions(opts...),
+	)
+	productServiceUpdateCommentHandler := connect.NewUnaryHandler(
+		ProductServiceUpdateCommentProcedure,
+		svc.UpdateComment,
+		connect.WithSchema(productServiceMethods.ByName("UpdateComment")),
+		connect.WithHandlerOptions(opts...),
+	)
+	productServiceDeleteCommentHandler := connect.NewUnaryHandler(
+		ProductServiceDeleteCommentProcedure,
+		svc.DeleteComment,
+		connect.WithSchema(productServiceMethods.ByName("DeleteComment")),
+		connect.WithHandlerOptions(opts...),
+	)
 	return "/product.v1.ProductService/", http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
 		switch r.URL.Path {
 		case ProductServiceGetProductModelProcedure:
@@ -750,6 +871,16 @@ func NewProductServiceHandler(svc ProductServiceHandler, opts ...connect.Handler
 			productServiceUpdateTagHandler.ServeHTTP(w, r)
 		case ProductServiceDeleteTagProcedure:
 			productServiceDeleteTagHandler.ServeHTTP(w, r)
+		case ProductServiceGetCommentProcedure:
+			productServiceGetCommentHandler.ServeHTTP(w, r)
+		case ProductServiceListCommentsProcedure:
+			productServiceListCommentsHandler.ServeHTTP(w, r)
+		case ProductServiceCreateCommentProcedure:
+			productServiceCreateCommentHandler.ServeHTTP(w, r)
+		case ProductServiceUpdateCommentProcedure:
+			productServiceUpdateCommentHandler.ServeHTTP(w, r)
+		case ProductServiceDeleteCommentProcedure:
+			productServiceDeleteCommentHandler.ServeHTTP(w, r)
 		default:
 			http.NotFound(w, r)
 		}
@@ -861,4 +992,24 @@ func (UnimplementedProductServiceHandler) UpdateTag(context.Context, *connect.Re
 
 func (UnimplementedProductServiceHandler) DeleteTag(context.Context, *connect.Request[v1.DeleteTagRequest]) (*connect.Response[v1.DeleteTagResponse], error) {
 	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("product.v1.ProductService.DeleteTag is not implemented"))
+}
+
+func (UnimplementedProductServiceHandler) GetComment(context.Context, *connect.Request[v1.GetCommentRequest]) (*connect.Response[v1.GetCommentResponse], error) {
+	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("product.v1.ProductService.GetComment is not implemented"))
+}
+
+func (UnimplementedProductServiceHandler) ListComments(context.Context, *connect.Request[v1.ListCommentsRequest]) (*connect.Response[v1.ListCommentsResponse], error) {
+	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("product.v1.ProductService.ListComments is not implemented"))
+}
+
+func (UnimplementedProductServiceHandler) CreateComment(context.Context, *connect.Request[v1.CreateCommentRequest]) (*connect.Response[v1.CreateCommentResponse], error) {
+	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("product.v1.ProductService.CreateComment is not implemented"))
+}
+
+func (UnimplementedProductServiceHandler) UpdateComment(context.Context, *connect.Request[v1.UpdateCommentRequest]) (*connect.Response[v1.UpdateCommentResponse], error) {
+	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("product.v1.ProductService.UpdateComment is not implemented"))
+}
+
+func (UnimplementedProductServiceHandler) DeleteComment(context.Context, *connect.Request[v1.DeleteCommentRequest]) (*connect.Response[v1.DeleteCommentResponse], error) {
+	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("product.v1.ProductService.DeleteComment is not implemented"))
 }
