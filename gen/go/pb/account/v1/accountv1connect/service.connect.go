@@ -35,6 +35,15 @@ const (
 const (
 	// AccountServiceGetUserProcedure is the fully-qualified name of the AccountService's GetUser RPC.
 	AccountServiceGetUserProcedure = "/account.v1.AccountService/GetUser"
+	// AccountServiceGetUserPublicProcedure is the fully-qualified name of the AccountService's
+	// GetUserPublic RPC.
+	AccountServiceGetUserPublicProcedure = "/account.v1.AccountService/GetUserPublic"
+	// AccountServiceUpdateAccountProcedure is the fully-qualified name of the AccountService's
+	// UpdateAccount RPC.
+	AccountServiceUpdateAccountProcedure = "/account.v1.AccountService/UpdateAccount"
+	// AccountServiceUpdateUserProcedure is the fully-qualified name of the AccountService's UpdateUser
+	// RPC.
+	AccountServiceUpdateUserProcedure = "/account.v1.AccountService/UpdateUser"
 	// AccountServiceLoginUserProcedure is the fully-qualified name of the AccountService's LoginUser
 	// RPC.
 	AccountServiceLoginUserProcedure = "/account.v1.AccountService/LoginUser"
@@ -58,11 +67,29 @@ const (
 	// AccountServiceClearCartProcedure is the fully-qualified name of the AccountService's ClearCart
 	// RPC.
 	AccountServiceClearCartProcedure = "/account.v1.AccountService/ClearCart"
+	// AccountServiceGetAddressProcedure is the fully-qualified name of the AccountService's GetAddress
+	// RPC.
+	AccountServiceGetAddressProcedure = "/account.v1.AccountService/GetAddress"
+	// AccountServiceListAddressesProcedure is the fully-qualified name of the AccountService's
+	// ListAddresses RPC.
+	AccountServiceListAddressesProcedure = "/account.v1.AccountService/ListAddresses"
+	// AccountServiceCreateAddressProcedure is the fully-qualified name of the AccountService's
+	// CreateAddress RPC.
+	AccountServiceCreateAddressProcedure = "/account.v1.AccountService/CreateAddress"
+	// AccountServiceUpdateAddressProcedure is the fully-qualified name of the AccountService's
+	// UpdateAddress RPC.
+	AccountServiceUpdateAddressProcedure = "/account.v1.AccountService/UpdateAddress"
+	// AccountServiceDeleteAddressProcedure is the fully-qualified name of the AccountService's
+	// DeleteAddress RPC.
+	AccountServiceDeleteAddressProcedure = "/account.v1.AccountService/DeleteAddress"
 )
 
 // AccountServiceClient is a client for the account.v1.AccountService service.
 type AccountServiceClient interface {
 	GetUser(context.Context, *connect.Request[v1.GetUserRequest]) (*connect.Response[v1.GetUserResponse], error)
+	GetUserPublic(context.Context, *connect.Request[v1.GetUserPublicRequest]) (*connect.Response[v1.GetUserPublicResponse], error)
+	UpdateAccount(context.Context, *connect.Request[v1.UpdateAccountRequest]) (*connect.Response[v1.UpdateAccountResponse], error)
+	UpdateUser(context.Context, *connect.Request[v1.UpdateUserRequest]) (*connect.Response[v1.UpdateUserResponse], error)
 	// Login, register
 	LoginUser(context.Context, *connect.Request[v1.LoginUserRequest]) (*connect.Response[v1.LoginUserResponse], error)
 	LoginAdmin(context.Context, *connect.Request[v1.LoginAdminRequest]) (*connect.Response[v1.LoginAdminResponse], error)
@@ -73,6 +100,12 @@ type AccountServiceClient interface {
 	AddCartItem(context.Context, *connect.Request[v1.AddCartItemRequest]) (*connect.Response[v1.AddCartItemResponse], error)
 	UpdateCartItem(context.Context, *connect.Request[v1.UpdateCartItemRequest]) (*connect.Response[v1.UpdateCartItemResponse], error)
 	ClearCart(context.Context, *connect.Request[v1.ClearCartRequest]) (*connect.Response[v1.ClearCartResponse], error)
+	// Address
+	GetAddress(context.Context, *connect.Request[v1.GetAddressRequest]) (*connect.Response[v1.GetAddressResponse], error)
+	ListAddresses(context.Context, *connect.Request[v1.ListAddressesRequest]) (*connect.Response[v1.ListAddressesResponse], error)
+	CreateAddress(context.Context, *connect.Request[v1.CreateAddressRequest]) (*connect.Response[v1.CreateAddressResponse], error)
+	UpdateAddress(context.Context, *connect.Request[v1.UpdateAddressRequest]) (*connect.Response[v1.UpdateAddressResponse], error)
+	DeleteAddress(context.Context, *connect.Request[v1.DeleteAddressRequest]) (*connect.Response[v1.DeleteAddressResponse], error)
 }
 
 // NewAccountServiceClient constructs a client for the account.v1.AccountService service. By
@@ -91,6 +124,25 @@ func NewAccountServiceClient(httpClient connect.HTTPClient, baseURL string, opts
 			baseURL+AccountServiceGetUserProcedure,
 			connect.WithSchema(accountServiceMethods.ByName("GetUser")),
 			connect.WithIdempotency(connect.IdempotencyNoSideEffects),
+			connect.WithClientOptions(opts...),
+		),
+		getUserPublic: connect.NewClient[v1.GetUserPublicRequest, v1.GetUserPublicResponse](
+			httpClient,
+			baseURL+AccountServiceGetUserPublicProcedure,
+			connect.WithSchema(accountServiceMethods.ByName("GetUserPublic")),
+			connect.WithIdempotency(connect.IdempotencyNoSideEffects),
+			connect.WithClientOptions(opts...),
+		),
+		updateAccount: connect.NewClient[v1.UpdateAccountRequest, v1.UpdateAccountResponse](
+			httpClient,
+			baseURL+AccountServiceUpdateAccountProcedure,
+			connect.WithSchema(accountServiceMethods.ByName("UpdateAccount")),
+			connect.WithClientOptions(opts...),
+		),
+		updateUser: connect.NewClient[v1.UpdateUserRequest, v1.UpdateUserResponse](
+			httpClient,
+			baseURL+AccountServiceUpdateUserProcedure,
+			connect.WithSchema(accountServiceMethods.ByName("UpdateUser")),
 			connect.WithClientOptions(opts...),
 		),
 		loginUser: connect.NewClient[v1.LoginUserRequest, v1.LoginUserResponse](
@@ -142,12 +194,47 @@ func NewAccountServiceClient(httpClient connect.HTTPClient, baseURL string, opts
 			connect.WithSchema(accountServiceMethods.ByName("ClearCart")),
 			connect.WithClientOptions(opts...),
 		),
+		getAddress: connect.NewClient[v1.GetAddressRequest, v1.GetAddressResponse](
+			httpClient,
+			baseURL+AccountServiceGetAddressProcedure,
+			connect.WithSchema(accountServiceMethods.ByName("GetAddress")),
+			connect.WithIdempotency(connect.IdempotencyNoSideEffects),
+			connect.WithClientOptions(opts...),
+		),
+		listAddresses: connect.NewClient[v1.ListAddressesRequest, v1.ListAddressesResponse](
+			httpClient,
+			baseURL+AccountServiceListAddressesProcedure,
+			connect.WithSchema(accountServiceMethods.ByName("ListAddresses")),
+			connect.WithIdempotency(connect.IdempotencyNoSideEffects),
+			connect.WithClientOptions(opts...),
+		),
+		createAddress: connect.NewClient[v1.CreateAddressRequest, v1.CreateAddressResponse](
+			httpClient,
+			baseURL+AccountServiceCreateAddressProcedure,
+			connect.WithSchema(accountServiceMethods.ByName("CreateAddress")),
+			connect.WithClientOptions(opts...),
+		),
+		updateAddress: connect.NewClient[v1.UpdateAddressRequest, v1.UpdateAddressResponse](
+			httpClient,
+			baseURL+AccountServiceUpdateAddressProcedure,
+			connect.WithSchema(accountServiceMethods.ByName("UpdateAddress")),
+			connect.WithClientOptions(opts...),
+		),
+		deleteAddress: connect.NewClient[v1.DeleteAddressRequest, v1.DeleteAddressResponse](
+			httpClient,
+			baseURL+AccountServiceDeleteAddressProcedure,
+			connect.WithSchema(accountServiceMethods.ByName("DeleteAddress")),
+			connect.WithClientOptions(opts...),
+		),
 	}
 }
 
 // accountServiceClient implements AccountServiceClient.
 type accountServiceClient struct {
 	getUser        *connect.Client[v1.GetUserRequest, v1.GetUserResponse]
+	getUserPublic  *connect.Client[v1.GetUserPublicRequest, v1.GetUserPublicResponse]
+	updateAccount  *connect.Client[v1.UpdateAccountRequest, v1.UpdateAccountResponse]
+	updateUser     *connect.Client[v1.UpdateUserRequest, v1.UpdateUserResponse]
 	loginUser      *connect.Client[v1.LoginUserRequest, v1.LoginUserResponse]
 	loginAdmin     *connect.Client[v1.LoginAdminRequest, v1.LoginAdminResponse]
 	registerUser   *connect.Client[v1.RegisterUserRequest, v1.RegisterUserResponse]
@@ -156,11 +243,31 @@ type accountServiceClient struct {
 	addCartItem    *connect.Client[v1.AddCartItemRequest, v1.AddCartItemResponse]
 	updateCartItem *connect.Client[v1.UpdateCartItemRequest, v1.UpdateCartItemResponse]
 	clearCart      *connect.Client[v1.ClearCartRequest, v1.ClearCartResponse]
+	getAddress     *connect.Client[v1.GetAddressRequest, v1.GetAddressResponse]
+	listAddresses  *connect.Client[v1.ListAddressesRequest, v1.ListAddressesResponse]
+	createAddress  *connect.Client[v1.CreateAddressRequest, v1.CreateAddressResponse]
+	updateAddress  *connect.Client[v1.UpdateAddressRequest, v1.UpdateAddressResponse]
+	deleteAddress  *connect.Client[v1.DeleteAddressRequest, v1.DeleteAddressResponse]
 }
 
 // GetUser calls account.v1.AccountService.GetUser.
 func (c *accountServiceClient) GetUser(ctx context.Context, req *connect.Request[v1.GetUserRequest]) (*connect.Response[v1.GetUserResponse], error) {
 	return c.getUser.CallUnary(ctx, req)
+}
+
+// GetUserPublic calls account.v1.AccountService.GetUserPublic.
+func (c *accountServiceClient) GetUserPublic(ctx context.Context, req *connect.Request[v1.GetUserPublicRequest]) (*connect.Response[v1.GetUserPublicResponse], error) {
+	return c.getUserPublic.CallUnary(ctx, req)
+}
+
+// UpdateAccount calls account.v1.AccountService.UpdateAccount.
+func (c *accountServiceClient) UpdateAccount(ctx context.Context, req *connect.Request[v1.UpdateAccountRequest]) (*connect.Response[v1.UpdateAccountResponse], error) {
+	return c.updateAccount.CallUnary(ctx, req)
+}
+
+// UpdateUser calls account.v1.AccountService.UpdateUser.
+func (c *accountServiceClient) UpdateUser(ctx context.Context, req *connect.Request[v1.UpdateUserRequest]) (*connect.Response[v1.UpdateUserResponse], error) {
+	return c.updateUser.CallUnary(ctx, req)
 }
 
 // LoginUser calls account.v1.AccountService.LoginUser.
@@ -203,9 +310,37 @@ func (c *accountServiceClient) ClearCart(ctx context.Context, req *connect.Reque
 	return c.clearCart.CallUnary(ctx, req)
 }
 
+// GetAddress calls account.v1.AccountService.GetAddress.
+func (c *accountServiceClient) GetAddress(ctx context.Context, req *connect.Request[v1.GetAddressRequest]) (*connect.Response[v1.GetAddressResponse], error) {
+	return c.getAddress.CallUnary(ctx, req)
+}
+
+// ListAddresses calls account.v1.AccountService.ListAddresses.
+func (c *accountServiceClient) ListAddresses(ctx context.Context, req *connect.Request[v1.ListAddressesRequest]) (*connect.Response[v1.ListAddressesResponse], error) {
+	return c.listAddresses.CallUnary(ctx, req)
+}
+
+// CreateAddress calls account.v1.AccountService.CreateAddress.
+func (c *accountServiceClient) CreateAddress(ctx context.Context, req *connect.Request[v1.CreateAddressRequest]) (*connect.Response[v1.CreateAddressResponse], error) {
+	return c.createAddress.CallUnary(ctx, req)
+}
+
+// UpdateAddress calls account.v1.AccountService.UpdateAddress.
+func (c *accountServiceClient) UpdateAddress(ctx context.Context, req *connect.Request[v1.UpdateAddressRequest]) (*connect.Response[v1.UpdateAddressResponse], error) {
+	return c.updateAddress.CallUnary(ctx, req)
+}
+
+// DeleteAddress calls account.v1.AccountService.DeleteAddress.
+func (c *accountServiceClient) DeleteAddress(ctx context.Context, req *connect.Request[v1.DeleteAddressRequest]) (*connect.Response[v1.DeleteAddressResponse], error) {
+	return c.deleteAddress.CallUnary(ctx, req)
+}
+
 // AccountServiceHandler is an implementation of the account.v1.AccountService service.
 type AccountServiceHandler interface {
 	GetUser(context.Context, *connect.Request[v1.GetUserRequest]) (*connect.Response[v1.GetUserResponse], error)
+	GetUserPublic(context.Context, *connect.Request[v1.GetUserPublicRequest]) (*connect.Response[v1.GetUserPublicResponse], error)
+	UpdateAccount(context.Context, *connect.Request[v1.UpdateAccountRequest]) (*connect.Response[v1.UpdateAccountResponse], error)
+	UpdateUser(context.Context, *connect.Request[v1.UpdateUserRequest]) (*connect.Response[v1.UpdateUserResponse], error)
 	// Login, register
 	LoginUser(context.Context, *connect.Request[v1.LoginUserRequest]) (*connect.Response[v1.LoginUserResponse], error)
 	LoginAdmin(context.Context, *connect.Request[v1.LoginAdminRequest]) (*connect.Response[v1.LoginAdminResponse], error)
@@ -216,6 +351,12 @@ type AccountServiceHandler interface {
 	AddCartItem(context.Context, *connect.Request[v1.AddCartItemRequest]) (*connect.Response[v1.AddCartItemResponse], error)
 	UpdateCartItem(context.Context, *connect.Request[v1.UpdateCartItemRequest]) (*connect.Response[v1.UpdateCartItemResponse], error)
 	ClearCart(context.Context, *connect.Request[v1.ClearCartRequest]) (*connect.Response[v1.ClearCartResponse], error)
+	// Address
+	GetAddress(context.Context, *connect.Request[v1.GetAddressRequest]) (*connect.Response[v1.GetAddressResponse], error)
+	ListAddresses(context.Context, *connect.Request[v1.ListAddressesRequest]) (*connect.Response[v1.ListAddressesResponse], error)
+	CreateAddress(context.Context, *connect.Request[v1.CreateAddressRequest]) (*connect.Response[v1.CreateAddressResponse], error)
+	UpdateAddress(context.Context, *connect.Request[v1.UpdateAddressRequest]) (*connect.Response[v1.UpdateAddressResponse], error)
+	DeleteAddress(context.Context, *connect.Request[v1.DeleteAddressRequest]) (*connect.Response[v1.DeleteAddressResponse], error)
 }
 
 // NewAccountServiceHandler builds an HTTP handler from the service implementation. It returns the
@@ -230,6 +371,25 @@ func NewAccountServiceHandler(svc AccountServiceHandler, opts ...connect.Handler
 		svc.GetUser,
 		connect.WithSchema(accountServiceMethods.ByName("GetUser")),
 		connect.WithIdempotency(connect.IdempotencyNoSideEffects),
+		connect.WithHandlerOptions(opts...),
+	)
+	accountServiceGetUserPublicHandler := connect.NewUnaryHandler(
+		AccountServiceGetUserPublicProcedure,
+		svc.GetUserPublic,
+		connect.WithSchema(accountServiceMethods.ByName("GetUserPublic")),
+		connect.WithIdempotency(connect.IdempotencyNoSideEffects),
+		connect.WithHandlerOptions(opts...),
+	)
+	accountServiceUpdateAccountHandler := connect.NewUnaryHandler(
+		AccountServiceUpdateAccountProcedure,
+		svc.UpdateAccount,
+		connect.WithSchema(accountServiceMethods.ByName("UpdateAccount")),
+		connect.WithHandlerOptions(opts...),
+	)
+	accountServiceUpdateUserHandler := connect.NewUnaryHandler(
+		AccountServiceUpdateUserProcedure,
+		svc.UpdateUser,
+		connect.WithSchema(accountServiceMethods.ByName("UpdateUser")),
 		connect.WithHandlerOptions(opts...),
 	)
 	accountServiceLoginUserHandler := connect.NewUnaryHandler(
@@ -281,10 +441,48 @@ func NewAccountServiceHandler(svc AccountServiceHandler, opts ...connect.Handler
 		connect.WithSchema(accountServiceMethods.ByName("ClearCart")),
 		connect.WithHandlerOptions(opts...),
 	)
+	accountServiceGetAddressHandler := connect.NewUnaryHandler(
+		AccountServiceGetAddressProcedure,
+		svc.GetAddress,
+		connect.WithSchema(accountServiceMethods.ByName("GetAddress")),
+		connect.WithIdempotency(connect.IdempotencyNoSideEffects),
+		connect.WithHandlerOptions(opts...),
+	)
+	accountServiceListAddressesHandler := connect.NewUnaryHandler(
+		AccountServiceListAddressesProcedure,
+		svc.ListAddresses,
+		connect.WithSchema(accountServiceMethods.ByName("ListAddresses")),
+		connect.WithIdempotency(connect.IdempotencyNoSideEffects),
+		connect.WithHandlerOptions(opts...),
+	)
+	accountServiceCreateAddressHandler := connect.NewUnaryHandler(
+		AccountServiceCreateAddressProcedure,
+		svc.CreateAddress,
+		connect.WithSchema(accountServiceMethods.ByName("CreateAddress")),
+		connect.WithHandlerOptions(opts...),
+	)
+	accountServiceUpdateAddressHandler := connect.NewUnaryHandler(
+		AccountServiceUpdateAddressProcedure,
+		svc.UpdateAddress,
+		connect.WithSchema(accountServiceMethods.ByName("UpdateAddress")),
+		connect.WithHandlerOptions(opts...),
+	)
+	accountServiceDeleteAddressHandler := connect.NewUnaryHandler(
+		AccountServiceDeleteAddressProcedure,
+		svc.DeleteAddress,
+		connect.WithSchema(accountServiceMethods.ByName("DeleteAddress")),
+		connect.WithHandlerOptions(opts...),
+	)
 	return "/account.v1.AccountService/", http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
 		switch r.URL.Path {
 		case AccountServiceGetUserProcedure:
 			accountServiceGetUserHandler.ServeHTTP(w, r)
+		case AccountServiceGetUserPublicProcedure:
+			accountServiceGetUserPublicHandler.ServeHTTP(w, r)
+		case AccountServiceUpdateAccountProcedure:
+			accountServiceUpdateAccountHandler.ServeHTTP(w, r)
+		case AccountServiceUpdateUserProcedure:
+			accountServiceUpdateUserHandler.ServeHTTP(w, r)
 		case AccountServiceLoginUserProcedure:
 			accountServiceLoginUserHandler.ServeHTTP(w, r)
 		case AccountServiceLoginAdminProcedure:
@@ -301,6 +499,16 @@ func NewAccountServiceHandler(svc AccountServiceHandler, opts ...connect.Handler
 			accountServiceUpdateCartItemHandler.ServeHTTP(w, r)
 		case AccountServiceClearCartProcedure:
 			accountServiceClearCartHandler.ServeHTTP(w, r)
+		case AccountServiceGetAddressProcedure:
+			accountServiceGetAddressHandler.ServeHTTP(w, r)
+		case AccountServiceListAddressesProcedure:
+			accountServiceListAddressesHandler.ServeHTTP(w, r)
+		case AccountServiceCreateAddressProcedure:
+			accountServiceCreateAddressHandler.ServeHTTP(w, r)
+		case AccountServiceUpdateAddressProcedure:
+			accountServiceUpdateAddressHandler.ServeHTTP(w, r)
+		case AccountServiceDeleteAddressProcedure:
+			accountServiceDeleteAddressHandler.ServeHTTP(w, r)
 		default:
 			http.NotFound(w, r)
 		}
@@ -312,6 +520,18 @@ type UnimplementedAccountServiceHandler struct{}
 
 func (UnimplementedAccountServiceHandler) GetUser(context.Context, *connect.Request[v1.GetUserRequest]) (*connect.Response[v1.GetUserResponse], error) {
 	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("account.v1.AccountService.GetUser is not implemented"))
+}
+
+func (UnimplementedAccountServiceHandler) GetUserPublic(context.Context, *connect.Request[v1.GetUserPublicRequest]) (*connect.Response[v1.GetUserPublicResponse], error) {
+	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("account.v1.AccountService.GetUserPublic is not implemented"))
+}
+
+func (UnimplementedAccountServiceHandler) UpdateAccount(context.Context, *connect.Request[v1.UpdateAccountRequest]) (*connect.Response[v1.UpdateAccountResponse], error) {
+	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("account.v1.AccountService.UpdateAccount is not implemented"))
+}
+
+func (UnimplementedAccountServiceHandler) UpdateUser(context.Context, *connect.Request[v1.UpdateUserRequest]) (*connect.Response[v1.UpdateUserResponse], error) {
+	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("account.v1.AccountService.UpdateUser is not implemented"))
 }
 
 func (UnimplementedAccountServiceHandler) LoginUser(context.Context, *connect.Request[v1.LoginUserRequest]) (*connect.Response[v1.LoginUserResponse], error) {
@@ -344,4 +564,24 @@ func (UnimplementedAccountServiceHandler) UpdateCartItem(context.Context, *conne
 
 func (UnimplementedAccountServiceHandler) ClearCart(context.Context, *connect.Request[v1.ClearCartRequest]) (*connect.Response[v1.ClearCartResponse], error) {
 	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("account.v1.AccountService.ClearCart is not implemented"))
+}
+
+func (UnimplementedAccountServiceHandler) GetAddress(context.Context, *connect.Request[v1.GetAddressRequest]) (*connect.Response[v1.GetAddressResponse], error) {
+	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("account.v1.AccountService.GetAddress is not implemented"))
+}
+
+func (UnimplementedAccountServiceHandler) ListAddresses(context.Context, *connect.Request[v1.ListAddressesRequest]) (*connect.Response[v1.ListAddressesResponse], error) {
+	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("account.v1.AccountService.ListAddresses is not implemented"))
+}
+
+func (UnimplementedAccountServiceHandler) CreateAddress(context.Context, *connect.Request[v1.CreateAddressRequest]) (*connect.Response[v1.CreateAddressResponse], error) {
+	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("account.v1.AccountService.CreateAddress is not implemented"))
+}
+
+func (UnimplementedAccountServiceHandler) UpdateAddress(context.Context, *connect.Request[v1.UpdateAddressRequest]) (*connect.Response[v1.UpdateAddressResponse], error) {
+	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("account.v1.AccountService.UpdateAddress is not implemented"))
+}
+
+func (UnimplementedAccountServiceHandler) DeleteAddress(context.Context, *connect.Request[v1.DeleteAddressRequest]) (*connect.Response[v1.DeleteAddressResponse], error) {
+	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("account.v1.AccountService.DeleteAddress is not implemented"))
 }
