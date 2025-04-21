@@ -13,7 +13,7 @@ enum RefundMethod {
 
 message Refund {
   int64 id = 1;
-  int64 payment_id = 2;
+  int64 product_on_payment_id = 2;
   RefundMethod method = 3;
   common.Status status = 4;
   string reason = 5;
@@ -34,7 +34,7 @@ message GetRefundResponse {
 message ListRefundsRequest {
   common.PaginationRequest pagination = 1;
   optional int64 user_id = 2;
-  optional int64 payment_id = 3;
+  optional int64 product_on_payment_id = 3;
   optional RefundMethod method = 4;
   optional common.Status status = 5;
   optional string reason = 6;
@@ -49,7 +49,7 @@ message ListRefundsResponse {
 }
 
 message CreateRefundRequest {
-  int64 payment_id = 1;
+  int64 product_on_payment_id = 1;
   RefundMethod method = 2;
   string reason = 3;
   string address = 4;
@@ -66,6 +66,7 @@ message UpdateRefundRequest {
   optional common.Status status = 3;
   optional string reason = 4;
   optional string address = 5;
+  repeated string resources = 6;
 }
 
 message UpdateRefundResponse {
