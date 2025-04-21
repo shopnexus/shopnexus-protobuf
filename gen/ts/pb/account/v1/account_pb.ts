@@ -10,7 +10,7 @@ import type { Message } from "@bufbuild/protobuf";
  * Describes the file account/v1/account.proto.
  */
 export const file_account_v1_account: GenFile = /*@__PURE__*/
-  fileDesc("ChhhY2NvdW50L3YxL2FjY291bnQucHJvdG8SCmFjY291bnQudjEiEAoOR2V0VXNlclJlcXVlc3QisAEKD0dldFVzZXJSZXNwb25zZRINCgVlbWFpbBgBIAEoCRINCgVwaG9uZRgCIAEoCRIQCgh1c2VybmFtZRgDIAEoCRIiCgZnZW5kZXIYBCABKA4yEi5hY2NvdW50LnYxLkdlbmRlchIRCglmdWxsX25hbWUYBSABKAkSHwoSZGVmYXVsdF9hZGRyZXNzX2lkGAYgASgDSACIAQFCFQoTX2RlZmF1bHRfYWRkcmVzc19pZCKOAQoTUmVnaXN0ZXJVc2VyUmVxdWVzdBIQCgh1c2VybmFtZRgBIAEoCRINCgVlbWFpbBgCIAEoCRINCgVwaG9uZRgDIAEoCRIQCghwYXNzd29yZBgEIAEoCRIiCgZnZW5kZXIYBSABKA4yEi5hY2NvdW50LnYxLkdlbmRlchIRCglmdWxsX25hbWUYBiABKAkiJQoUUmVnaXN0ZXJVc2VyUmVzcG9uc2USDQoFdG9rZW4YASABKAkiOgoUUmVnaXN0ZXJBZG1pblJlcXVlc3QSEAoIdXNlcm5hbWUYASABKAkSEAoIcGFzc3dvcmQYAiABKAkiJgoVUmVnaXN0ZXJBZG1pblJlc3BvbnNlEg0KBXRva2VuGAEgASgJIoQBChBMb2dpblVzZXJSZXF1ZXN0EhUKCHVzZXJuYW1lGAEgASgJSACIAQESEgoFZW1haWwYAiABKAlIAYgBARISCgVwaG9uZRgDIAEoCUgCiAEBEhAKCHBhc3N3b3JkGAQgASgJQgsKCV91c2VybmFtZUIICgZfZW1haWxCCAoGX3Bob25lIiIKEUxvZ2luVXNlclJlc3BvbnNlEg0KBXRva2VuGAEgASgJIjcKEUxvZ2luQWRtaW5SZXF1ZXN0EhAKCHVzZXJuYW1lGAEgASgJEhAKCHBhc3N3b3JkGAIgASgJIiMKEkxvZ2luQWRtaW5SZXNwb25zZRINCgV0b2tlbhgBIAEoCSpWCgZHZW5kZXISFgoSR0VOREVSX1VOU1BFQ0lGSUVEEAASDwoLR0VOREVSX01BTEUQARIRCg1HRU5ERVJfRkVNQUxFEAISEAoMR0VOREVSX09USEVSEANCrwEKDmNvbS5hY2NvdW50LnYxQgxBY2NvdW50UHJvdG9QAVpGZ2l0aHViLmNvbS9zaG9wbmV4dXMvc2hvcG5leHVzLXByb3RvYnVmLWdlbi1nby9wYi9hY2NvdW50L3YxO2FjY291bnR2MaICA0FYWKoCCkFjY291bnQuVjHKAgpBY2NvdW50XFYx4gIWQWNjb3VudFxWMVxHUEJNZXRhZGF0YeoCC0FjY291bnQ6OlYxYgZwcm90bzM");
+  fileDesc("ChhhY2NvdW50L3YxL2FjY291bnQucHJvdG8SCmFjY291bnQudjEiEAoOR2V0VXNlclJlcXVlc3Qi3AEKD0dldFVzZXJSZXNwb25zZRIKCgJpZBgBIAEoAxINCgVlbWFpbBgCIAEoCRINCgVwaG9uZRgDIAEoCRIQCgh1c2VybmFtZRgEIAEoCRIiCgZnZW5kZXIYBSABKA4yEi5hY2NvdW50LnYxLkdlbmRlchIRCglmdWxsX25hbWUYBiABKAkSHwoSZGVmYXVsdF9hZGRyZXNzX2lkGAcgASgDSACIAQESEwoGYXZhdGFyGAggASgJSAGIAQFCFQoTX2RlZmF1bHRfYWRkcmVzc19pZEIJCgdfYXZhdGFyIhEKD0dldEFkbWluUmVxdWVzdCJwChBHZXRBZG1pblJlc3BvbnNlEgoKAmlkGAEgASgDEhAKCHVzZXJuYW1lGAIgASgJEh4KBHJvbGUYAyABKA4yEC5hY2NvdW50LnYxLlJvbGUSEwoGYXZhdGFyGAQgASgJSACIAQFCCQoHX2F2YXRhciIiChRHZXRVc2VyUHVibGljUmVxdWVzdBIKCgJpZBgBIAEoAyJoChVHZXRVc2VyUHVibGljUmVzcG9uc2USCgoCaWQYASABKAMSEAoIdXNlcm5hbWUYAiABKAkSEQoJZnVsbF9uYW1lGAMgASgJEhMKBmF2YXRhchgEIAEoCUgAiAEBQgkKB19hdmF0YXIijgEKE1JlZ2lzdGVyVXNlclJlcXVlc3QSEAoIdXNlcm5hbWUYASABKAkSDQoFZW1haWwYAiABKAkSDQoFcGhvbmUYAyABKAkSEAoIcGFzc3dvcmQYBCABKAkSIgoGZ2VuZGVyGAUgASgOMhIuYWNjb3VudC52MS5HZW5kZXISEQoJZnVsbF9uYW1lGAYgASgJIiUKFFJlZ2lzdGVyVXNlclJlc3BvbnNlEg0KBXRva2VuGAEgASgJIjoKFFJlZ2lzdGVyQWRtaW5SZXF1ZXN0EhAKCHVzZXJuYW1lGAEgASgJEhAKCHBhc3N3b3JkGAIgASgJIiYKFVJlZ2lzdGVyQWRtaW5SZXNwb25zZRINCgV0b2tlbhgBIAEoCSKEAQoQTG9naW5Vc2VyUmVxdWVzdBIVCgh1c2VybmFtZRgBIAEoCUgAiAEBEhIKBWVtYWlsGAIgASgJSAGIAQESEgoFcGhvbmUYAyABKAlIAogBARIQCghwYXNzd29yZBgEIAEoCUILCglfdXNlcm5hbWVCCAoGX2VtYWlsQggKBl9waG9uZSIiChFMb2dpblVzZXJSZXNwb25zZRINCgV0b2tlbhgBIAEoCSI3ChFMb2dpbkFkbWluUmVxdWVzdBIQCgh1c2VybmFtZRgBIAEoCRIQCghwYXNzd29yZBgCIAEoCSIjChJMb2dpbkFkbWluUmVzcG9uc2USDQoFdG9rZW4YASABKAki7AEKFFVwZGF0ZUFjY291bnRSZXF1ZXN0Eg8KAmlkGAEgASgDSACIAQESFQoIdXNlcm5hbWUYAiABKAlIAYgBARIVCghwYXNzd29yZBgDIAEoCUgCiAEBEh4KFm51bGxfY3VzdG9tX3Blcm1pc3Npb24YBCABKAgSHgoRY3VzdG9tX3Blcm1pc3Npb24YBSABKAlIA4gBARITCgZhdmF0YXIYBiABKAlIBIgBAUIFCgNfaWRCCwoJX3VzZXJuYW1lQgsKCV9wYXNzd29yZEIUChJfY3VzdG9tX3Blcm1pc3Npb25CCQoHX2F2YXRhciIXChVVcGRhdGVBY2NvdW50UmVzcG9uc2Ui+QEKEVVwZGF0ZVVzZXJSZXF1ZXN0Eg8KAmlkGAEgASgDSACIAQESEgoFZW1haWwYAiABKAlIAYgBARISCgVwaG9uZRgDIAEoCUgCiAEBEicKBmdlbmRlchgEIAEoDjISLmFjY291bnQudjEuR2VuZGVySAOIAQESFgoJZnVsbF9uYW1lGAUgASgJSASIAQESHwoSZGVmYXVsdF9hZGRyZXNzX2lkGAYgASgDSAWIAQFCBQoDX2lkQggKBl9lbWFpbEIICgZfcGhvbmVCCQoHX2dlbmRlckIMCgpfZnVsbF9uYW1lQhUKE19kZWZhdWx0X2FkZHJlc3NfaWQiFAoSVXBkYXRlVXNlclJlc3BvbnNlKlYKBkdlbmRlchIWChJHRU5ERVJfVU5TUEVDSUZJRUQQABIPCgtHRU5ERVJfTUFMRRABEhEKDUdFTkRFUl9GRU1BTEUQAhIQCgxHRU5ERVJfT1RIRVIQAypLCgRSb2xlEhQKEFJPTEVfVU5TUEVDSUZJRUQQABINCglST0xFX1VTRVIQARIOCgpST0xFX0FETUlOEAISDgoKUk9MRV9TVEFGRhADQq8BCg5jb20uYWNjb3VudC52MUIMQWNjb3VudFByb3RvUAFaRmdpdGh1Yi5jb20vc2hvcG5leHVzL3Nob3BuZXh1cy1wcm90b2J1Zi1nZW4tZ28vcGIvYWNjb3VudC92MTthY2NvdW50djGiAgNBWFiqAgpBY2NvdW50LlYxygIKQWNjb3VudFxWMeICFkFjY291bnRcVjFcR1BCTWV0YWRhdGHqAgtBY2NvdW50OjpWMWIGcHJvdG8z");
 
 /**
  * @generated from message account.v1.GetUserRequest
@@ -30,34 +30,44 @@ export const GetUserRequestSchema: GenMessage<GetUserRequest> = /*@__PURE__*/
  */
 export type GetUserResponse = Message<"account.v1.GetUserResponse"> & {
   /**
-   * @generated from field: string email = 1;
+   * @generated from field: int64 id = 1;
+   */
+  id: bigint;
+
+  /**
+   * @generated from field: string email = 2;
    */
   email: string;
 
   /**
-   * @generated from field: string phone = 2;
+   * @generated from field: string phone = 3;
    */
   phone: string;
 
   /**
-   * @generated from field: string username = 3;
+   * @generated from field: string username = 4;
    */
   username: string;
 
   /**
-   * @generated from field: account.v1.Gender gender = 4;
+   * @generated from field: account.v1.Gender gender = 5;
    */
   gender: Gender;
 
   /**
-   * @generated from field: string full_name = 5;
+   * @generated from field: string full_name = 6;
    */
   fullName: string;
 
   /**
-   * @generated from field: optional int64 default_address_id = 6;
+   * @generated from field: optional int64 default_address_id = 7;
    */
   defaultAddressId?: bigint;
+
+  /**
+   * @generated from field: optional string avatar = 8;
+   */
+  avatar?: string;
 };
 
 /**
@@ -66,6 +76,100 @@ export type GetUserResponse = Message<"account.v1.GetUserResponse"> & {
  */
 export const GetUserResponseSchema: GenMessage<GetUserResponse> = /*@__PURE__*/
   messageDesc(file_account_v1_account, 1);
+
+/**
+ * @generated from message account.v1.GetAdminRequest
+ */
+export type GetAdminRequest = Message<"account.v1.GetAdminRequest"> & {
+};
+
+/**
+ * Describes the message account.v1.GetAdminRequest.
+ * Use `create(GetAdminRequestSchema)` to create a new message.
+ */
+export const GetAdminRequestSchema: GenMessage<GetAdminRequest> = /*@__PURE__*/
+  messageDesc(file_account_v1_account, 2);
+
+/**
+ * @generated from message account.v1.GetAdminResponse
+ */
+export type GetAdminResponse = Message<"account.v1.GetAdminResponse"> & {
+  /**
+   * @generated from field: int64 id = 1;
+   */
+  id: bigint;
+
+  /**
+   * @generated from field: string username = 2;
+   */
+  username: string;
+
+  /**
+   * @generated from field: account.v1.Role role = 3;
+   */
+  role: Role;
+
+  /**
+   * @generated from field: optional string avatar = 4;
+   */
+  avatar?: string;
+};
+
+/**
+ * Describes the message account.v1.GetAdminResponse.
+ * Use `create(GetAdminResponseSchema)` to create a new message.
+ */
+export const GetAdminResponseSchema: GenMessage<GetAdminResponse> = /*@__PURE__*/
+  messageDesc(file_account_v1_account, 3);
+
+/**
+ * @generated from message account.v1.GetUserPublicRequest
+ */
+export type GetUserPublicRequest = Message<"account.v1.GetUserPublicRequest"> & {
+  /**
+   * @generated from field: int64 id = 1;
+   */
+  id: bigint;
+};
+
+/**
+ * Describes the message account.v1.GetUserPublicRequest.
+ * Use `create(GetUserPublicRequestSchema)` to create a new message.
+ */
+export const GetUserPublicRequestSchema: GenMessage<GetUserPublicRequest> = /*@__PURE__*/
+  messageDesc(file_account_v1_account, 4);
+
+/**
+ * @generated from message account.v1.GetUserPublicResponse
+ */
+export type GetUserPublicResponse = Message<"account.v1.GetUserPublicResponse"> & {
+  /**
+   * @generated from field: int64 id = 1;
+   */
+  id: bigint;
+
+  /**
+   * @generated from field: string username = 2;
+   */
+  username: string;
+
+  /**
+   * @generated from field: string full_name = 3;
+   */
+  fullName: string;
+
+  /**
+   * @generated from field: optional string avatar = 4;
+   */
+  avatar?: string;
+};
+
+/**
+ * Describes the message account.v1.GetUserPublicResponse.
+ * Use `create(GetUserPublicResponseSchema)` to create a new message.
+ */
+export const GetUserPublicResponseSchema: GenMessage<GetUserPublicResponse> = /*@__PURE__*/
+  messageDesc(file_account_v1_account, 5);
 
 /**
  * @generated from message account.v1.RegisterUserRequest
@@ -107,7 +211,7 @@ export type RegisterUserRequest = Message<"account.v1.RegisterUserRequest"> & {
  * Use `create(RegisterUserRequestSchema)` to create a new message.
  */
 export const RegisterUserRequestSchema: GenMessage<RegisterUserRequest> = /*@__PURE__*/
-  messageDesc(file_account_v1_account, 2);
+  messageDesc(file_account_v1_account, 6);
 
 /**
  * @generated from message account.v1.RegisterUserResponse
@@ -124,7 +228,7 @@ export type RegisterUserResponse = Message<"account.v1.RegisterUserResponse"> & 
  * Use `create(RegisterUserResponseSchema)` to create a new message.
  */
 export const RegisterUserResponseSchema: GenMessage<RegisterUserResponse> = /*@__PURE__*/
-  messageDesc(file_account_v1_account, 3);
+  messageDesc(file_account_v1_account, 7);
 
 /**
  * @generated from message account.v1.RegisterAdminRequest
@@ -146,7 +250,7 @@ export type RegisterAdminRequest = Message<"account.v1.RegisterAdminRequest"> & 
  * Use `create(RegisterAdminRequestSchema)` to create a new message.
  */
 export const RegisterAdminRequestSchema: GenMessage<RegisterAdminRequest> = /*@__PURE__*/
-  messageDesc(file_account_v1_account, 4);
+  messageDesc(file_account_v1_account, 8);
 
 /**
  * @generated from message account.v1.RegisterAdminResponse
@@ -163,7 +267,7 @@ export type RegisterAdminResponse = Message<"account.v1.RegisterAdminResponse"> 
  * Use `create(RegisterAdminResponseSchema)` to create a new message.
  */
 export const RegisterAdminResponseSchema: GenMessage<RegisterAdminResponse> = /*@__PURE__*/
-  messageDesc(file_account_v1_account, 5);
+  messageDesc(file_account_v1_account, 9);
 
 /**
  * @generated from message account.v1.LoginUserRequest
@@ -195,7 +299,7 @@ export type LoginUserRequest = Message<"account.v1.LoginUserRequest"> & {
  * Use `create(LoginUserRequestSchema)` to create a new message.
  */
 export const LoginUserRequestSchema: GenMessage<LoginUserRequest> = /*@__PURE__*/
-  messageDesc(file_account_v1_account, 6);
+  messageDesc(file_account_v1_account, 10);
 
 /**
  * @generated from message account.v1.LoginUserResponse
@@ -212,7 +316,7 @@ export type LoginUserResponse = Message<"account.v1.LoginUserResponse"> & {
  * Use `create(LoginUserResponseSchema)` to create a new message.
  */
 export const LoginUserResponseSchema: GenMessage<LoginUserResponse> = /*@__PURE__*/
-  messageDesc(file_account_v1_account, 7);
+  messageDesc(file_account_v1_account, 11);
 
 /**
  * @generated from message account.v1.LoginAdminRequest
@@ -234,7 +338,7 @@ export type LoginAdminRequest = Message<"account.v1.LoginAdminRequest"> & {
  * Use `create(LoginAdminRequestSchema)` to create a new message.
  */
 export const LoginAdminRequestSchema: GenMessage<LoginAdminRequest> = /*@__PURE__*/
-  messageDesc(file_account_v1_account, 8);
+  messageDesc(file_account_v1_account, 12);
 
 /**
  * @generated from message account.v1.LoginAdminResponse
@@ -251,7 +355,117 @@ export type LoginAdminResponse = Message<"account.v1.LoginAdminResponse"> & {
  * Use `create(LoginAdminResponseSchema)` to create a new message.
  */
 export const LoginAdminResponseSchema: GenMessage<LoginAdminResponse> = /*@__PURE__*/
-  messageDesc(file_account_v1_account, 9);
+  messageDesc(file_account_v1_account, 13);
+
+/**
+ * @generated from message account.v1.UpdateAccountRequest
+ */
+export type UpdateAccountRequest = Message<"account.v1.UpdateAccountRequest"> & {
+  /**
+   * @generated from field: optional int64 id = 1;
+   */
+  id?: bigint;
+
+  /**
+   * @generated from field: optional string username = 2;
+   */
+  username?: string;
+
+  /**
+   * @generated from field: optional string password = 3;
+   */
+  password?: string;
+
+  /**
+   * @generated from field: bool null_custom_permission = 4;
+   */
+  nullCustomPermission: boolean;
+
+  /**
+   * @generated from field: optional string custom_permission = 5;
+   */
+  customPermission?: string;
+
+  /**
+   * @generated from field: optional string avatar = 6;
+   */
+  avatar?: string;
+};
+
+/**
+ * Describes the message account.v1.UpdateAccountRequest.
+ * Use `create(UpdateAccountRequestSchema)` to create a new message.
+ */
+export const UpdateAccountRequestSchema: GenMessage<UpdateAccountRequest> = /*@__PURE__*/
+  messageDesc(file_account_v1_account, 14);
+
+/**
+ * @generated from message account.v1.UpdateAccountResponse
+ */
+export type UpdateAccountResponse = Message<"account.v1.UpdateAccountResponse"> & {
+};
+
+/**
+ * Describes the message account.v1.UpdateAccountResponse.
+ * Use `create(UpdateAccountResponseSchema)` to create a new message.
+ */
+export const UpdateAccountResponseSchema: GenMessage<UpdateAccountResponse> = /*@__PURE__*/
+  messageDesc(file_account_v1_account, 15);
+
+/**
+ * @generated from message account.v1.UpdateUserRequest
+ */
+export type UpdateUserRequest = Message<"account.v1.UpdateUserRequest"> & {
+  /**
+   * @generated from field: optional int64 id = 1;
+   */
+  id?: bigint;
+
+  /**
+   * @generated from field: optional string email = 2;
+   */
+  email?: string;
+
+  /**
+   * @generated from field: optional string phone = 3;
+   */
+  phone?: string;
+
+  /**
+   * @generated from field: optional account.v1.Gender gender = 4;
+   */
+  gender?: Gender;
+
+  /**
+   * @generated from field: optional string full_name = 5;
+   */
+  fullName?: string;
+
+  /**
+   * @generated from field: optional int64 default_address_id = 6;
+   */
+  defaultAddressId?: bigint;
+};
+
+/**
+ * Describes the message account.v1.UpdateUserRequest.
+ * Use `create(UpdateUserRequestSchema)` to create a new message.
+ */
+export const UpdateUserRequestSchema: GenMessage<UpdateUserRequest> = /*@__PURE__*/
+  messageDesc(file_account_v1_account, 16);
+
+/**
+ * @generated from message account.v1.UpdateUserResponse
+ */
+export type UpdateUserResponse = Message<"account.v1.UpdateUserResponse"> & {
+};
+
+/**
+ * Describes the message account.v1.UpdateUserResponse.
+ * Use `create(UpdateUserResponseSchema)` to create a new message.
+ */
+export const UpdateUserResponseSchema: GenMessage<UpdateUserResponse> = /*@__PURE__*/
+  messageDesc(file_account_v1_account, 17);
 
 /**
  * @generated from enum account.v1.Gender
@@ -283,4 +497,35 @@ export enum Gender {
  */
 export const GenderSchema: GenEnum<Gender> = /*@__PURE__*/
   enumDesc(file_account_v1_account, 0);
+
+/**
+ * @generated from enum account.v1.Role
+ */
+export enum Role {
+  /**
+   * @generated from enum value: ROLE_UNSPECIFIED = 0;
+   */
+  UNSPECIFIED = 0,
+
+  /**
+   * @generated from enum value: ROLE_USER = 1;
+   */
+  USER = 1,
+
+  /**
+   * @generated from enum value: ROLE_ADMIN = 2;
+   */
+  ADMIN = 2,
+
+  /**
+   * @generated from enum value: ROLE_STAFF = 3;
+   */
+  STAFF = 3,
+}
+
+/**
+ * Describes the enum account.v1.Role.
+ */
+export const RoleSchema: GenEnum<Role> = /*@__PURE__*/
+  enumDesc(file_account_v1_account, 1);
 

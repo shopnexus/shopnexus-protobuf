@@ -16,29 +16,34 @@ import type { Message } from "@bufbuild/protobuf";
  * Describes the file payment/v1/payment.proto.
  */
 export const file_payment_v1_payment: GenFile = /*@__PURE__*/
-  fileDesc("ChhwYXltZW50L3YxL3BheW1lbnQucHJvdG8SCnBheW1lbnQudjEifAoQUHJvZHVjdE9uUGF5bWVudBIwCg1pdGVtX3F1YW50aXR5GAEgASgLMhkuY29tbW9uLkl0ZW1RdWFudGl0eUludDY0EhIKCnNlcmlhbF9pZHMYAiADKAkSDQoFcHJpY2UYAyABKAMSEwoLdG90YWxfcHJpY2UYBCABKAMi1wEKB1BheW1lbnQSCgoCaWQYASABKAMSDwoHdXNlcl9pZBgCIAEoAxIpCgZtZXRob2QYAyABKA4yGS5wYXltZW50LnYxLlBheW1lbnRNZXRob2QSHgoGc3RhdHVzGAQgASgOMg4uY29tbW9uLlN0YXR1cxIPCgdhZGRyZXNzGAUgASgJEg0KBXRvdGFsGAYgASgDEhQKDGRhdGVfY3JlYXRlZBgHIAEoAxIuCghwcm9kdWN0cxgIIAMoCzIcLnBheW1lbnQudjEuUHJvZHVjdE9uUGF5bWVudCIfChFHZXRQYXltZW50UmVxdWVzdBIKCgJpZBgBIAEoAyI3ChJHZXRQYXltZW50UmVzcG9uc2USIQoEZGF0YRgBIAEoCzITLnBheW1lbnQudjEuUGF5bWVudCKnAwoTTGlzdFBheW1lbnRzUmVxdWVzdBItCgpwYWdpbmF0aW9uGAEgASgLMhkuY29tbW9uLlBhZ2luYXRpb25SZXF1ZXN0EhQKB3VzZXJfaWQYAiABKANIAIgBARIuCgZtZXRob2QYAyABKA4yGS5wYXltZW50LnYxLlBheW1lbnRNZXRob2RIAYgBARIjCgZzdGF0dXMYBCABKA4yDi5jb21tb24uU3RhdHVzSAKIAQESFAoHYWRkcmVzcxgFIAEoCUgDiAEBEhcKCnRvdGFsX2Zyb20YBiABKANIBIgBARIVCgh0b3RhbF90bxgHIAEoA0gFiAEBEh4KEWRhdGVfY3JlYXRlZF9mcm9tGAggASgDSAaIAQESHAoPZGF0ZV9jcmVhdGVkX3RvGAkgASgDSAeIAQFCCgoIX3VzZXJfaWRCCQoHX21ldGhvZEIJCgdfc3RhdHVzQgoKCF9hZGRyZXNzQg0KC190b3RhbF9mcm9tQgsKCV90b3RhbF90b0IUChJfZGF0ZV9jcmVhdGVkX2Zyb21CEgoQX2RhdGVfY3JlYXRlZF90byJpChRMaXN0UGF5bWVudHNSZXNwb25zZRIhCgRkYXRhGAEgAygLMhMucGF5bWVudC52MS5QYXltZW50Ei4KCnBhZ2luYXRpb24YAiABKAsyGi5jb21tb24uUGFnaW5hdGlvblJlc3BvbnNlImYKFENyZWF0ZVBheW1lbnRSZXF1ZXN0EhIKCnJlcXVlc3RfaWQYASABKAMSKQoGbWV0aG9kGAIgASgOMhkucGF5bWVudC52MS5QYXltZW50TWV0aG9kEg8KB2FkZHJlc3MYAyABKAkiXgoVQ3JlYXRlUGF5bWVudFJlc3BvbnNlEhIKCnJlcXVlc3RfaWQYASABKAMSCwoDdXJsGAIgASgJEiQKB3BheW1lbnQYAyABKAsyEy5wYXltZW50LnYxLlBheW1lbnQifwoUVXBkYXRlUGF5bWVudFJlcXVlc3QSCgoCaWQYASABKAMSLgoGbWV0aG9kGAIgASgOMhkucGF5bWVudC52MS5QYXltZW50TWV0aG9kSACIAQESFAoHYWRkcmVzcxgDIAEoCUgBiAEBQgkKB19tZXRob2RCCgoIX2FkZHJlc3MiFwoVVXBkYXRlUGF5bWVudFJlc3BvbnNlIiIKFENhbmNlbFBheW1lbnRSZXF1ZXN0EgoKAmlkGAEgASgDIhcKFUNhbmNlbFBheW1lbnRSZXNwb25zZSp7Cg1QYXltZW50TWV0aG9kEh4KGlBBWU1FTlRfTUVUSE9EX1VOU1BFQ0lGSUVEEAASFwoTUEFZTUVOVF9NRVRIT0RfQ0FTSBABEhcKE1BBWU1FTlRfTUVUSE9EX01PTU8QAhIYChRQQVlNRU5UX01FVEhPRF9WTlBBWRADQq8BCg5jb20ucGF5bWVudC52MUIMUGF5bWVudFByb3RvUAFaRmdpdGh1Yi5jb20vc2hvcG5leHVzL3Nob3BuZXh1cy1wcm90b2J1Zi1nZW4tZ28vcGIvcGF5bWVudC92MTtwYXltZW50djGiAgNQWFiqAgpQYXltZW50LlYxygIKUGF5bWVudFxWMeICFlBheW1lbnRcVjFcR1BCTWV0YWRhdGHqAgtQYXltZW50OjpWMWIGcHJvdG8z", [file_common_item_quantity, file_common_pagination, file_common_status]);
+  fileDesc("ChhwYXltZW50L3YxL3BheW1lbnQucHJvdG8SCnBheW1lbnQudjEiiAEKEFByb2R1Y3RPblBheW1lbnQSCgoCaWQYASABKAMSMAoNaXRlbV9xdWFudGl0eRgCIAEoCzIZLmNvbW1vbi5JdGVtUXVhbnRpdHlJbnQ2NBISCgpzZXJpYWxfaWRzGAMgAygJEg0KBXByaWNlGAQgASgDEhMKC3RvdGFsX3ByaWNlGAUgASgDIt0BCg1QYXltZW50RW50aXR5EgoKAmlkGAEgASgDEg8KB3VzZXJfaWQYAiABKAMSKQoGbWV0aG9kGAMgASgOMhkucGF5bWVudC52MS5QYXltZW50TWV0aG9kEh4KBnN0YXR1cxgEIAEoDjIOLmNvbW1vbi5TdGF0dXMSDwoHYWRkcmVzcxgFIAEoCRINCgV0b3RhbBgGIAEoAxIUCgxkYXRlX2NyZWF0ZWQYByABKAMSLgoIcHJvZHVjdHMYCCADKAsyHC5wYXltZW50LnYxLlByb2R1Y3RPblBheW1lbnQiHwoRR2V0UGF5bWVudFJlcXVlc3QSCgoCaWQYASABKAMiPQoSR2V0UGF5bWVudFJlc3BvbnNlEicKBGRhdGEYASABKAsyGS5wYXltZW50LnYxLlBheW1lbnRFbnRpdHkipwMKE0xpc3RQYXltZW50c1JlcXVlc3QSLQoKcGFnaW5hdGlvbhgBIAEoCzIZLmNvbW1vbi5QYWdpbmF0aW9uUmVxdWVzdBIUCgd1c2VyX2lkGAIgASgDSACIAQESLgoGbWV0aG9kGAMgASgOMhkucGF5bWVudC52MS5QYXltZW50TWV0aG9kSAGIAQESIwoGc3RhdHVzGAQgASgOMg4uY29tbW9uLlN0YXR1c0gCiAEBEhQKB2FkZHJlc3MYBSABKAlIA4gBARIXCgp0b3RhbF9mcm9tGAYgASgDSASIAQESFQoIdG90YWxfdG8YByABKANIBYgBARIeChFkYXRlX2NyZWF0ZWRfZnJvbRgIIAEoA0gGiAEBEhwKD2RhdGVfY3JlYXRlZF90bxgJIAEoA0gHiAEBQgoKCF91c2VyX2lkQgkKB19tZXRob2RCCQoHX3N0YXR1c0IKCghfYWRkcmVzc0INCgtfdG90YWxfZnJvbUILCglfdG90YWxfdG9CFAoSX2RhdGVfY3JlYXRlZF9mcm9tQhIKEF9kYXRlX2NyZWF0ZWRfdG8ibwoUTGlzdFBheW1lbnRzUmVzcG9uc2USJwoEZGF0YRgBIAMoCzIZLnBheW1lbnQudjEuUGF5bWVudEVudGl0eRIuCgpwYWdpbmF0aW9uGAIgASgLMhouY29tbW9uLlBhZ2luYXRpb25SZXNwb25zZSJmChRDcmVhdGVQYXltZW50UmVxdWVzdBISCgpyZXF1ZXN0X2lkGAEgASgDEikKBm1ldGhvZBgCIAEoDjIZLnBheW1lbnQudjEuUGF5bWVudE1ldGhvZBIPCgdhZGRyZXNzGAMgASgJImQKFUNyZWF0ZVBheW1lbnRSZXNwb25zZRISCgpyZXF1ZXN0X2lkGAEgASgDEgsKA3VybBgCIAEoCRIqCgdwYXltZW50GAMgASgLMhkucGF5bWVudC52MS5QYXltZW50RW50aXR5Iq8BChRVcGRhdGVQYXltZW50UmVxdWVzdBIKCgJpZBgBIAEoAxIuCgZtZXRob2QYAiABKA4yGS5wYXltZW50LnYxLlBheW1lbnRNZXRob2RIAIgBARIUCgdhZGRyZXNzGAMgASgJSAGIAQESIwoGc3RhdHVzGAQgASgOMg4uY29tbW9uLlN0YXR1c0gCiAEBQgkKB19tZXRob2RCCgoIX2FkZHJlc3NCCQoHX3N0YXR1cyIXChVVcGRhdGVQYXltZW50UmVzcG9uc2UiIgoUQ2FuY2VsUGF5bWVudFJlcXVlc3QSCgoCaWQYASABKAMiFwoVQ2FuY2VsUGF5bWVudFJlc3BvbnNlKnsKDVBheW1lbnRNZXRob2QSHgoaUEFZTUVOVF9NRVRIT0RfVU5TUEVDSUZJRUQQABIXChNQQVlNRU5UX01FVEhPRF9DQVNIEAESFwoTUEFZTUVOVF9NRVRIT0RfTU9NTxACEhgKFFBBWU1FTlRfTUVUSE9EX1ZOUEFZEANCrwEKDmNvbS5wYXltZW50LnYxQgxQYXltZW50UHJvdG9QAVpGZ2l0aHViLmNvbS9zaG9wbmV4dXMvc2hvcG5leHVzLXByb3RvYnVmLWdlbi1nby9wYi9wYXltZW50L3YxO3BheW1lbnR2MaICA1BYWKoCClBheW1lbnQuVjHKAgpQYXltZW50XFYx4gIWUGF5bWVudFxWMVxHUEJNZXRhZGF0YeoCC1BheW1lbnQ6OlYxYgZwcm90bzM", [file_common_item_quantity, file_common_pagination, file_common_status]);
 
 /**
  * @generated from message payment.v1.ProductOnPayment
  */
 export type ProductOnPayment = Message<"payment.v1.ProductOnPayment"> & {
   /**
-   * @generated from field: common.ItemQuantityInt64 item_quantity = 1;
+   * @generated from field: int64 id = 1;
+   */
+  id: bigint;
+
+  /**
+   * @generated from field: common.ItemQuantityInt64 item_quantity = 2;
    */
   itemQuantity?: ItemQuantityInt64;
 
   /**
-   * @generated from field: repeated string serial_ids = 2;
+   * @generated from field: repeated string serial_ids = 3;
    */
   serialIds: string[];
 
   /**
-   * @generated from field: int64 price = 3;
+   * @generated from field: int64 price = 4;
    */
   price: bigint;
 
   /**
-   * @generated from field: int64 total_price = 4;
+   * @generated from field: int64 total_price = 5;
    */
   totalPrice: bigint;
 };
@@ -51,9 +56,9 @@ export const ProductOnPaymentSchema: GenMessage<ProductOnPayment> = /*@__PURE__*
   messageDesc(file_payment_v1_payment, 0);
 
 /**
- * @generated from message payment.v1.Payment
+ * @generated from message payment.v1.PaymentEntity
  */
-export type Payment = Message<"payment.v1.Payment"> & {
+export type PaymentEntity = Message<"payment.v1.PaymentEntity"> & {
   /**
    * @generated from field: int64 id = 1;
    */
@@ -96,10 +101,10 @@ export type Payment = Message<"payment.v1.Payment"> & {
 };
 
 /**
- * Describes the message payment.v1.Payment.
- * Use `create(PaymentSchema)` to create a new message.
+ * Describes the message payment.v1.PaymentEntity.
+ * Use `create(PaymentEntitySchema)` to create a new message.
  */
-export const PaymentSchema: GenMessage<Payment> = /*@__PURE__*/
+export const PaymentEntitySchema: GenMessage<PaymentEntity> = /*@__PURE__*/
   messageDesc(file_payment_v1_payment, 1);
 
 /**
@@ -124,9 +129,9 @@ export const GetPaymentRequestSchema: GenMessage<GetPaymentRequest> = /*@__PURE_
  */
 export type GetPaymentResponse = Message<"payment.v1.GetPaymentResponse"> & {
   /**
-   * @generated from field: payment.v1.Payment data = 1;
+   * @generated from field: payment.v1.PaymentEntity data = 1;
    */
-  data?: Payment;
+  data?: PaymentEntity;
 };
 
 /**
@@ -198,9 +203,9 @@ export const ListPaymentsRequestSchema: GenMessage<ListPaymentsRequest> = /*@__P
  */
 export type ListPaymentsResponse = Message<"payment.v1.ListPaymentsResponse"> & {
   /**
-   * @generated from field: repeated payment.v1.Payment data = 1;
+   * @generated from field: repeated payment.v1.PaymentEntity data = 1;
    */
-  data: Payment[];
+  data: PaymentEntity[];
 
   /**
    * @generated from field: common.PaginationResponse pagination = 2;
@@ -257,9 +262,9 @@ export type CreatePaymentResponse = Message<"payment.v1.CreatePaymentResponse"> 
   url: string;
 
   /**
-   * @generated from field: payment.v1.Payment payment = 3;
+   * @generated from field: payment.v1.PaymentEntity payment = 3;
    */
-  payment?: Payment;
+  payment?: PaymentEntity;
 };
 
 /**
@@ -287,6 +292,11 @@ export type UpdatePaymentRequest = Message<"payment.v1.UpdatePaymentRequest"> & 
    * @generated from field: optional string address = 3;
    */
   address?: string;
+
+  /**
+   * @generated from field: optional common.Status status = 4;
+   */
+  status?: Status;
 };
 
 /**

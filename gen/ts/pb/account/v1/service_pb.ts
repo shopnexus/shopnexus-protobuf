@@ -4,16 +4,18 @@
 
 import type { GenFile, GenService } from "@bufbuild/protobuf/codegenv1";
 import { fileDesc, serviceDesc } from "@bufbuild/protobuf/codegenv1";
-import type { GetUserRequestSchema, GetUserResponseSchema, LoginAdminRequestSchema, LoginAdminResponseSchema, LoginUserRequestSchema, LoginUserResponseSchema, RegisterAdminRequestSchema, RegisterAdminResponseSchema, RegisterUserRequestSchema, RegisterUserResponseSchema } from "./account_pb";
+import type { GetAdminRequestSchema, GetAdminResponseSchema, GetUserPublicRequestSchema, GetUserPublicResponseSchema, GetUserRequestSchema, GetUserResponseSchema, LoginAdminRequestSchema, LoginAdminResponseSchema, LoginUserRequestSchema, LoginUserResponseSchema, RegisterAdminRequestSchema, RegisterAdminResponseSchema, RegisterUserRequestSchema, RegisterUserResponseSchema, UpdateAccountRequestSchema, UpdateAccountResponseSchema, UpdateUserRequestSchema, UpdateUserResponseSchema } from "./account_pb";
 import { file_account_v1_account } from "./account_pb";
 import type { AddCartItemRequestSchema, AddCartItemResponseSchema, ClearCartRequestSchema, ClearCartResponseSchema, GetCartRequestSchema, GetCartResponseSchema, UpdateCartItemRequestSchema, UpdateCartItemResponseSchema } from "./cart_pb";
 import { file_account_v1_cart } from "./cart_pb";
+import type { CreateAddressRequestSchema, CreateAddressResponseSchema, DeleteAddressRequestSchema, DeleteAddressResponseSchema, GetAddressRequestSchema, GetAddressResponseSchema, ListAddressesRequestSchema, ListAddressesResponseSchema, UpdateAddressRequestSchema, UpdateAddressResponseSchema } from "./address_pb";
+import { file_account_v1_address } from "./address_pb";
 
 /**
  * Describes the file account/v1/service.proto.
  */
 export const file_account_v1_service: GenFile = /*@__PURE__*/
-  fileDesc("ChhhY2NvdW50L3YxL3NlcnZpY2UucHJvdG8SCmFjY291bnQudjEy4wUKDkFjY291bnRTZXJ2aWNlEkcKB0dldFVzZXISGi5hY2NvdW50LnYxLkdldFVzZXJSZXF1ZXN0GhsuYWNjb3VudC52MS5HZXRVc2VyUmVzcG9uc2UiA5ACARJKCglMb2dpblVzZXISHC5hY2NvdW50LnYxLkxvZ2luVXNlclJlcXVlc3QaHS5hY2NvdW50LnYxLkxvZ2luVXNlclJlc3BvbnNlIgASTQoKTG9naW5BZG1pbhIdLmFjY291bnQudjEuTG9naW5BZG1pblJlcXVlc3QaHi5hY2NvdW50LnYxLkxvZ2luQWRtaW5SZXNwb25zZSIAElMKDFJlZ2lzdGVyVXNlchIfLmFjY291bnQudjEuUmVnaXN0ZXJVc2VyUmVxdWVzdBogLmFjY291bnQudjEuUmVnaXN0ZXJVc2VyUmVzcG9uc2UiABJWCg1SZWdpc3RlckFkbWluEiAuYWNjb3VudC52MS5SZWdpc3RlckFkbWluUmVxdWVzdBohLmFjY291bnQudjEuUmVnaXN0ZXJBZG1pblJlc3BvbnNlIgASRwoHR2V0Q2FydBIaLmFjY291bnQudjEuR2V0Q2FydFJlcXVlc3QaGy5hY2NvdW50LnYxLkdldENhcnRSZXNwb25zZSIDkAIBElAKC0FkZENhcnRJdGVtEh4uYWNjb3VudC52MS5BZGRDYXJ0SXRlbVJlcXVlc3QaHy5hY2NvdW50LnYxLkFkZENhcnRJdGVtUmVzcG9uc2UiABJZCg5VcGRhdGVDYXJ0SXRlbRIhLmFjY291bnQudjEuVXBkYXRlQ2FydEl0ZW1SZXF1ZXN0GiIuYWNjb3VudC52MS5VcGRhdGVDYXJ0SXRlbVJlc3BvbnNlIgASSgoJQ2xlYXJDYXJ0EhwuYWNjb3VudC52MS5DbGVhckNhcnRSZXF1ZXN0Gh0uYWNjb3VudC52MS5DbGVhckNhcnRSZXNwb25zZSIAQq8BCg5jb20uYWNjb3VudC52MUIMU2VydmljZVByb3RvUAFaRmdpdGh1Yi5jb20vc2hvcG5leHVzL3Nob3BuZXh1cy1wcm90b2J1Zi1nZW4tZ28vcGIvYWNjb3VudC92MTthY2NvdW50djGiAgNBWFiqAgpBY2NvdW50LlYxygIKQWNjb3VudFxWMeICFkFjY291bnRcVjFcR1BCTWV0YWRhdGHqAgtBY2NvdW50OjpWMWIGcHJvdG8z", [file_account_v1_account, file_account_v1_cart]);
+  fileDesc("ChhhY2NvdW50L3YxL3NlcnZpY2UucHJvdG8SCmFjY291bnQudjEy5gsKDkFjY291bnRTZXJ2aWNlEkcKB0dldFVzZXISGi5hY2NvdW50LnYxLkdldFVzZXJSZXF1ZXN0GhsuYWNjb3VudC52MS5HZXRVc2VyUmVzcG9uc2UiA5ACARJKCghHZXRBZG1pbhIbLmFjY291bnQudjEuR2V0QWRtaW5SZXF1ZXN0GhwuYWNjb3VudC52MS5HZXRBZG1pblJlc3BvbnNlIgOQAgESWQoNR2V0VXNlclB1YmxpYxIgLmFjY291bnQudjEuR2V0VXNlclB1YmxpY1JlcXVlc3QaIS5hY2NvdW50LnYxLkdldFVzZXJQdWJsaWNSZXNwb25zZSIDkAIBElYKDVVwZGF0ZUFjY291bnQSIC5hY2NvdW50LnYxLlVwZGF0ZUFjY291bnRSZXF1ZXN0GiEuYWNjb3VudC52MS5VcGRhdGVBY2NvdW50UmVzcG9uc2UiABJNCgpVcGRhdGVVc2VyEh0uYWNjb3VudC52MS5VcGRhdGVVc2VyUmVxdWVzdBoeLmFjY291bnQudjEuVXBkYXRlVXNlclJlc3BvbnNlIgASSgoJTG9naW5Vc2VyEhwuYWNjb3VudC52MS5Mb2dpblVzZXJSZXF1ZXN0Gh0uYWNjb3VudC52MS5Mb2dpblVzZXJSZXNwb25zZSIAEk0KCkxvZ2luQWRtaW4SHS5hY2NvdW50LnYxLkxvZ2luQWRtaW5SZXF1ZXN0Gh4uYWNjb3VudC52MS5Mb2dpbkFkbWluUmVzcG9uc2UiABJTCgxSZWdpc3RlclVzZXISHy5hY2NvdW50LnYxLlJlZ2lzdGVyVXNlclJlcXVlc3QaIC5hY2NvdW50LnYxLlJlZ2lzdGVyVXNlclJlc3BvbnNlIgASVgoNUmVnaXN0ZXJBZG1pbhIgLmFjY291bnQudjEuUmVnaXN0ZXJBZG1pblJlcXVlc3QaIS5hY2NvdW50LnYxLlJlZ2lzdGVyQWRtaW5SZXNwb25zZSIAEkcKB0dldENhcnQSGi5hY2NvdW50LnYxLkdldENhcnRSZXF1ZXN0GhsuYWNjb3VudC52MS5HZXRDYXJ0UmVzcG9uc2UiA5ACARJQCgtBZGRDYXJ0SXRlbRIeLmFjY291bnQudjEuQWRkQ2FydEl0ZW1SZXF1ZXN0Gh8uYWNjb3VudC52MS5BZGRDYXJ0SXRlbVJlc3BvbnNlIgASWQoOVXBkYXRlQ2FydEl0ZW0SIS5hY2NvdW50LnYxLlVwZGF0ZUNhcnRJdGVtUmVxdWVzdBoiLmFjY291bnQudjEuVXBkYXRlQ2FydEl0ZW1SZXNwb25zZSIAEkoKCUNsZWFyQ2FydBIcLmFjY291bnQudjEuQ2xlYXJDYXJ0UmVxdWVzdBodLmFjY291bnQudjEuQ2xlYXJDYXJ0UmVzcG9uc2UiABJQCgpHZXRBZGRyZXNzEh0uYWNjb3VudC52MS5HZXRBZGRyZXNzUmVxdWVzdBoeLmFjY291bnQudjEuR2V0QWRkcmVzc1Jlc3BvbnNlIgOQAgESWQoNTGlzdEFkZHJlc3NlcxIgLmFjY291bnQudjEuTGlzdEFkZHJlc3Nlc1JlcXVlc3QaIS5hY2NvdW50LnYxLkxpc3RBZGRyZXNzZXNSZXNwb25zZSIDkAIBElYKDUNyZWF0ZUFkZHJlc3MSIC5hY2NvdW50LnYxLkNyZWF0ZUFkZHJlc3NSZXF1ZXN0GiEuYWNjb3VudC52MS5DcmVhdGVBZGRyZXNzUmVzcG9uc2UiABJWCg1VcGRhdGVBZGRyZXNzEiAuYWNjb3VudC52MS5VcGRhdGVBZGRyZXNzUmVxdWVzdBohLmFjY291bnQudjEuVXBkYXRlQWRkcmVzc1Jlc3BvbnNlIgASVgoNRGVsZXRlQWRkcmVzcxIgLmFjY291bnQudjEuRGVsZXRlQWRkcmVzc1JlcXVlc3QaIS5hY2NvdW50LnYxLkRlbGV0ZUFkZHJlc3NSZXNwb25zZSIAQq8BCg5jb20uYWNjb3VudC52MUIMU2VydmljZVByb3RvUAFaRmdpdGh1Yi5jb20vc2hvcG5leHVzL3Nob3BuZXh1cy1wcm90b2J1Zi1nZW4tZ28vcGIvYWNjb3VudC92MTthY2NvdW50djGiAgNBWFiqAgpBY2NvdW50LlYxygIKQWNjb3VudFxWMeICFkFjY291bnRcVjFcR1BCTWV0YWRhdGHqAgtBY2NvdW50OjpWMWIGcHJvdG8z", [file_account_v1_account, file_account_v1_cart, file_account_v1_address]);
 
 /**
  * @generated from service account.v1.AccountService
@@ -26,6 +28,38 @@ export const AccountService: GenService<{
     methodKind: "unary";
     input: typeof GetUserRequestSchema;
     output: typeof GetUserResponseSchema;
+  },
+  /**
+   * @generated from rpc account.v1.AccountService.GetAdmin
+   */
+  getAdmin: {
+    methodKind: "unary";
+    input: typeof GetAdminRequestSchema;
+    output: typeof GetAdminResponseSchema;
+  },
+  /**
+   * @generated from rpc account.v1.AccountService.GetUserPublic
+   */
+  getUserPublic: {
+    methodKind: "unary";
+    input: typeof GetUserPublicRequestSchema;
+    output: typeof GetUserPublicResponseSchema;
+  },
+  /**
+   * @generated from rpc account.v1.AccountService.UpdateAccount
+   */
+  updateAccount: {
+    methodKind: "unary";
+    input: typeof UpdateAccountRequestSchema;
+    output: typeof UpdateAccountResponseSchema;
+  },
+  /**
+   * @generated from rpc account.v1.AccountService.UpdateUser
+   */
+  updateUser: {
+    methodKind: "unary";
+    input: typeof UpdateUserRequestSchema;
+    output: typeof UpdateUserResponseSchema;
   },
   /**
    * Login, register
@@ -94,6 +128,48 @@ export const AccountService: GenService<{
     methodKind: "unary";
     input: typeof ClearCartRequestSchema;
     output: typeof ClearCartResponseSchema;
+  },
+  /**
+   * Address
+   *
+   * @generated from rpc account.v1.AccountService.GetAddress
+   */
+  getAddress: {
+    methodKind: "unary";
+    input: typeof GetAddressRequestSchema;
+    output: typeof GetAddressResponseSchema;
+  },
+  /**
+   * @generated from rpc account.v1.AccountService.ListAddresses
+   */
+  listAddresses: {
+    methodKind: "unary";
+    input: typeof ListAddressesRequestSchema;
+    output: typeof ListAddressesResponseSchema;
+  },
+  /**
+   * @generated from rpc account.v1.AccountService.CreateAddress
+   */
+  createAddress: {
+    methodKind: "unary";
+    input: typeof CreateAddressRequestSchema;
+    output: typeof CreateAddressResponseSchema;
+  },
+  /**
+   * @generated from rpc account.v1.AccountService.UpdateAddress
+   */
+  updateAddress: {
+    methodKind: "unary";
+    input: typeof UpdateAddressRequestSchema;
+    output: typeof UpdateAddressResponseSchema;
+  },
+  /**
+   * @generated from rpc account.v1.AccountService.DeleteAddress
+   */
+  deleteAddress: {
+    methodKind: "unary";
+    input: typeof DeleteAddressRequestSchema;
+    output: typeof DeleteAddressResponseSchema;
   },
 }> = /*@__PURE__*/
   serviceDesc(file_account_v1_service, 0);

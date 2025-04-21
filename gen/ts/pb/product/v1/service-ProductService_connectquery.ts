@@ -66,6 +66,33 @@ export const updateProduct = ProductService.method.updateProduct;
 export const deleteProduct = ProductService.method.deleteProduct;
 
 /**
+ * PRODUCT SERIAL
+ *
+ * @generated from rpc product.v1.ProductService.GetProductSerial
+ */
+export const getProductSerial = ProductService.method.getProductSerial;
+
+/**
+ * @generated from rpc product.v1.ProductService.ListProductSerials
+ */
+export const listProductSerials = ProductService.method.listProductSerials;
+
+/**
+ * @generated from rpc product.v1.ProductService.CreateProductSerial
+ */
+export const createProductSerial = ProductService.method.createProductSerial;
+
+/**
+ * @generated from rpc product.v1.ProductService.UpdateProductSerial
+ */
+export const updateProductSerial = ProductService.method.updateProductSerial;
+
+/**
+ * @generated from rpc product.v1.ProductService.DeleteProductSerial
+ */
+export const deleteProductSerial = ProductService.method.deleteProductSerial;
+
+/**
  * BRAND
  *
  * @generated from rpc product.v1.ProductService.GetBrand
@@ -145,3 +172,30 @@ export const updateTag = ProductService.method.updateTag;
  * @generated from rpc product.v1.ProductService.DeleteTag
  */
 export const deleteTag = ProductService.method.deleteTag;
+
+/**
+ * COMMENT
+ *
+ * @generated from rpc product.v1.ProductService.GetComment
+ */
+export const getComment = ProductService.method.getComment;
+
+/**
+ * @generated from rpc product.v1.ProductService.ListComments
+ */
+export const listComments = ProductService.method.listComments;
+
+/**
+ * @generated from rpc product.v1.ProductService.CreateComment
+ */
+export const createComment = ProductService.method.createComment;
+
+/**
+ * @generated from rpc product.v1.ProductService.UpdateComment
+ */
+export const updateComment = ProductService.method.updateComment;
+
+/**
+ * @generated from rpc product.v1.ProductService.DeleteComment
+ */
+export const deleteComment = ProductService.method.deleteComment;

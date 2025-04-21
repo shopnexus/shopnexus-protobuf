@@ -10,6 +10,26 @@ import { AccountService } from "./service_pb";
 export const getUser = AccountService.method.getUser;
 
 /**
+ * @generated from rpc account.v1.AccountService.GetAdmin
+ */
+export const getAdmin = AccountService.method.getAdmin;
+
+/**
+ * @generated from rpc account.v1.AccountService.GetUserPublic
+ */
+export const getUserPublic = AccountService.method.getUserPublic;
+
+/**
+ * @generated from rpc account.v1.AccountService.UpdateAccount
+ */
+export const updateAccount = AccountService.method.updateAccount;
+
+/**
+ * @generated from rpc account.v1.AccountService.UpdateUser
+ */
+export const updateUser = AccountService.method.updateUser;
+
+/**
  * Login, register
  *
  * @generated from rpc account.v1.AccountService.LoginUser
@@ -52,3 +72,30 @@ export const updateCartItem = AccountService.method.updateCartItem;
  * @generated from rpc account.v1.AccountService.ClearCart
  */
 export const clearCart = AccountService.method.clearCart;
+
+/**
+ * Address
+ *
+ * @generated from rpc account.v1.AccountService.GetAddress
+ */
+export const getAddress = AccountService.method.getAddress;
+
+/**
+ * @generated from rpc account.v1.AccountService.ListAddresses
+ */
+export const listAddresses = AccountService.method.listAddresses;
+
+/**
+ * @generated from rpc account.v1.AccountService.CreateAddress
+ */
+export const createAddress = AccountService.method.createAddress;
+
+/**
+ * @generated from rpc account.v1.AccountService.UpdateAddress
+ */
+export const updateAddress = AccountService.method.updateAddress;
+
+/**
+ * @generated from rpc account.v1.AccountService.DeleteAddress
+ */
+export const deleteAddress = AccountService.method.deleteAddress;

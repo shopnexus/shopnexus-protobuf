@@ -9,7 +9,7 @@ import { enumDesc, fileDesc } from "@bufbuild/protobuf/codegenv1";
  * Describes the file common/status.proto.
  */
 export const file_common_status: GenFile = /*@__PURE__*/
-  fileDesc("ChNjb21tb24vc3RhdHVzLnByb3RvEgZjb21tb24qcQoGU3RhdHVzEhYKElNUQVRVU19VTlNQRUNJRklFRBAAEhIKDlNUQVRVU19QRU5ESU5HEAESEgoOU1RBVFVTX1NVQ0NFU1MQAhIUChBTVEFUVVNfQ0FOQ0VMTEVEEAMSEQoNU1RBVFVTX0ZBSUxFRBAEQosBCgpjb20uY29tbW9uQgtTdGF0dXNQcm90b1ABWjhnaXRodWIuY29tL3Nob3BuZXh1cy9zaG9wbmV4dXMtcHJvdG9idWYtZ2VuLWdvL3BiL2NvbW1vbqICA0NYWKoCBkNvbW1vbsoCBkNvbW1vbuICEkNvbW1vblxHUEJNZXRhZGF0YeoCBkNvbW1vbmIGcHJvdG8z");
+  fileDesc("ChNjb21tb24vc3RhdHVzLnByb3RvEgZjb21tb24qcAoGU3RhdHVzEhYKElNUQVRVU19VTlNQRUNJRklFRBAAEhIKDlNUQVRVU19QRU5ESU5HEAESEgoOU1RBVFVTX1NVQ0NFU1MQAhITCg9TVEFUVVNfQ0FOQ0VMRUQQAxIRCg1TVEFUVVNfRkFJTEVEEARCiwEKCmNvbS5jb21tb25CC1N0YXR1c1Byb3RvUAFaOGdpdGh1Yi5jb20vc2hvcG5leHVzL3Nob3BuZXh1cy1wcm90b2J1Zi1nZW4tZ28vcGIvY29tbW9uogIDQ1hYqgIGQ29tbW9uygIGQ29tbW9u4gISQ29tbW9uXEdQQk1ldGFkYXRh6gIGQ29tbW9uYgZwcm90bzM");
 
 /**
  * @generated from enum common.Status
@@ -31,9 +31,9 @@ export enum Status {
   SUCCESS = 2,
 
   /**
-   * @generated from enum value: STATUS_CANCELLED = 3;
+   * @generated from enum value: STATUS_CANCELED = 3;
    */
-  CANCELLED = 3,
+  CANCELED = 3,
 
   /**
    * @generated from enum value: STATUS_FAILED = 4;
