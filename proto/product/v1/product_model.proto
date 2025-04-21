@@ -14,6 +14,7 @@ message ProductModelEntity {
   int64 date_manufactured = 7;
   repeated string resources = 8;
   repeated string tags = 9;
+  repeated string serial_ids = 10;
 }
 
 message GetProductModelRequest {
@@ -22,7 +23,6 @@ message GetProductModelRequest {
 
 message GetProductModelResponse {
   ProductModelEntity data = 1;
-  repeated string serial_ids = 2;
 }
 
 message ListProductModelsRequest {
