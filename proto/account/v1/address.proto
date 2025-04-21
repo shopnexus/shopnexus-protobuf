@@ -1,0 +1,77 @@
+syntax = "proto3";
+
+package account.v1;
+
+import "common/pagination.proto";
+
+// ADDRESS ENTITY
+message AddressEntity {
+  int64 id = 1;
+  int64 user_id = 2;
+  string full_name = 3;
+  string phone = 4;
+  string address = 5;
+  string city = 6;
+  string province = 7;
+  string country = 8;
+  int64 date_created = 9;
+  int64 date_updated = 10;
+}
+
+message GetAddressRequest {
+  int64 id = 1;
+}
+
+message GetAddressResponse {
+  AddressEntity data = 1;
+}
+
+message ListAddressesRequest {
+  common.PaginationRequest pagination = 1;
+  optional int64 user_id = 2;
+  optional string full_name = 3;
+  optional string phone = 4;
+  optional string address = 5;
+  optional string city = 6;
+  optional string province = 7;
+  optional string country = 8;
+  optional int64 date_created_from = 9;
+  optional int64 date_created_to = 10;
+}
+
+message ListAddressesResponse {
+  repeated AddressEntity data = 1;
+  common.PaginationResponse pagination = 2;
+}
+
+message CreateAddressRequest {
+  string full_name = 1;
+  string phone = 2;
+  string address = 3;
+  string city = 4;
+  string province = 5;
+  string country = 6;
+}
+
+message CreateAddressResponse {
+  AddressEntity data = 1;
+}
+
+message UpdateAddressRequest {
+  int64 id = 1;
+  optional int64 user_id = 2;
+  optional string full_name = 3;
+  optional string phone = 4;
+  optional string address = 5;
+  optional string city = 6;
+  optional string province = 7;
+  optional string country = 8;
+}
+
+message UpdateAddressResponse {}
+
+message DeleteAddressRequest {
+  int64 id = 1;
+}
+
+message DeleteAddressResponse {}
