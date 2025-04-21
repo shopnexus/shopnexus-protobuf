@@ -6,6 +6,7 @@ import "product/v1/brand.proto";
 import "product/v1/comment.proto";
 import "product/v1/product.proto";
 import "product/v1/product_model.proto";
+import "product/v1/product_serial.proto";
 import "product/v1/sale.proto";
 import "product/v1/tag.proto";
 
@@ -36,6 +37,17 @@ service ProductService {
   rpc CreateProduct(CreateProductRequest) returns (CreateProductResponse) {}
   rpc UpdateProduct(UpdateProductRequest) returns (UpdateProductResponse) {}
   rpc DeleteProduct(DeleteProductRequest) returns (DeleteProductResponse) {}
+
+  // PRODUCT SERIAL
+  rpc GetProductSerial(GetProductSerialRequest) returns (GetProductSerialResponse) {
+    option idempotency_level = NO_SIDE_EFFECTS;
+  }
+  rpc ListProductSerials(ListProductSerialsRequest) returns (ListProductSerialsResponse) {
+    option idempotency_level = NO_SIDE_EFFECTS;
+  }
+  rpc CreateProductSerial(CreateProductSerialRequest) returns (CreateProductSerialResponse) {}
+  rpc UpdateProductSerial(UpdateProductSerialRequest) returns (UpdateProductSerialResponse) {}
+  rpc DeleteProductSerial(DeleteProductSerialRequest) returns (DeleteProductSerialResponse) {}
 
   // BRAND
   rpc GetBrand(GetBrandRequest) returns (GetBrandResponse) {
