@@ -4,11 +4,20 @@ package account.v1;
 
 import "account/v1/account.proto";
 import "account/v1/cart.proto";
+import "account/v1/address.proto";
 
 service AccountService {
   rpc GetUser(GetUserRequest) returns (GetUserResponse) {
     option idempotency_level = NO_SIDE_EFFECTS;
   }
+  rpc GetAdmin(GetAdminRequest) returns (GetAdminResponse) {
+    option idempotency_level = NO_SIDE_EFFECTS;
+  }
+  rpc GetUserPublic(GetUserPublicRequest) returns (GetUserPublicResponse) {
+    option idempotency_level = NO_SIDE_EFFECTS;
+  }
+  rpc UpdateAccount(UpdateAccountRequest) returns (UpdateAccountResponse) {}
+  rpc UpdateUser(UpdateUserRequest) returns (UpdateUserResponse) {}
 
   // Login, register
   rpc LoginUser(LoginUserRequest) returns (LoginUserResponse) {}
@@ -23,4 +32,15 @@ service AccountService {
   rpc AddCartItem(AddCartItemRequest) returns (AddCartItemResponse) {}
   rpc UpdateCartItem(UpdateCartItemRequest) returns (UpdateCartItemResponse) {}
   rpc ClearCart(ClearCartRequest) returns (ClearCartResponse) {}
+
+  // Address
+  rpc GetAddress(GetAddressRequest) returns (GetAddressResponse) {
+    option idempotency_level = NO_SIDE_EFFECTS;
+  }
+  rpc ListAddresses(ListAddressesRequest) returns (ListAddressesResponse) {
+    option idempotency_level = NO_SIDE_EFFECTS;
+  }
+  rpc CreateAddress(CreateAddressRequest) returns (CreateAddressResponse) {}
+  rpc UpdateAddress(UpdateAddressRequest) returns (UpdateAddressResponse) {}
+  rpc DeleteAddress(DeleteAddressRequest) returns (DeleteAddressResponse) {}
 }

@@ -9,15 +9,44 @@ enum Gender {
   GENDER_OTHER = 3;
 }
 
+enum Role {
+  ROLE_UNSPECIFIED = 0;
+  ROLE_USER = 1;
+  ROLE_ADMIN = 2;
+  ROLE_STAFF = 3;
+}
+
 message GetUserRequest {}
 
 message GetUserResponse {
-  string email = 1;
-  string phone = 2;
-  string username = 3;
-  Gender gender = 4;
-  string full_name = 5;
-  optional int64 default_address_id = 6;
+  int64 id = 1;
+  string email = 2;
+  string phone = 3;
+  string username = 4;
+  Gender gender = 5;
+  string full_name = 6;
+  optional int64 default_address_id = 7;
+  optional string avatar = 8;
+}
+
+message GetAdminRequest {}
+
+message GetAdminResponse {
+  int64 id = 1;
+  string username = 2;
+  Role role = 3;
+  optional string avatar = 4;
+}
+
+message GetUserPublicRequest {
+  int64 id = 1;
+}
+
+message GetUserPublicResponse {
+  int64 id = 1;
+  string username = 2;
+  string full_name = 3;
+  optional string avatar = 4;
 }
 
 message RegisterUserRequest {
@@ -61,3 +90,25 @@ message LoginAdminRequest {
 message LoginAdminResponse {
   string token = 1;
 }
+
+message UpdateAccountRequest {
+  optional int64 id = 1;
+  optional string username = 2;
+  optional string password = 3;
+  bool null_custom_permission = 4;
+  optional string custom_permission = 5;
+  optional string avatar = 6;
+}
+
+message UpdateAccountResponse {}
+
+message UpdateUserRequest {
+  optional int64 id = 1;
+  optional string email = 2;
+  optional string phone = 3;
+  optional Gender gender = 4;
+  optional string full_name = 5;
+  optional int64 default_address_id = 6;
+}
+
+message UpdateUserResponse {}
