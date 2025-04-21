@@ -14,13 +14,14 @@ enum PaymentMethod {
 }
 
 message ProductOnPayment {
-  common.ItemQuantityInt64 item_quantity = 1;
-  repeated string serial_ids = 2;
-  int64 price = 3;
-  int64 total_price = 4;
+  int64 id = 1;
+  common.ItemQuantityInt64 item_quantity = 2;
+  repeated string serial_ids = 3;
+  int64 price = 4;
+  int64 total_price = 5;
 }
 
-message Payment {
+message PaymentEntity {
   int64 id = 1;
   int64 user_id = 2;
   PaymentMethod method = 3;
@@ -37,7 +38,7 @@ message GetPaymentRequest {
 }
 
 message GetPaymentResponse {
-  Payment data = 1;
+  PaymentEntity data = 1;
 }
 
 message ListPaymentsRequest {
@@ -53,7 +54,7 @@ message ListPaymentsRequest {
 }
 
 message ListPaymentsResponse {
-  repeated Payment data = 1;
+  repeated PaymentEntity data = 1;
   common.PaginationResponse pagination = 2;
 }
 
@@ -66,7 +67,7 @@ message CreatePaymentRequest {
 message CreatePaymentResponse {
   int64 request_id = 1;
   string url = 2;
-  Payment payment = 3;
+  PaymentEntity payment = 3;
 }
 
 message UpdatePaymentRequest {
