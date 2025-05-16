@@ -62,6 +62,7 @@ message CreatePaymentRequest {
   int64 request_id = 1;
   PaymentMethod method = 2;
   string address = 3;
+  repeated int64 product_ids = 4;
 }
 
 message CreatePaymentResponse {
